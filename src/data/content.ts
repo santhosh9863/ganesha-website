@@ -34,6 +34,41 @@ export const stats = [
   { value: "100+", label: "Cultural Programs" },
 ];
 
+export const statCards = [
+  {
+    value: "14+",
+    label: "Years of Legacy",
+    icon: "🕉",
+    backTitle: "14 Years of Legacy",
+    backDescription:
+      "Since 2012 we have celebrated Gowri Ganesha with devotion, cultural programs and community service.",
+  },
+  {
+    value: "1,000+",
+    label: "Volunteers",
+    icon: "🤝",
+    backTitle: "1,000+ Volunteers",
+    backDescription:
+      "Our dedicated team of volunteers works year-round to make every celebration memorable.",
+  },
+  {
+    value: "50K+",
+    label: "Devotees Served",
+    icon: "🙏",
+    backTitle: "50,000+ Devotees",
+    backDescription:
+      "Every year thousands of devotees visit our celebration for darshan, annadanam and cultural events.",
+  },
+  {
+    value: "100+",
+    label: "Community Events",
+    icon: "🎭",
+    backTitle: "100+ Community Events",
+    backDescription:
+      "From cultural performances to spiritual discourses, our events bring the community together.",
+  },
+];
+
 export const legacyTimeline = [
   { year: 2012, title: "The Vision", description: "Founding vision took shape as community elders discussed starting an annual Ganesh Chaturthi celebration." },
   { year: 2013, title: "First Gathering", description: "An intimate gathering of families marked the beginning of what would become a grand tradition." },

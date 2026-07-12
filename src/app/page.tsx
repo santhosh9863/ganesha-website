@@ -25,29 +25,31 @@ export default function Home() {
       <LiveStats />
 
       {/* ── Countdown — elegant announcement block ── */}
-      <section className="section-spacing relative overflow-hidden bg-gradient-to-b from-[#FFFFFF] via-[#FCFBF8] to-[#FFFFFF]">
+      <section className="pt-[152px] lg:pt-[240px] pb-20 lg:pb-24 relative overflow-hidden bg-gradient-to-b from-[#FFFFFF] via-[#FCFBF8] to-[#FFFFFF]">
         <div className="relative layout-container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="text-center mb-12 lg:mb-16"
-          >
-            <span className="text-gold-400 text-xs tracking-[0.3em] uppercase font-medium">
-              Coming Soon
-            </span>
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1A1A1A] mt-5 leading-tight">
-              Celebrating{" "}
-              <span className="gold-text">Ganesh Chaturthi</span>
-            </h2>
-            <p className="text-[#4A453C]/50 max-w-[560px] mx-auto leading-premium text-sm sm:text-base mt-5">
-              Join us for 5 days of devotion, culture, and community celebration
-            </p>
-          </motion.div>
+          <div className="max-w-[700px] mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="text-center"
+            >
+              <span className="text-gold-400 text-xs tracking-[0.3em] uppercase font-medium">
+                Coming Soon
+              </span>
+              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1A1A1A] mt-6 leading-tight">
+                Celebrating{" "}
+                <span className="gold-text">Ganesh Chaturthi</span>
+              </h2>
+              <p className="text-[#4A453C]/50 max-w-[560px] mx-auto leading-premium text-sm sm:text-base mt-7">
+                Join us for 5 days of devotion, culture, and community celebration
+              </p>
+            </motion.div>
 
-          <div className="max-w-[1100px] mx-auto">
-            <CountdownTimer />
+            <div className="mt-9">
+              <CountdownTimer />
+            </div>
           </div>
         </div>
       </section>

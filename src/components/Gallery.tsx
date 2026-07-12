@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import FlipCard from "@/components/FlipCard";
 import { galleryImages } from "@/data/content";
 
 export default function Gallery() {
@@ -39,23 +40,39 @@ export default function Gallery() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.04 }}
-                onClick={() => setSelected(img.id)}
-                className={`group relative rounded-xl overflow-hidden cursor-pointer bg-gradient-to-br from-gold-400/10 to-gold-400/5 border border-gold-400/10 hover:border-gold-400/25 transition-all duration-500 ${
+                className={`w-full ${
                   i === 0 || i === 7 ? "aspect-[4/3] row-span-2" : "aspect-square"
                 }`}
               >
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-5xl sm:text-6xl opacity-15 select-none">🕉</span>
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <span className="text-white/80 text-xs font-medium px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-sm border border-white/10">
-                    {img.category}
-                  </span>
-                </div>
-                <div className="absolute bottom-2 left-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <p className="text-white/60 text-xs truncate px-1">{img.alt}</p>
-                </div>
+                <FlipCard
+                  front={
+                    <div className="w-full h-full bg-gradient-to-br from-gold-400/10 to-gold-400/5 rounded-3xl border border-[rgba(200,161,74,0.18)] flex flex-col items-center justify-center text-center shadow-sm">
+                      <span className="text-5xl sm:text-6xl opacity-20 select-none">🕉</span>
+                      <span className="mt-3 px-3 py-1 rounded-full bg-gold-400/10 text-gold-400 text-[0.6rem] font-medium">
+                        {img.category}
+                      </span>
+                      <div className="w-8 h-px bg-gold-400/30 mt-4" />
+                    </div>
+                  }
+                  back={
+                    <div
+                      className="w-full h-full bg-gradient-to-b from-white to-[#FCFBF8] rounded-3xl border border-[rgba(200,161,74,0.18)] p-6 flex flex-col items-center justify-center text-center shadow-lg cursor-pointer"
+                      onClick={() => setSelected(img.id)}
+                    >
+                      <span className="text-2xl opacity-20 select-none mb-3">🕉</span>
+                      <p className="font-display text-sm font-bold text-[#1A1A1A] leading-snug max-w-[200px]">
+                        {img.alt}
+                      </p>
+                      <p className="text-gold-400/60 text-[0.6rem] mt-2 uppercase tracking-wide">
+                        {img.category}
+                      </p>
+                      <div className="mt-4 inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-gold-400/10 border border-gold-400/20 text-gold-400 text-[0.6rem] font-medium hover:bg-gold-400/20 transition-colors">
+                        View Photo
+                      </div>
+                      <div className="w-8 h-px bg-gold-400/30 mt-4" />
+                    </div>
+                  }
+                />
               </motion.div>
             ))}
           </div>

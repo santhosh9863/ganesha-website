@@ -54,7 +54,7 @@ export default function CountdownTimer() {
   ];
 
   return (
-    <div className="rounded-[28px] p-10 glass-premium shadow-md">
+    <div>
       <p className="text-[#4A453C]/50 text-[0.5rem] lg:text-[0.55rem] tracking-[0.25em] uppercase font-medium text-center leading-relaxed">
         Counting down to
       </p>
@@ -62,27 +62,20 @@ export default function CountdownTimer() {
         Ganesh Chaturthi
       </p>
 
-      <div className="h-px bg-gold-400/10 mt-10 mb-10" />
-
-      <div className="flex items-stretch justify-center">
-        {items.map((item, i) => (
-          <div key={item.label} className="flex-1 flex items-stretch justify-center">
-            <div className="flex flex-col items-center justify-center">
-              <span className="font-display text-2xl lg:text-3xl xl:text-4xl font-bold text-gold-400 tabular-nums leading-none tracking-tight">
-                {String(item.value).padStart(2, "0")}
-              </span>
-              <p className="text-[#4A453C]/40 text-[0.4rem] lg:text-[0.5rem] xl:text-[0.55rem] mt-3 uppercase tracking-[0.15em]">
-                {item.label}
-              </p>
-            </div>
-            {i < items.length - 1 && (
-              <div className="w-px bg-gold-400/10 mx-3 lg:mx-6 self-stretch" />
-            )}
+      <div className="flex items-center justify-center gap-10 lg:gap-14 mt-6">
+        {items.map((item) => (
+          <div key={item.label} className="flex flex-col items-center">
+            <span className="font-display text-2xl lg:text-3xl xl:text-4xl font-bold text-gold-400 tabular-nums leading-none tracking-tight">
+              {String(item.value).padStart(2, "0")}
+            </span>
+            <p className="text-[#4A453C]/40 text-[0.4rem] lg:text-[0.5rem] xl:text-[0.55rem] mt-[10px] uppercase tracking-[0.15em]">
+              {item.label}
+            </p>
           </div>
         ))}
       </div>
 
-      <p className="text-[#4A453C]/30 text-[0.45rem] lg:text-[0.5rem] xl:text-[0.55rem] text-center mt-8 lg:mt-10 tracking-wide">
+      <p className="text-[#4A453C]/30 text-[0.45rem] lg:text-[0.5rem] xl:text-[0.55rem] text-center mt-[60px] tracking-wide">
         {siteConfig.festivalDate}
       </p>
     </div>

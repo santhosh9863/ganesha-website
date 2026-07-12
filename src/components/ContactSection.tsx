@@ -5,6 +5,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { contactSchema, type ContactFormData } from "@/lib/schemas";
 import { siteConfig } from "@/data/content";
+import SocialIcon from "@/components/SocialIcon";
+import { FaInstagram, FaFacebookF, FaYoutube, FaXTwitter, FaWhatsapp } from "react-icons/fa6";
 
 export default function ContactSection() {
   const {
@@ -102,12 +104,12 @@ export default function ContactSection() {
 
               <div className="card card-padding">
                 <h3 className="font-display text-lg font-bold text-[#1A1A1A] mb-6">Follow Us</h3>
-                <div className="flex gap-3">
-                  {["instagram", "facebook", "youtube", "twitter", "whatsapp"].map((social) => (
-                    <a key={social} href={siteConfig.social[social as keyof typeof siteConfig.social]} className="w-12 h-12 rounded-full bg-gold-400/6 hover:bg-gold-400/15 hover:border-gold-400/30 border border-gold-400/10 flex items-center justify-center text-[#4A453C]/50 hover:text-gold-400 transition-all duration-300 text-xs capitalize focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2">
-                      {social[0].toUpperCase()}
-                    </a>
-                  ))}
+                <div className="flex items-center justify-center gap-3.5 md:gap-[18px]">
+                  <SocialIcon href={siteConfig.social.instagram} icon={<FaInstagram size={20} />} label="Instagram" />
+                  <SocialIcon href={siteConfig.social.facebook} icon={<FaFacebookF size={20} />} label="Facebook" />
+                  <SocialIcon href={siteConfig.social.youtube} icon={<FaYoutube size={20} />} label="YouTube" />
+                  <SocialIcon href={siteConfig.social.twitter} icon={<FaXTwitter size={20} />} label="X (Twitter)" />
+                  <SocialIcon href={siteConfig.social.whatsapp} icon={<FaWhatsapp size={20} />} label="WhatsApp" />
                 </div>
               </div>
 

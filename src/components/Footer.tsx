@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { siteConfig, navLinks } from "@/data/content";
+import SocialIcon from "@/components/SocialIcon";
+import { FaInstagram, FaFacebookF, FaYoutube, FaXTwitter } from "react-icons/fa6";
 
 export default function Footer() {
   return (
@@ -67,16 +69,11 @@ export default function Footer() {
             transition={{ delay: 0.15 }}
           >
             <h4 className="font-display text-white font-semibold mb-5 text-sm tracking-wide">Follow Us</h4>
-            <div className="flex gap-3">
-              {["instagram", "facebook", "youtube", "twitter"].map((social) => (
-                <a
-                  key={social}
-                  href={siteConfig.social[social as keyof typeof siteConfig.social]}
-                  className="w-12 h-12 rounded-full bg-white/[0.04] hover:bg-gold-400/25 border border-white/[0.06] hover:border-gold-400/30 flex items-center justify-center text-white/40 hover:text-gold-400 transition-all duration-300 text-xs capitalize focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2"
-                >
-                  {social[0].toUpperCase()}
-                </a>
-              ))}
+            <div className="flex items-center justify-center md:justify-start gap-3.5 md:gap-[18px]">
+              <SocialIcon href={siteConfig.social.instagram} icon={<FaInstagram size={20} />} label="Instagram" />
+              <SocialIcon href={siteConfig.social.facebook} icon={<FaFacebookF size={20} />} label="Facebook" />
+              <SocialIcon href={siteConfig.social.youtube} icon={<FaYoutube size={20} />} label="YouTube" />
+              <SocialIcon href={siteConfig.social.twitter} icon={<FaXTwitter size={20} />} label="X (Twitter)" />
             </div>
           </motion.div>
         </div>

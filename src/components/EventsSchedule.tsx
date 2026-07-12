@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import FlipCard from "@/components/FlipCard";
 import { events } from "@/data/content";
 
 export default function EventsSchedule() {
@@ -42,28 +43,56 @@ export default function EventsSchedule() {
                   }`}
                 >
                   <div className="flex-1">
-                    <div className="card card-padding">
-                      <div className="flex items-center gap-3 mb-3">
-                        <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gold-400/10 text-gold-400 text-sm font-bold border border-gold-400/15">
-                          D{event.day}
-                        </span>
-                        <span className="text-gold-400/60 text-xs tracking-wide">{event.time}</span>
-                      </div>
-                      <h3 className="font-display text-xl lg:text-2xl font-bold text-[#1A1A1A] mb-3">
-                        {event.title}
-                      </h3>
-                      <p className="text-[#4A453C]/50 text-sm leading-premium mb-6">{event.description}</p>
-                      <div className="flex flex-wrap gap-2">
-                        {event.highlights.map((h) => (
-                          <span
-                            key={h}
-                            className="px-3 py-1 rounded-full bg-gold-400/8 border border-gold-400/15 text-gold-400 text-xs"
-                          >
-                            {h}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
+                    <FlipCard
+                      front={
+                        <div className="w-full h-full bg-gradient-to-b from-[#FCFBF8] to-white rounded-3xl border border-[rgba(200,161,74,0.18)] p-7 flex flex-col shadow-sm">
+                          <div className="flex items-center gap-3 mb-3">
+                            <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gold-400/10 text-gold-400 text-sm font-bold border border-gold-400/15">
+                              D{event.day}
+                            </span>
+                            <span className="text-gold-400/60 text-xs tracking-wide">{event.time}</span>
+                          </div>
+                          <h3 className="font-display text-xl lg:text-2xl font-bold text-[#1A1A1A] mb-3">
+                            {event.title}
+                          </h3>
+                          <p className="text-[#4A453C]/50 text-sm leading-premium flex-1 line-clamp-3">
+                            {event.description}
+                          </p>
+                          <div className="w-8 h-px bg-gold-400/30 mt-4" />
+                        </div>
+                      }
+                      back={
+                        <div className="w-full h-full bg-gradient-to-b from-white to-[#FCFBF8] rounded-3xl border border-[rgba(200,161,74,0.18)] p-7 flex flex-col justify-between shadow-lg">
+                          <div>
+                            <div className="flex items-center gap-3 mb-3">
+                              <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gold-400/10 text-gold-400 text-sm font-bold border border-gold-400/15">
+                                D{event.day}
+                              </span>
+                              <span className="text-gold-400/60 text-xs tracking-wide">{event.time}</span>
+                            </div>
+                            <h3 className="font-display text-base font-bold text-[#1A1A1A] mb-3">
+                              {event.title}
+                            </h3>
+                            <p className="text-[#4A453C]/50 text-sm leading-premium mb-6">
+                              {event.description}
+                            </p>
+                          </div>
+                          <div>
+                            <div className="flex flex-wrap gap-2 mb-4">
+                              {event.highlights.map((h) => (
+                                <span
+                                  key={h}
+                                  className="px-3 py-1 rounded-full bg-gold-400/8 border border-gold-400/15 text-gold-400 text-xs"
+                                >
+                                  {h}
+                                </span>
+                              ))}
+                            </div>
+                            <div className="w-8 h-px bg-gold-400/30" />
+                          </div>
+                        </div>
+                      }
+                    />
                   </div>
 
                   <div className="hidden lg:flex items-center justify-center w-16 shrink-0">

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CountdownTimer from "@/components/CountdownTimer";
+import BackButton from "@/components/BackButton";
 import { events } from "@/data/content";
 
 export default function EventsPage() {
@@ -11,7 +12,11 @@ export default function EventsPage() {
     <>
       <Navbar />
       <main className="pt-28 lg:pt-32 section-padding">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto px-5 md:px-8">
+          <div className="mb-6 md:mb-8">
+            <BackButton />
+          </div>
+
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

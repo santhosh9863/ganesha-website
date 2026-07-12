@@ -1,34 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import LegacyTimeline from "@/components/LegacyTimeline";
 import LiveStats from "@/components/LiveStats";
-import { siteConfig, stats } from "@/data/content";
+import FlipCard from "@/components/FlipCard";
+import BackButton from "@/components/BackButton";
+import { siteConfig, statCards } from "@/data/content";
 
 export default function AboutPage() {
   return (
     <>
       <Navbar />
       <main className="pt-28 lg:pt-32 section-padding">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="mb-8"
-          >
-            <Link
-              href="/"
-              className="group inline-flex items-center gap-2 text-[#4A453C]/50 hover:text-[#1A1A1A] text-sm font-medium transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2"
-            >
-              <ArrowLeft className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" />
-              Back to Home
-            </Link>
-          </motion.div>
+        <div className="max-w-7xl mx-auto px-5 md:px-8">
+          <div className="mb-6 md:mb-8">
+            <BackButton />
+          </div>
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -84,17 +73,41 @@ export default function AboutPage() {
             viewport={{ once: true }}
             className="grid grid-cols-2 md:grid-cols-4 gap-5 lg:gap-8 mb-24"
           >
-            {stats.map((stat, i) => (
+            {statCards.map((stat, i) => (
               <motion.div
                 key={stat.label}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
-                className="bg-white rounded-2xl py-8 px-6 text-center border border-gold-400/10 shadow-sm"
+                className="w-full"
               >
-                <p className="font-display text-3xl sm:text-4xl font-bold gold-text mb-2">{stat.value}</p>
-                <p className="text-[#4A453C]/50 text-sm">{stat.label}</p>
+                <FlipCard
+                  front={
+                    <div className="w-full h-full bg-gradient-to-b from-[#FCFBF8] to-white rounded-3xl border border-[rgba(200,161,74,0.18)] p-7 flex flex-col items-center justify-center text-center shadow-sm">
+                      <span className="text-3xl mb-3">{stat.icon}</span>
+                      <p className="font-display text-3xl sm:text-4xl font-bold gold-text leading-none">
+                        {stat.value}
+                      </p>
+                      <p className="text-[#4A453C]/45 text-sm mt-2.5">
+                        {stat.label}
+                      </p>
+                      <div className="w-8 h-px bg-gold-400/30 mt-4" />
+                    </div>
+                  }
+                  back={
+                    <div className="w-full h-full bg-gradient-to-b from-white to-[#FCFBF8] rounded-3xl border border-[rgba(200,161,74,0.18)] p-7 flex flex-col items-center justify-center text-center shadow-lg">
+                      <span className="text-xl mb-2.5">{stat.icon}</span>
+                      <p className="font-display text-base font-bold text-[#1A1A1A]">
+                        {stat.backTitle}
+                      </p>
+                      <p className="text-[#4A453C]/50 text-sm leading-relaxed mt-3 max-w-[200px]">
+                        {stat.backDescription}
+                      </p>
+                      <div className="w-8 h-px bg-gold-400/30 mt-4" />
+                    </div>
+                  }
+                />
               </motion.div>
             ))}
           </motion.div>
@@ -112,10 +125,30 @@ export default function AboutPage() {
                 { title: "Build Community", desc: "Bring people together through events, feasts, and shared experiences of devotion.", icon: "🤝" },
                 { title: "Serve Selflessly", desc: "Organize donation drives, food festivals, and community service initiatives.", icon: "❤️" },
               ].map((item) => (
-                <div key={item.title} className="bg-white rounded-2xl card-padding border border-gold-400/10 hover:border-gold-400/25 transition-all duration-500 shadow-sm">
-                  <span className="text-4xl block">{item.icon}</span>
-                  <h3 className="font-display text-lg font-bold text-[#1A1A1A] mt-5">{item.title}</h3>
-                  <p className="text-[#4A453C]/50 text-sm leading-relaxed mt-4">{item.desc}</p>
+                <div key={item.title} className="w-full">
+                  <FlipCard
+                    front={
+                      <div className="w-full h-full bg-gradient-to-b from-[#FCFBF8] to-white rounded-3xl border border-[rgba(200,161,74,0.18)] p-7 flex flex-col items-center justify-center text-center shadow-sm">
+                        <span className="text-4xl mb-4">{item.icon}</span>
+                        <h3 className="font-display text-lg font-bold text-[#1A1A1A]">
+                          {item.title}
+                        </h3>
+                        <div className="w-8 h-px bg-gold-400/30 mt-4" />
+                      </div>
+                    }
+                    back={
+                      <div className="w-full h-full bg-gradient-to-b from-white to-[#FCFBF8] rounded-3xl border border-[rgba(200,161,74,0.18)] p-7 flex flex-col items-center justify-center text-center shadow-lg">
+                        <span className="text-2xl mb-3">{item.icon}</span>
+                        <h3 className="font-display text-base font-bold text-[#1A1A1A]">
+                          {item.title}
+                        </h3>
+                        <p className="text-[#4A453C]/50 text-sm leading-relaxed mt-3 max-w-[280px]">
+                          {item.desc}
+                        </p>
+                        <div className="w-8 h-px bg-gold-400/30 mt-4" />
+                      </div>
+                    }
+                  />
                 </div>
               ))}
             </div>
