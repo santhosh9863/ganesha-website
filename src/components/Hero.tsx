@@ -109,10 +109,8 @@ export default function Hero() {
         }}
       />
 
-      {/* ── Layer 3: Warm glow behind idol (desktop) ── */}
-      <div className="absolute z-[2] top-[5%] right-[5%] w-[45%] h-[70%] bg-amber-300/6 rounded-full blur-[200px] pointer-events-none hidden lg:block" />
-      <div className="absolute z-[2] top-[10%] right-[10%] w-[30%] h-[50%] bg-gold-400/8 rounded-full blur-[140px] pointer-events-none hidden lg:block" />
-      <div className="absolute z-[2] top-[15%] right-[18%] w-[15%] h-[25%] bg-yellow-200/10 rounded-full blur-[60px] pointer-events-none hidden lg:block" />
+      {/* ── Layer 3: Warm radial glow centered behind idol ── */}
+      <div className="absolute z-[2] top-[10%] right-[5%] w-[45%] h-[75%] bg-amber-300/8 rounded-full blur-[250px] pointer-events-none hidden lg:block" />
 
       {/* ── Layer 4: Decorative mandala (desktop) ── */}
       <div className="absolute z-[2] top-[-2%] right-[5%] w-[50%] h-[100%] pointer-events-none overflow-hidden hidden lg:block">
@@ -133,22 +131,24 @@ export default function Hero() {
       </div>
 
       {/* ── Layer 5: Idol — Desktop (composed right-column scene) ── */}
-      <div className="absolute right-[3%] top-[16%] bottom-0 w-[46%] z-10 hidden lg:block pointer-events-none">
+      <div className="absolute right-0 top-[6%] bottom-0 w-[50%] z-10 hidden lg:block pointer-events-none">
         <div className="relative w-full h-full">
+          {/* Blend gradient on left edge */}
+          <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#FCF8F0] to-transparent z-[11] pointer-events-none" />
           {/* Warm glow behind idol */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[85%] bg-amber-300/9 rounded-full blur-[180px]" />
-          <div className="absolute top-[55%] left-1/2 -translate-x-1/2 w-[100%] h-[55%] bg-gold-400/10 rounded-full blur-[130px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[90%] bg-amber-300/10 rounded-full blur-[200px]" />
+          <div className="absolute top-[55%] left-1/2 -translate-x-1/2 w-[110%] h-[60%] bg-gold-400/12 rounded-full blur-[140px]" />
           {/* Soft shadow under idol */}
-          <div className="absolute bottom-[8%] left-[20%] right-[20%] h-8 bg-black/4 rounded-full blur-[28px]" />
+          <div className="absolute bottom-[6%] left-[15%] right-[15%] h-10 bg-black/4 rounded-full blur-[32px]" />
           {/* Image with breathing room */}
-          <div className="absolute left-[6%] right-[6%] top-[2%] bottom-[4%]">
+          <div className="absolute inset-x-[4%] inset-y-0">
             <Image
               src="/images/hero.png"
               alt=""
               fill
               className="object-contain object-bottom"
               priority
-              sizes="46vw"
+              sizes="50vw"
             />
           </div>
         </div>
@@ -157,7 +157,7 @@ export default function Hero() {
       {mounted && <Particles />}
 
       {/* ── Layer 6: Idol — Mobile (above text, full width, visual centerpiece) ── */}
-      <div className="relative z-10 lg:hidden h-[48vh] shrink-0">
+      <div className="relative z-10 lg:hidden h-[62vh] shrink-0">
         <Image
           src="/images/hero.png"
           alt=""
@@ -166,18 +166,18 @@ export default function Hero() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-[#FCF8F0] to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#FCF8F0] via-[#FCF8F0]/40 to-transparent pointer-events-none" />
       </div>
 
       {/* ── Layer 7: Text content ── */}
-      <div className="relative z-20 layout-container flex-1 flex flex-col lg:min-h-dvh">
-        <div className="flex flex-col justify-center flex-1 lg:w-[48%] py-12 lg:pt-36 lg:pb-28 text-center lg:text-left">
+      <div className="relative z-20 layout-container flex-1 flex flex-col lg:min-h-dvh -mt-16 lg:mt-0">
+        <div className="flex flex-col justify-center flex-1 lg:w-1/2 py-8 lg:pt-32 lg:pb-24 text-center lg:text-left">
           {/* Eyebrow */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6, ease: easePremium }}
-            className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-gold-400 font-semibold mb-10"
+            className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-gold-500 font-bold mb-6"
           >
             Since {siteConfig.foundedYear} &bull; {siteConfig.yearsOfLegacy} Years of Devotion
           </motion.div>
@@ -197,7 +197,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.95, duration: 0.6, ease: easePremium }}
-            className="text-[#666] leading-relaxed text-sm sm:text-base lg:text-lg max-w-[520px] mt-12 mx-auto lg:mx-0"
+            className="text-[#666] leading-relaxed text-sm sm:text-base lg:text-lg max-w-[520px] mt-6 mx-auto lg:mx-0"
           >
             For fourteen years, our community has come together to celebrate faith, culture, service, and togetherness through the blessings of Lord Ganesha.
           </motion.p>
@@ -207,7 +207,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.15, duration: 0.6, ease: easePremium }}
-            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mt-16 justify-center lg:justify-start"
+            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mt-10 justify-center lg:justify-start"
           >
             <Link
               href="/about"
