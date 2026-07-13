@@ -73,7 +73,7 @@ export default function HeroNavbar() {
 
         <button
           onClick={scrollToDonation}
-          className={`group fixed top-4 right-4 lg:top-5 lg:right-5 z-[60] inline-flex items-center justify-center gap-3 h-12 px-7 rounded-[18px] text-white text-sm sm:text-[15px] font-bold transition-all duration-300 active:scale-[0.97] shadow-[0_12px_30px_rgba(200,161,74,0.22)] hover:shadow-[0_20px_40px_rgba(200,161,74,0.30)] hover:-translate-y-0.5 overflow-hidden cursor-pointer focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2 ${pulse ? "animate-[pulse-glow_2s_ease-in-out]" : ""}`}
+          className={`group fixed top-4 right-4 lg:top-5 lg:right-5 z-[60] inline-flex items-center justify-center h-12 px-10 lg:px-14 rounded-[18px] text-white text-xs font-bold tracking-wide transition-all duration-300 active:scale-[0.97] shadow-[0_12px_30px_rgba(200,161,74,0.22)] hover:shadow-[0_20px_40px_rgba(200,161,74,0.30)] hover:-translate-y-0.5 overflow-hidden cursor-pointer focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2 ${pulse ? "animate-[pulse-glow_2s_ease-in-out]" : ""}`}
           style={{
             background:
               "linear-gradient(135deg, #EFD48B 0%, #D8B75B 35%, #C89F45 65%, #B8852F 100%)",
@@ -81,7 +81,7 @@ export default function HeroNavbar() {
         >
           <span className="absolute inset-0 bg-gradient-to-b from-white/[0.28] to-transparent top-0 h-[20%] transition-opacity duration-300" />
           <span className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          <span className="relative z-10 whitespace-nowrap shrink-0 text-xs sm:text-sm">Contribute</span>
+          <span className="relative z-10 whitespace-nowrap shrink-0">Contribute</span>
         </button>
     </motion.header>
   );
