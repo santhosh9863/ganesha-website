@@ -82,7 +82,7 @@ export default function HeroNavbar() {
         >
           <span className="absolute inset-0 bg-gradient-to-b from-white/[0.28] to-transparent top-0 h-[20%] transition-opacity duration-300" />
           <span className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          <span className="relative z-10 whitespace-nowrap shrink-0">Contribute</span>
+          <span className="relative z-10 whitespace-nowrap shrink-0 text-xs sm:text-sm">Contribute</span>
           <ArrowRight className="relative z-10 w-4 h-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
         </button>
     </motion.header>
