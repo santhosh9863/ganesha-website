@@ -90,7 +90,7 @@ export default function ContactSection() {
               <div className="card card-padding">
                 <h3 className="font-display text-lg font-bold text-[#1A1A1A] mb-4">Follow Us</h3>
                 <p className="text-[#4A453C]/50 text-sm leading-premium mb-6">Stay connected through our social media channels for the latest updates and event highlights.</p>
-                <div className="flex items-center justify-center gap-6 md:gap-8">
+                <div className="flex items-center justify-start gap-6 md:gap-8">
                   <SocialIcon href={siteConfig.social.instagram} icon={<FaInstagram size={26} />} label="Instagram" />
                   <SocialIcon href={siteConfig.social.whatsapp} icon={<FaWhatsapp size={26} />} label="WhatsApp" />
                 </div>

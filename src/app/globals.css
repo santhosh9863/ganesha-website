@@ -218,7 +218,7 @@ body {
 
 /* ─── Cards & grids ─────────────────────────────────────── */
 .card-padding {
-  padding: 20px;
+  padding: 24px;
 }
 
 @media (min-width: 768px) {
