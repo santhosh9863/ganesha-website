@@ -5,10 +5,10 @@ export const siteConfig = {
   badge: "Since 2012",
   yearsOfLegacy: 14,
   foundedYear: 2012,
-  location: "Your City, India",
+  location: "Bangalore, India",
   email: "hello@sggb.in",
   phone: "+91 XXXXX XXXXX",
-  festivalDate: "September 7, 2026",
+  festivalDate: "September 16, 2026",
   social: {
     instagram: "#",
     facebook: "#",
@@ -44,18 +44,18 @@ export const statCards = [
       "Since 2012 we have celebrated Gowri Ganesha with devotion, cultural programs and community service.",
   },
   {
-    value: "1,000+",
-    label: "Volunteers",
+    value: "5",
+    label: "days of celebration",
     icon: "🤝",
-    backTitle: "1,000+ Volunteers",
+    backTitle: "5 days of devotion",
     backDescription:
-      "Our dedicated team of volunteers works year-round to make every celebration memorable.",
+      "uniting thousands through faith,culture and tradition every year.",
   },
   {
-    value: "50K+",
+    value: "25K+",
     label: "Devotees Served",
     icon: "🙏",
-    backTitle: "50,000+ Devotees",
+    backTitle: "25,000+ Devotees",
     backDescription:
       "Every year thousands of devotees visit our celebration for darshan, annadanam and cultural events.",
   },
@@ -128,7 +128,6 @@ export const testimonials = [
 export const faqs = [
   { q: "When does the festival take place?", a: "The 5-day celebration typically begins a few days before Ganesh Chaturthi and culminates on the day of the immersion procession." },
   { q: "Is the event open to everyone?", a: "Absolutely! Our celebration is open to people of all ages, backgrounds, and faiths. Everyone is welcome to join the festivities." },
-  { q: "How can I volunteer?", a: "You can register as a volunteer through our Contact page or reach out to us directly. We welcome help in all areas of the celebration." },
   { q: "Can I make a donation?", a: "Yes! Your contributions help us organize this grand celebration. Donate online via our website or reach out to our team members." },
   { q: "What should I wear?", a: "Traditional attire is appreciated but not mandatory. Please dress modestly and respectfully." },
   { q: "Is parking available?", a: "Yes, we arrange designated parking areas near the festival venue. Details will be shared closer to the event date." },

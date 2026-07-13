@@ -10,13 +10,13 @@ function AccordionItem({ faq, isOpen, onClick }: { faq: typeof faqs[0]; isOpen: 
     <div className="border-b border-gold-400/10 last:border-b-0">
       <button
         onClick={onClick}
-        className="w-full flex items-center justify-between py-6 text-left cursor-pointer group focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2"
+        className="w-full flex items-center justify-between py-5 text-left cursor-pointer group focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2 min-h-[72px]"
       >
         <span className="text-[#4A453C]/70 group-hover:text-[#1A1A1A] font-medium text-sm transition-colors duration-300 pr-4">
           {faq.q}
         </span>
         <HiChevronDown
-          className={`w-4 h-4 text-gold-400/60 shrink-0 transition-transform duration-300 ${
+          className={`w-5 h-5 text-gold-400/60 shrink-0 transition-transform duration-300 ${
             isOpen ? "rotate-180" : ""
           }`}
         />
@@ -57,7 +57,7 @@ export default function FAQ() {
             <span className="text-gold-400 text-xs tracking-[0.3em] uppercase font-medium">
               Got Questions?
             </span>
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1A1A1A] mt-5 leading-tight">
+            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1A1A1A] mt-6 leading-tight">
               Frequently Asked{" "}
               <span className="gold-text">Questions</span>
             </h2>

@@ -9,86 +9,73 @@ interface FlipCardProps {
 }
 
 export default function FlipCard({ front, back, className = "" }: FlipCardProps) {
-  const [flipped, setFlipped] = useState(false);
+  const [active, setActive] = useState(false);
   const [isTouch, setIsTouch] = useState(false);
-  const [reducedMotion, setReducedMotion] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setIsTouch("ontouchstart" in window);
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReducedMotion(mq.matches);
-    const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
-    mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
   }, []);
 
   useEffect(() => {
-    if (!isTouch || !flipped) return;
+    if (!isTouch || !active) return;
     const handleOutside = (e: MouseEvent | TouchEvent) => {
       if (cardRef.current && !cardRef.current.contains(e.target as Node)) {
-        setFlipped(false);
+        setActive(false);
       }
     };
     document.addEventListener("click", handleOutside, { passive: true });
     return () => document.removeEventListener("click", handleOutside);
-  }, [isTouch, flipped]);
+  }, [isTouch, active]);
 
   const toggle = useCallback(() => {
-    if (isTouch) setFlipped((prev) => !prev);
+    if (isTouch) setActive((prev) => !prev);
   }, [isTouch]);
 
   const enter = useCallback(() => {
-    if (!isTouch) setFlipped(true);
+    if (!isTouch) setActive(true);
   }, [isTouch]);
 
   const leave = useCallback(() => {
-    if (!isTouch) setFlipped(false);
+    if (!isTouch) setActive(false);
   }, [isTouch]);
 
   return (
     <div
       ref={cardRef}
-      className={`group perspective-[800px] ${className}`}
       onClick={toggle}
       onMouseEnter={enter}
       onMouseLeave={leave}
-      onFocus={enter}
-      onBlur={leave}
-      tabIndex={0}
-      role="button"
-      aria-label="Flip card for more information"
+      className={`transition-all duration-300 ease-out ${className}`}
+      style={{
+        transform: active
+          ? "translateY(-5px) scale(1.01)"
+          : "translateY(0) scale(1)",
+        boxShadow: active
+          ? "0 20px 40px rgba(200,161,74,0.15)"
+          : "0 2px 12px rgba(0,0,0,0.04)",
+        display: "grid",
+      }}
     >
       <div
-        className="relative"
         style={{
-          transformStyle: "preserve-3d",
-          transform: flipped
-            ? "translateY(-4px) scale(1.02) rotateY(180deg)"
-            : "translateY(0) scale(1) rotateY(0deg)",
-          transition: `transform ${reducedMotion ? "1ms" : "600ms"} cubic-bezier(0.22, 1, 0.36, 1), box-shadow 600ms cubic-bezier(0.22, 1, 0.36, 1)`,
-          willChange: "transform",
+          gridArea: "1/1",
+          opacity: active ? 0 : 1,
+          transition: "opacity 300ms ease",
         }}
       >
-        <div
-          style={{
-            backfaceVisibility: "hidden",
-            WebkitBackfaceVisibility: "hidden",
-            transform: "translateZ(0.01px)",
-          }}
-        >
-          {front}
-        </div>
-        <div
-          className="absolute inset-0"
-          style={{
-            backfaceVisibility: "hidden",
-            WebkitBackfaceVisibility: "hidden",
-            transform: "rotateY(180deg) translateZ(0.01px)",
-          }}
-        >
-          {back}
-        </div>
+        {front}
+      </div>
+
+      <div
+        style={{
+          gridArea: "1/1",
+          opacity: active ? 1 : 0,
+          transition: "opacity 300ms ease",
+          pointerEvents: active ? "auto" : "none",
+        }}
+      >
+        {back}
       </div>
     </div>
   );

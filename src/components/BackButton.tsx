@@ -27,7 +27,7 @@ export default function BackButton() {
         <ArrowLeft className="relative z-10 w-4 h-4 text-white transition-transform duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-x-0.5" />
       </span>
 
-      <span className="relative z-10 text-[16px] font-semibold text-[#1A1A1A] tracking-tight transition-all duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-0.5 group-hover:text-gold-400">
+      <span className="relative z-10 text-[16px] font-semibold text-[#1A1A1A] tracking-tight transition-all duration-[250ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:text-gold-400">
         Back
       </span>
     </button>

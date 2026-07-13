@@ -95,7 +95,7 @@ const chapters: Chapter[] = [
       { year: 2019, text: "Expanded to 5 days" },
     ],
     emphasis: "From one evening to five days of celebration.",
-    stat: { end: 50000, suffix: "+", label: "Devotees Served Every Year" },
+    stat: { end: 5000, suffix: "+", label: "Devotees Served Every Year" },
     visualVariant: "warm",
   },
   {

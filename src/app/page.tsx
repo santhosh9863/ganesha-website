@@ -24,10 +24,10 @@ export default function Home() {
       {/* ── Supporting proof ── */}
       <LiveStats />
 
-      {/* ── Countdown — elegant announcement block ── */}
-      <section className="pt-[152px] lg:pt-[240px] pb-20 lg:pb-24 relative overflow-hidden bg-gradient-to-b from-[#FFFFFF] via-[#FCFBF8] to-[#FFFFFF]">
+      {/* ── Countdown — premium editorial block ── */}
+      <section className="section-spacing relative overflow-hidden bg-gradient-to-b from-[#FFFFFF] via-[#FCFBF8] to-[#FFFFFF]">
         <div className="relative layout-container">
-          <div className="max-w-[700px] mx-auto">
+          <div className="max-w-[760px] mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -38,18 +38,16 @@ export default function Home() {
               <span className="text-gold-400 text-xs tracking-[0.3em] uppercase font-medium">
                 Coming Soon
               </span>
-              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1A1A1A] mt-6 leading-tight">
+              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1A1A1A] mt-5 leading-[1.1]">
                 Celebrating{" "}
                 <span className="gold-text">Ganesh Chaturthi</span>
               </h2>
-              <p className="text-[#4A453C]/50 max-w-[560px] mx-auto leading-premium text-sm sm:text-base mt-7">
+              <p className="text-[#4A453C]/50 max-w-content leading-[1.8] text-base sm:text-lg mt-5 mb-8">
                 Join us for 5 days of devotion, culture, and community celebration
               </p>
             </motion.div>
 
-            <div className="mt-9">
-              <CountdownTimer />
-            </div>
+            <CountdownTimer />
           </div>
         </div>
       </section>

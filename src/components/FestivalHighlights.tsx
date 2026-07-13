@@ -20,7 +20,7 @@ export default function FestivalHighlights() {
           <span className="text-gold-400 text-xs tracking-[0.3em] uppercase font-medium">
             Festival Experience
           </span>
-          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1A1A1A] mt-5 leading-tight">
+          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1A1A1A] mt-6 leading-tight">
             Festival{" "}
             <span className="gold-text">Highlights</span>
           </h2>
@@ -39,7 +39,7 @@ export default function FestivalHighlights() {
               >
                 <FlipCard
                   front={
-                    <div className="w-full h-full bg-gradient-to-b from-[#FCFBF8] to-white rounded-3xl border border-[rgba(200,161,74,0.18)] p-7 flex flex-col items-center justify-center text-center shadow-sm">
+                    <div className="w-full h-full bg-gradient-to-b from-[#FCFBF8] to-white rounded-3xl border border-[rgba(200,161,74,0.18)] p-6 flex flex-col items-center justify-center text-center shadow-sm">
                       <span className="text-3xl mb-4">{item.icon}</span>
                       <h3 className="font-display text-lg font-bold text-[#1A1A1A]">
                         {item.title}
@@ -48,12 +48,12 @@ export default function FestivalHighlights() {
                     </div>
                   }
                   back={
-                    <div className="w-full h-full bg-gradient-to-b from-white to-[#FCFBF8] rounded-3xl border border-[rgba(200,161,74,0.18)] p-7 flex flex-col items-center justify-center text-center shadow-lg">
+                    <div className="w-full h-full bg-gradient-to-b from-white to-[#FCFBF8] rounded-3xl border border-[rgba(200,161,74,0.18)] p-6 flex flex-col items-center justify-center text-center shadow-lg">
                       <span className="text-2xl mb-3">{item.icon}</span>
                       <h3 className="font-display text-base font-bold text-[#1A1A1A]">
                         {item.title}
                       </h3>
-                      <p className="text-[#4A453C]/50 text-sm leading-relaxed mt-3 max-w-[240px]">
+                      <p className="text-[#4A453C]/50 text-sm leading-relaxed mt-3 max-w-[220px]">
                         {item.description}
                       </p>
                       <div className="w-8 h-px bg-gold-400/30 mt-4" />

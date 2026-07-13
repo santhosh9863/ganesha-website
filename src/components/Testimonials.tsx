@@ -40,7 +40,7 @@ export default function Testimonials() {
             <span className="text-gold-400 text-xs tracking-[0.3em] uppercase font-medium">
               Voices of the Community
             </span>
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1A1A1A] mt-5 leading-tight">
+            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1A1A1A] mt-6 leading-tight">
               What Our Community{" "}
               <span className="gold-text">Says</span>
             </h2>

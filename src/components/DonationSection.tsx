@@ -6,16 +6,23 @@ import { Heart, Shield, ArrowRight, Check } from "lucide-react";
 import { siteConfig } from "@/data/content";
 
 const amounts = [
-  { label: "₹501", desc: "Prasadam", shortDesc: "Bless a family with sacred prasadam", recommended: false },
-  { label: "₹1,001", desc: "Flower Donation", shortDesc: "Support temple-style floral decorations", recommended: false },
-  { label: "₹5,001", desc: "Annadanam", shortDesc: "Provide a full meal for 100+ devotees", recommended: true },
+  { label: "₹101", desc: "Simple Offering", shortDesc: "Support the daily rituals and prayers throughout the festival", recommended: false },
+  { label: "₹501", desc: "Prasadam", shortDesc: "Bless a family with sacred prasadam on the day of the festival", recommended: true },
+  { label: "₹1,001", desc: "Flower Donation", shortDesc: "Help us decorate the temple with fresh flowers for the celebrations", recommended: false },
 ];
 
+const impactMessages: Record<string, string> = {
+  "₹101": "supports the daily rituals and prayers throughout the festival",
+  "₹501": "blesses a family with sacred prasadam on the day of the festival",
+  "₹1,001": "helps decorate the temple with fresh flowers for the celebrations",
+  "Custom": "supports the festival and community service programs",
+};
+
 export default function DonationSection() {
-  const [selected, setSelected] = useState("₹5,001");
+  const [selected, setSelected] = useState("₹501");
 
   return (
-    <section className="section-spacing relative overflow-hidden">
+    <section id="donation" className="section-spacing relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-[#F8F6F2] via-[#FFFFFF] to-[#F8F6F2]" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gold-400/6 rounded-full blur-[200px]" />
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-gold-400/4 rounded-full blur-[150px]" />
@@ -32,11 +39,11 @@ export default function DonationSection() {
             <span className="text-gold-400 text-xs tracking-[0.3em] uppercase font-medium">
               Support Our Mission
             </span>
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1A1A1A] mt-5 leading-tight">
+            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1A1A1A] mt-6 leading-tight">
               Make a{" "}
               <span className="gold-text">Donation</span>
             </h2>
-            <p className="text-[#4A453C]/50 max-w-[600px] mx-auto leading-premium text-sm sm:text-base mt-5">
+            <p className="text-[#4A453C]/50 max-w-[600px] mx-auto leading-premium text-sm sm:text-base mt-7 break-words">
               Your generosity brings our 5-day celebration to life — from food and flowers to cultural events and community service. Every contribution directly supports this {siteConfig.yearsOfLegacy}-year tradition.
             </p>
           </motion.div>
@@ -52,7 +59,7 @@ export default function DonationSection() {
             <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-3 rounded-full bg-gold-400/8 border border-gold-400/15">
               <Heart className="w-4 h-4 text-gold-400" />
               <span className="text-[#4A453C]/60 text-xs sm:text-sm">
-                Your <span className="font-semibold text-gold-400">₹5,001</span> donation feeds <span className="font-semibold text-gold-400">100+</span> devotees
+                Your <span className="font-semibold text-gold-400">{selected}</span> donation {impactMessages[selected]}
               </span>
             </div>
           </motion.div>
@@ -72,35 +79,33 @@ export default function DonationSection() {
                   <button
                     key={amount.label}
                     onClick={() => setSelected(amount.label)}
-                    className={`group relative text-left w-full rounded-2xl p-6 sm:p-7 border cursor-pointer transition-all duration-300 focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2 ${
+                    className={`relative flex flex-col items-center justify-center w-full rounded-3xl border cursor-pointer transition-all duration-300 focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2 ${
+                      amount.recommended ? "p-7" : "p-6"
+                    } ${
                       isSelected
-                        ? "border-gold-400 bg-gold-400/[0.04] shadow-lg shadow-gold-400/10"
-                        : "border-gold-400/10 bg-white hover:border-gold-400/25 shadow-sm hover:shadow-md"
+                        ? "border-gold-400 bg-gold-400/[0.04] shadow-md"
+                        : amount.recommended
+                          ? "border-gold-400/20 bg-gold-400/[0.03] shadow-sm hover:border-gold-400/30 hover:shadow-md"
+                          : "border-gold-400/8 bg-white shadow-sm hover:border-gold-400/20 hover:shadow-md"
                     }`}
                   >
                     {amount.recommended && (
-                      <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 px-3 py-0.5 bg-gold-400 text-white text-[0.5rem] rounded-full font-medium tracking-wide whitespace-nowrap">
+                      <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 inline-flex items-center justify-center px-4 py-1 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 text-white text-[0.7rem] font-bold leading-none rounded-full border border-white/20 shadow-sm z-10 tracking-[0.02em]">
                         Most Popular
                       </span>
                     )}
-                    <div className="flex items-start justify-between">
-                      <div>
-                        <p className={`font-display text-xl sm:text-2xl font-bold transition-colors duration-300 ${
-                          isSelected ? "gold-text" : "text-[#1A1A1A] group-hover:text-gold-400"
-                        }`}>
-                          {amount.label}
-                        </p>
-                        <p className="text-[#4A453C]/60 text-sm font-medium mt-0.5">{amount.desc}</p>
-                        <p className="text-[#4A453C]/40 text-xs mt-3 leading-relaxed">{amount.shortDesc}</p>
-                      </div>
-                      <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 mt-1 transition-all duration-300 ${
-                        isSelected
-                          ? "border-gold-400 bg-gold-400"
-                          : "border-gold-400/25"
-                      }`}>
-                        {isSelected && <Check className="w-3 h-3 text-white" />}
-                      </div>
-                    </div>
+
+                    <p className={`font-display font-bold text-[#1A1A1A] leading-none ${
+                      amount.recommended ? "text-4xl sm:text-5xl" : "text-3xl sm:text-4xl"
+                    }`}>
+                      {amount.label}
+                    </p>
+                    <p className="text-sm font-medium text-[#4A453C]/55 mt-3">
+                      {amount.desc}
+                    </p>
+                    <p className="text-xs text-[#4A453C]/40 mt-3 leading-relaxed line-clamp-2 max-w-[85%]">
+                      {amount.shortDesc}
+                    </p>
                   </button>
                 );
               })}
@@ -117,28 +122,17 @@ export default function DonationSection() {
           >
             <button
               onClick={() => setSelected("Custom")}
-              className={`group w-full rounded-2xl p-6 border cursor-pointer transition-all duration-300 focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2 ${
+              className={`relative w-full rounded-3xl p-6 border cursor-pointer transition-all duration-300 focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2 ${
                 selected === "Custom"
-                  ? "border-gold-400 bg-gold-400/[0.04] shadow-lg shadow-gold-400/10"
-                  : "border-gold-400/10 bg-white hover:border-gold-400/25 shadow-sm hover:shadow-md"
+                  ? "border-gold-400 bg-gold-400/[0.03] shadow-md"
+                  : "border-gold-400/8 bg-white shadow-sm hover:border-gold-400/20 hover:shadow-md"
               }`}
             >
-              <div className="flex items-center justify-between">
-                <div className="text-left">
-                  <p className={`font-display text-lg sm:text-xl font-bold transition-colors duration-300 ${
-                    selected === "Custom" ? "gold-text" : "text-[#1A1A1A] group-hover:text-gold-400"
-                  }`}>
-                    Custom Amount
-                  </p>
-                  <p className="text-[#4A453C]/40 text-xs mt-1">Donate any amount you wish</p>
-                </div>
-                <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 transition-all duration-300 ${
-                  selected === "Custom"
-                    ? "border-gold-400 bg-gold-400"
-                    : "border-gold-400/25"
-                }`}>
-                  {selected === "Custom" && <Check className="w-3 h-3 text-white" />}
-                </div>
+              <div className="flex flex-col items-center gap-2">
+                <p className="font-display text-lg sm:text-xl font-bold text-[#1A1A1A]">
+                  Custom Amount
+                </p>
+                <p className="text-xs text-[#4A453C]/40">Donate any amount you wish</p>
               </div>
             </button>
           </motion.div>
@@ -149,11 +143,11 @@ export default function DonationSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ delay: 0.4, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="stack-cards-cta text-center"
+            className="stack-group text-center"
           >
-            <button className="group relative inline-flex items-center justify-center gap-2.5 h-14 sm:h-16 px-10 sm:px-12 bg-gradient-to-r from-gold-400 to-gold-500 hover:from-gold-500 hover:to-gold-400 text-white font-semibold rounded-xl sm:rounded-2xl transition-all duration-500 shadow-lg shadow-gold-400/20 hover:shadow-gold-400/40 hover:shadow-xl text-sm sm:text-base focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2">
+            <button className="group relative inline-flex items-center justify-center gap-3 h-12 px-9 bg-gradient-to-r from-gold-400 to-gold-500 hover:from-gold-500 hover:to-gold-400 text-white font-semibold rounded-[18px] transition-all duration-500 shadow-lg shadow-gold-400/20 hover:shadow-gold-400/40 hover:shadow-xl text-sm focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2">
               Donate {selected === "Custom" ? "Now" : selected}
-              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1" />
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
           </motion.div>
 
@@ -163,16 +157,16 @@ export default function DonationSection() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ delay: 0.5, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="stack-group flex flex-wrap items-center justify-center gap-5 sm:gap-8"
+            className="stack-group flex flex-wrap items-center justify-center gap-6 sm:gap-10"
           >
             {[
               { icon: Shield, text: "100% Secure" },
               { icon: Heart, text: "Tax-Exempt Contribution" },
               { icon: Check, text: "Direct Community Impact" },
             ].map((item) => (
-              <div key={item.text} className="flex items-center gap-1.5">
-                <item.icon className="w-3.5 h-3.5 text-gold-400/60" />
-                <span className="text-[#4A453C]/30 text-xs">{item.text}</span>
+              <div key={item.text} className="flex items-center gap-2">
+                <item.icon className="w-4 h-4 text-gold-400/60" />
+                <span className="text-[#4A453C]/60 text-xs">{item.text}</span>
               </div>
             ))}
           </motion.div>
@@ -183,7 +177,7 @@ export default function DonationSection() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ delay: 0.55, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="stack-group text-[#4A453C]/15 text-xs text-center max-w-[500px] mx-auto leading-premium"
+            className="stack-group text-[#4A453C]/50 text-xs text-center max-w-[500px] mx-auto leading-premium"
           >
             Your donations are used entirely for the festival and community service programs — from prasadam distribution and floral decorations to cultural events and charitable initiatives. We maintain complete transparency in how every rupee is utilized.
           </motion.p>

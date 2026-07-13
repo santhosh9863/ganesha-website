@@ -37,10 +37,10 @@ function TimelineItem({
         <div className="w-4 h-4 rounded-full bg-gold-400 border-[3px] border-[#FFFFFF] shadow-lg shadow-gold-400/20 ring-1 ring-gold-400/30" />
         <div className="w-0.5 flex-1 bg-gradient-to-b from-gold-400/30 to-transparent" />
       </div>
-      <div className="flex-1 pb-16 lg:pb-20">
+      <div className="flex-1 pb-20 lg:pb-24">
         <div className="card card-padding">
-          <span className="text-gold-400 text-sm font-bold tracking-wider">{item.year}</span>
-          <h3 className="font-display text-xl font-bold text-[#1A1A1A] mt-1 mb-3">{item.title}</h3>
+          <span className="text-gold-400 text-xs font-bold tracking-wider">{item.year}</span>
+          <h3 className="font-display text-lg font-bold text-[#1A1A1A] mt-3 mb-3">{item.title}</h3>
           <p className="text-[#4A453C]/50 text-sm leading-premium">{item.description}</p>
         </div>
       </div>

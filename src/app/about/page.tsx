@@ -1,29 +1,24 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import FloatingBackButton from "@/components/FloatingBackButton";
 import LegacyTimeline from "@/components/LegacyTimeline";
 import LiveStats from "@/components/LiveStats";
 import FlipCard from "@/components/FlipCard";
-import BackButton from "@/components/BackButton";
 import { siteConfig, statCards } from "@/data/content";
 
 export default function AboutPage() {
   return (
     <>
-      <Navbar />
-      <main className="pt-28 lg:pt-32 section-padding">
-        <div className="max-w-7xl mx-auto px-5 md:px-8">
-          <div className="mb-6 md:mb-8">
-            <BackButton />
-          </div>
-
+      <FloatingBackButton />
+      <main className="pt-16 lg:pt-20">
+        <div className="layout-container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="text-center mb-16 lg:mb-24"
+            className="text-center mb-16 lg:mb-20"
           >
             <span className="text-gold-400 text-xs tracking-[0.3em] uppercase font-medium">Our Legacy</span>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-7xl font-bold text-[#1A1A1A] mt-5 leading-tight">
@@ -32,14 +27,14 @@ export default function AboutPage() {
             </h1>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
               className="space-y-6"
             >
-              <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#1A1A1A]">
+              <h2 className="font-display text-xl sm:text-2xl font-bold text-[#1A1A1A]">
                 {siteConfig.yearsOfLegacy} Years of Devotion & Community Service
               </h2>
               <p className="text-[#4A453C]/50 leading-relaxed">
@@ -71,7 +66,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-5 lg:gap-8 mb-24"
+            className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-20"
           >
             {statCards.map((stat, i) => (
               <motion.div
@@ -84,27 +79,25 @@ export default function AboutPage() {
               >
                 <FlipCard
                   front={
-                    <div className="w-full h-full bg-gradient-to-b from-[#FCFBF8] to-white rounded-3xl border border-[rgba(200,161,74,0.18)] p-7 flex flex-col items-center justify-center text-center shadow-sm">
-                      <span className="text-3xl mb-3">{stat.icon}</span>
-                      <p className="font-display text-3xl sm:text-4xl font-bold gold-text leading-none">
+                    <div className="w-full h-full bg-gradient-to-b from-[#FCFBF8] to-white rounded-3xl border border-[rgba(200,161,74,0.18)] p-5 flex flex-col items-center justify-center text-center shadow-sm">
+                      <span className="text-2xl mb-3">{stat.icon}</span>
+                      <p className="font-display text-xl sm:text-2xl font-bold gold-text leading-none">
                         {stat.value}
                       </p>
-                      <p className="text-[#4A453C]/45 text-sm mt-2.5">
+                      <p className="text-[#4A453C]/45 text-[0.8rem] mt-2 max-w-[90%]">
                         {stat.label}
                       </p>
-                      <div className="w-8 h-px bg-gold-400/30 mt-4" />
                     </div>
                   }
                   back={
-                    <div className="w-full h-full bg-gradient-to-b from-white to-[#FCFBF8] rounded-3xl border border-[rgba(200,161,74,0.18)] p-7 flex flex-col items-center justify-center text-center shadow-lg">
-                      <span className="text-xl mb-2.5">{stat.icon}</span>
-                      <p className="font-display text-base font-bold text-[#1A1A1A]">
+                    <div className="w-full h-full bg-gradient-to-b from-white to-[#FCFBF8] rounded-3xl border border-[rgba(200,161,74,0.18)] p-5 flex flex-col items-center justify-center text-center shadow-lg">
+                      <span className="text-lg mb-2">{stat.icon}</span>
+                      <p className="font-display text-xs font-bold text-[#1A1A1A]">
                         {stat.backTitle}
                       </p>
-                      <p className="text-[#4A453C]/50 text-sm leading-relaxed mt-3 max-w-[200px]">
+                      <p className="text-[#4A453C]/50 text-xs leading-relaxed mt-2 max-w-[90%]">
                         {stat.backDescription}
                       </p>
-                      <div className="w-8 h-px bg-gold-400/30 mt-4" />
                     </div>
                   }
                 />
@@ -116,10 +109,10 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-24"
+            className="text-center mb-20"
           >
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-[#1A1A1A] mb-12">Our Mission</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-[#1A1A1A] mb-10">Our Mission</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
                 { title: "Preserve Tradition", desc: "Keep alive the rich cultural and spiritual traditions associated with Ganesha celebrations.", icon: "🪷" },
                 { title: "Build Community", desc: "Bring people together through events, feasts, and shared experiences of devotion.", icon: "🤝" },
@@ -128,24 +121,25 @@ export default function AboutPage() {
                 <div key={item.title} className="w-full">
                   <FlipCard
                     front={
-                      <div className="w-full h-full bg-gradient-to-b from-[#FCFBF8] to-white rounded-3xl border border-[rgba(200,161,74,0.18)] p-7 flex flex-col items-center justify-center text-center shadow-sm">
-                        <span className="text-4xl mb-4">{item.icon}</span>
-                        <h3 className="font-display text-lg font-bold text-[#1A1A1A]">
+                      <div className="w-full h-full bg-gradient-to-b from-[#FCFBF8] to-white rounded-3xl border border-[rgba(200,161,74,0.18)] p-5 flex flex-col items-center justify-center text-center shadow-sm">
+                        <span className="text-3xl mb-3">{item.icon}</span>
+                        <h3 className="font-display text-xl sm:text-2xl font-bold text-[#1A1A1A] leading-[1.2]">
                           {item.title}
                         </h3>
-                        <div className="w-8 h-px bg-gold-400/30 mt-4" />
+                        <p className="text-[#4A453C]/50 text-sm leading-[1.7] max-w-[85%] mt-3">
+                          {item.desc}
+                        </p>
                       </div>
                     }
                     back={
-                      <div className="w-full h-full bg-gradient-to-b from-white to-[#FCFBF8] rounded-3xl border border-[rgba(200,161,74,0.18)] p-7 flex flex-col items-center justify-center text-center shadow-lg">
-                        <span className="text-2xl mb-3">{item.icon}</span>
-                        <h3 className="font-display text-base font-bold text-[#1A1A1A]">
+                      <div className="w-full h-full bg-gradient-to-b from-white to-[#FCFBF8] rounded-3xl border border-[rgba(200,161,74,0.18)] p-5 flex flex-col items-center justify-center text-center shadow-lg">
+                        <span className="text-xl mb-2">{item.icon}</span>
+                        <h3 className="font-display text-sm font-bold text-[#1A1A1A]">
                           {item.title}
                         </h3>
-                        <p className="text-[#4A453C]/50 text-sm leading-relaxed mt-3 max-w-[280px]">
+                        <p className="text-[#4A453C]/50 text-sm leading-relaxed mt-2 max-w-[90%]">
                           {item.desc}
                         </p>
-                        <div className="w-8 h-px bg-gold-400/30 mt-4" />
                       </div>
                     }
                   />
