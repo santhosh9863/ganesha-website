@@ -150,13 +150,13 @@ export default function Hero() {
 
       {/* ── Layer 6: Text content ── */}
       <div className="relative z-20 layout-container flex-1 flex flex-col lg:min-h-dvh">
-        <div className="flex-1 flex flex-col justify-center lg:w-[45%] pt-[76px] lg:pt-32 pb-8 lg:pb-24">
+        <div className="flex-1 flex flex-col justify-center lg:w-[45%] pt-24 lg:pt-44 pb-16 lg:pb-36">
           {/* Eyebrow */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6, ease: easePremium }}
-            className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-gold-400 font-semibold mb-5"
+            className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-gold-400 font-semibold mb-9"
           >
             Since {siteConfig.foundedYear} &bull; {siteConfig.yearsOfLegacy} Years of Devotion
           </motion.div>
@@ -176,7 +176,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.95, duration: 0.6, ease: easePremium }}
-            className="text-[#666] leading-relaxed text-sm sm:text-base lg:text-lg max-w-[520px] mt-7"
+            className="text-[#666] leading-relaxed text-sm sm:text-base lg:text-lg max-w-[520px] mt-10"
           >
             For fourteen years, our community has come together to celebrate faith, culture, service, and togetherness through the blessings of Lord Ganesha.
           </motion.p>
@@ -186,7 +186,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.15, duration: 0.6, ease: easePremium }}
-            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mt-10"
+            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mt-14"
           >
             <Link
               href="/about"
@@ -212,7 +212,7 @@ export default function Hero() {
       </div>
 
       {/* ── Layer 7: Idol — Mobile (below text, full width) ── */}
-      <div className="relative z-10 lg:hidden h-[300px] sm:h-[380px] shrink-0 -mt-6">
+      <div className="relative z-10 lg:hidden h-[300px] sm:h-[380px] shrink-0">
         <Image
           src="/images/hero.png"
           alt=""
