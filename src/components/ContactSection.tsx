@@ -7,7 +7,8 @@ import { contactSchema, type ContactFormData } from "@/lib/schemas";
 import { siteConfig } from "@/data/content";
 import SocialIcon from "@/components/SocialIcon";
 import { FaInstagram, FaFacebookF, FaYoutube, FaXTwitter, FaWhatsapp } from "react-icons/fa6";
-import { ArrowRight, Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
+import PremiumDonateButton from "@/components/PremiumDonateButton";
 
 export default function ContactSection() {
   const {
@@ -122,11 +123,9 @@ export default function ContactSection() {
               <div className="rounded-2xl bg-gradient-to-br from-gold-400/12 to-gold-400/5 border border-gold-400/25 card-padding shadow-lg shadow-gold-400/10">
                 <h3 className="font-display text-lg font-bold text-[#1A1A1A] mb-3">Support Our Mission</h3>
                 <p className="text-[#4A453C]/50 text-sm leading-premium mb-6">Your donations help us organize this grand celebration and serve the community.</p>
-                <button className="group relative inline-flex items-center justify-center gap-3 h-12 w-full bg-gradient-to-r from-gold-400 to-gold-500 hover:from-gold-500 hover:to-gold-400 text-white font-bold rounded-[14px] text-sm transition-all duration-500 shadow-lg shadow-gold-400/25 hover:shadow-[0_12px_32px_rgba(200,161,74,0.4)] hover:shadow-xl cursor-pointer focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2 overflow-hidden active:scale-[0.98]">
-                  <span className="absolute inset-0 bg-gradient-to-b from-white/[0.2] to-transparent top-0 h-[30%] transition-opacity duration-300" />
-                  <span className="relative z-10">Donate Now</span>
-                  <ArrowRight className="relative z-10 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </button>
+                <PremiumDonateButton onClick={() => {}} fullWidth>
+                  Donate Now
+                </PremiumDonateButton>
               </div>
             </motion.div>
           </div>

@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Heart, Shield, ArrowRight, Check } from "lucide-react";
+import { Heart, Shield, Check } from "lucide-react";
 import { siteConfig } from "@/data/content";
+import PremiumDonateButton from "@/components/PremiumDonateButton";
 
 const amounts = [
   { label: "₹101", desc: "Simple Offering", shortDesc: "Support the daily rituals and prayers throughout the festival", recommended: false },
@@ -143,10 +144,9 @@ export default function DonationSection() {
             transition={{ delay: 0.4, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="stack-group text-center"
           >
-            <button className="group relative inline-flex items-center justify-center gap-3 h-12 w-[85%] sm:w-auto sm:px-9 bg-gradient-to-r from-gold-400 to-gold-500 hover:from-gold-500 hover:to-gold-400 text-white font-bold rounded-[18px] transition-all duration-500 shadow-lg shadow-gold-400/20 hover:shadow-gold-400/40 hover:shadow-xl text-sm focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2">
+            <PremiumDonateButton onClick={() => {}}>
               Donate {selected === "Custom" ? "Now" : selected}
-              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </button>
+            </PremiumDonateButton>
           </motion.div>
 
           {/* Trust Information */}
