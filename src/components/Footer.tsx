@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { siteConfig, navLinks } from "@/data/content";
 import SocialIcon from "@/components/SocialIcon";
-import { FaInstagram, FaFacebookF, FaYoutube, FaXTwitter } from "react-icons/fa6";
+import { FaInstagram } from "react-icons/fa6";
 
 export default function Footer() {
   return (
@@ -72,9 +72,6 @@ export default function Footer() {
             <h4 className="font-display text-white font-semibold mb-5 text-sm tracking-wide">Follow Us</h4>
             <div className="flex items-center justify-center md:justify-start gap-3.5 md:gap-[18px]">
               <SocialIcon href={siteConfig.social.instagram} icon={<FaInstagram size={20} />} label="Instagram" />
-              <SocialIcon href={siteConfig.social.facebook} icon={<FaFacebookF size={20} />} label="Facebook" />
-              <SocialIcon href={siteConfig.social.youtube} icon={<FaYoutube size={20} />} label="YouTube" />
-              <SocialIcon href={siteConfig.social.twitter} icon={<FaXTwitter size={20} />} label="X (Twitter)" />
             </div>
           </motion.div>
         </div>
@@ -83,8 +80,8 @@ export default function Footer() {
           <p className="text-white/30 text-xs">
             &copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
           </p>
-          <p className="text-gold-400/50 text-xs font-display tracking-wider">
-            {siteConfig.yearsOfLegacy} Years of Legacy
+          <p className="text-gold-400/50 text-xs font-display tracking-wider whitespace-nowrap">
+            Built By - Santhosh Krishna.R
           </p>
         </div>
       </div>

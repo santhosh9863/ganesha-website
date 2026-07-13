@@ -55,30 +55,30 @@ export default function CountdownTimer() {
 
   return (
     <div>
-      <p className="text-[#4A453C]/50 text-[0.5rem] lg:text-[0.55rem] tracking-[0.25em] uppercase font-medium text-center leading-relaxed mb-3">
+      <p className="text-[#4A453C]/50 text-[0.5rem] lg:text-[0.55rem] tracking-[0.25em] uppercase font-medium text-center leading-relaxed mb-4">
         Counting down to
       </p>
-      <p className="font-display text-sm lg:text-base font-semibold text-gold-400 text-center mb-8">
+      <p className="font-display text-sm lg:text-base font-semibold text-gold-400 text-center mb-10">
         Ganesh Chaturthi
       </p>
 
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+      <div className="grid grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
         {items.map((item) => (
           <div
             key={item.label}
-            className="flex flex-col items-center justify-center p-4 sm:p-5 rounded-2xl bg-white border border-gold-400/10 shadow-sm"
+            className="flex flex-col items-center justify-center p-4 sm:p-5 lg:p-7 rounded-2xl bg-white border border-gold-400/10 shadow-sm min-h-[90px] sm:min-h-[110px] lg:min-h-[130px]"
           >
-            <span className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-gold-400 tabular-nums leading-none tracking-tight">
+            <span className="font-display text-sm sm:text-2xl lg:text-4xl font-bold text-gold-400 tabular-nums leading-none tracking-tight">
               {String(item.value).padStart(2, "0")}
             </span>
-            <p className="text-[#4A453C]/40 text-[0.5rem] lg:text-[0.55rem] mt-3 uppercase tracking-[0.15em]">
+            <p className="text-[#4A453C]/40 text-[0.4rem] sm:text-[0.5rem] lg:text-[0.55rem] mt-2 sm:mt-3 uppercase tracking-[0.15em]">
               {item.label}
             </p>
           </div>
         ))}
       </div>
 
-      <p className="text-[#4A453C]/30 text-[0.5rem] lg:text-[0.55rem] text-center mt-10 tracking-wide">
+      <p className="text-gold-400/70 text-[0.6rem] lg:text-[0.65rem] text-center mt-28 lg:mt-32 tracking-[0.15em] font-medium">
         {siteConfig.festivalDate}
       </p>
     </div>

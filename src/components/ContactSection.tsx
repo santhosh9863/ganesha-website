@@ -82,25 +82,27 @@ export default function ContactSection() {
 
             <motion.div
               initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ delay: 0.25 }}
               className="flex flex-col gap-8"
             >
-              <div className="card card-padding">
+              <div className="card p-8 sm:p-10 lg:p-12 text-center">
                 <h3 className="font-display text-lg font-bold text-[#1A1A1A] mb-4">Follow Us</h3>
                 <p className="text-[#4A453C]/50 text-sm leading-premium mb-6">Stay connected through our social media channels for the latest updates and event highlights.</p>
-                <div className="flex items-center justify-start gap-6 md:gap-8">
+                <div className="flex items-center justify-center gap-6 md:gap-8">
                   <SocialIcon href={siteConfig.social.instagram} icon={<FaInstagram size={26} />} label="Instagram" />
                   <SocialIcon href={siteConfig.social.whatsapp} icon={<FaWhatsapp size={26} />} label="WhatsApp" />
                 </div>
               </div>
-              <div className="rounded-2xl bg-gradient-to-br from-gold-400/12 to-gold-400/5 border border-gold-400/25 card-padding shadow-lg shadow-gold-400/10">
+              <div className="rounded-2xl bg-gradient-to-br from-gold-400/12 to-gold-400/5 border border-gold-400/25 p-8 sm:p-10 lg:p-12 shadow-lg shadow-gold-400/10 text-center">
                 <h3 className="font-display text-lg font-bold text-[#1A1A1A] mb-3">Support Our Mission</h3>
                 <p className="text-[#4A453C]/50 text-sm leading-premium mb-6">Your donations help us organize this grand celebration and serve the community.</p>
-                <PremiumDonateButton onClick={() => {}} fullWidth>
-                  Donate Now
-                </PremiumDonateButton>
+                <div className="flex justify-center">
+                  <PremiumDonateButton onClick={() => {}}>
+                    Donate Now
+                  </PremiumDonateButton>
+                </div>
               </div>
             </motion.div>
           </div>

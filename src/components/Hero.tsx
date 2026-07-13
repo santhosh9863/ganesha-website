@@ -207,11 +207,11 @@ export default function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.15, duration: 0.6, ease: easePremium }}
-            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mt-10 justify-center lg:justify-start"
+            className="flex flex-col lg:flex-row items-stretch lg:items-center gap-4 lg:gap-6 mt-10 justify-center lg:justify-start"
           >
             <Link
               href="/about"
-              className="group relative inline-flex items-center justify-center gap-3 h-12 px-7 w-full sm:w-auto sm:min-w-[200px] rounded-[18px] text-white text-sm sm:text-[15px] font-bold transition-all duration-300 active:scale-[0.97] shadow-[0_12px_30px_rgba(200,161,74,0.22)] hover:shadow-[0_20px_40px_rgba(200,161,74,0.30)] hover:-translate-y-0.5 overflow-hidden focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2"
+              className="group relative inline-flex items-center justify-center gap-3 h-12 lg:h-14 px-7 rounded-[18px] text-white text-sm sm:text-[15px] font-bold transition-all duration-300 active:scale-[0.97] shadow-[0_12px_30px_rgba(200,161,74,0.22)] hover:shadow-[0_20px_40px_rgba(200,161,74,0.30)] hover:-translate-y-0.5 overflow-hidden focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2"
               style={{
                 background:
                   "linear-gradient(135deg, #EFD48B 0%, #D8B75B 35%, #C89F45 65%, #B8852F 100%)",
@@ -224,7 +224,7 @@ export default function Hero() {
             </Link>
             <Link
               href="/gallery"
-              className="group relative inline-flex items-center justify-center gap-3 h-12 px-7 w-full sm:w-auto sm:min-w-[200px] rounded-[18px] border-[1.5px] border-[#DCC58A] text-[#8E6E2C] text-sm sm:text-[15px] font-bold bg-transparent transition-all duration-300 active:scale-[0.97] hover:bg-[rgba(200,161,74,0.08)] hover:border-[#C89F45] hover:-translate-y-0.5 overflow-hidden focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2"
+              className="group relative inline-flex items-center justify-center gap-3 h-12 lg:h-14 px-7 rounded-[18px] border-[1.5px] border-[#DCC58A] text-[#8E6E2C] text-sm sm:text-[15px] font-bold bg-transparent transition-all duration-300 active:scale-[0.97] hover:bg-[rgba(200,161,74,0.08)] hover:border-[#C89F45] hover:-translate-y-0.5 overflow-hidden focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2"
             >
               <span className="relative z-10">View Gallery</span>
             </Link>

@@ -3,30 +3,58 @@
 import { motion } from "framer-motion";
 import { events } from "@/data/content";
 
-function EventChips({ highlights }: { highlights: string[] }) {
-  return (
-    <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 mt-5 sm:mt-6">
-      {highlights.map((h) => (
-        <span
-          key={h}
-          className="shrink-0 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full text-[0.6rem] sm:text-[0.65rem] font-medium bg-gold-400/8 text-gold-400 whitespace-nowrap leading-none"
-        >
-          {h}
-        </span>
-      ))}
-    </div>
-  );
-}
+const easePremium: [number, number, number, number] = [0.16, 1, 0.3, 1];
+
+const sectionVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: easePremium } },
+};
+
+const lineVariants = {
+  hidden: { scaleY: 0, transformOrigin: "top" as const },
+  visible: { scaleY: 1, transition: { duration: 1.8, ease: easePremium } },
+};
+
+const dotVariants = {
+  hidden: { scale: 0, opacity: 0 },
+  visible: (i: number) => ({
+    scale: 1,
+    opacity: 1,
+    transition: { delay: 0.15 + i * 0.12, duration: 0.5, ease: [0.34, 1.56, 0.64, 1] as [number, number, number, number] },
+  }),
+};
+
+const contentVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: 0.1 + i * 0.12, duration: 0.7, ease: easePremium },
+  }),
+};
+
+const tagStagger = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.06, delayChildren: 0.25 },
+  },
+};
+
+const tagItem = {
+  hidden: { opacity: 0, y: 6 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: easePremium } },
+};
 
 export default function EventsSchedule() {
   return (
     <section className="section-spacing relative overflow-hidden">
       <div className="relative layout-container">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          variants={sectionVariants}
           className="text-center"
         >
           <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1A1A1A] leading-tight">
@@ -35,44 +63,89 @@ export default function EventsSchedule() {
           </h2>
         </motion.div>
 
-        <div className="mt-12 lg:mt-14">
-          <div className="mx-auto max-w-[900px]">
-            <div className="flex flex-col gap-7 sm:gap-8 lg:gap-9">
-              {events.map((event, i) => (
+        <div className="relative mt-16 lg:mt-20 mx-auto max-w-[1200px]">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={lineVariants}
+            className="hidden lg:block absolute left-[200px] top-8 bottom-8 w-px bg-gradient-to-b from-transparent via-gold-400/15 to-transparent origin-top"
+          />
+
+          {events.map((event, i) => (
+            <div key={event.day} className="relative pb-16 lg:pb-20 last:pb-0">
+              <div className="hidden lg:block absolute top-0 left-[200px] right-0 h-px bg-gold-400/8" />
+
+              <div className="grid grid-cols-1 lg:grid-cols-[200px_1fr] gap-5 lg:gap-0 pt-12 lg:pt-16 first:pt-0">
+                <div className="relative flex lg:flex-col items-center lg:items-end gap-3 lg:gap-0">
+                  <motion.div
+                    custom={i}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-60px" }}
+                    variants={dotVariants}
+                    className="hidden lg:block absolute right-[-8px] top-[5px] w-[17px] h-[17px] rounded-full border-[3px] border-gold-400 bg-white shadow-sm shadow-gold-400/10 z-10"
+                  />
+
+                  <span className="lg:hidden inline-flex items-center justify-center w-8 h-8 rounded-full bg-gold-400/10 text-gold-400 text-xs font-bold shrink-0">
+                    D{event.day}
+                  </span>
+
+                  <div className="lg:text-right lg:pr-8">
+                    <p className="text-gold-400 text-[0.55rem] lg:text-[0.6rem] tracking-[0.25em] uppercase font-semibold">
+                      D{event.day} &mdash; {event.time}
+                    </p>
+                    <p className="text-[#4A453C]/30 text-[0.5rem] lg:text-[0.55rem] mt-1 lg:mt-2 tracking-[0.15em] uppercase hidden lg:block">
+                      Day {event.day}
+                    </p>
+                  </div>
+                </div>
+
                 <motion.div
-                  key={event.day}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-80px" }}
-                  transition={{ delay: i * 0.08, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  className="w-full"
+                  custom={i}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-60px" }}
+                  variants={contentVariants}
+                  className="lg:pl-12"
                 >
-                  <div
-                    className="bg-white border border-[#ECE8DF] shadow-[0_2px_16px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.06)] hover:border-gold-400/25 transition-all duration-300 rounded-[28px] p-5 sm:p-7 lg:p-8 min-h-[180px] sm:min-h-[220px]"
-                  >
-                    <div className="flex items-center gap-3 mb-5">
-                      <span className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-gold-400/10 text-gold-400 text-[0.65rem] font-semibold leading-none shrink-0">
-                        D{event.day}
-                      </span>
-                      <span className="text-[0.65rem] sm:text-[0.7rem] font-medium text-[#4A453C]/40 leading-none">
-                        {event.time}
-                      </span>
-                    </div>
+                  <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1A1A1A] leading-[1.15] lg:leading-[1.2] tracking-tight">
+                    {event.title}
+                  </h3>
 
-                    <h3 className="font-display text-2xl sm:text-3xl lg:text-[32px] font-bold text-[#1A1A1A] leading-[1.15] lg:leading-[1.2] tracking-tight line-clamp-2">
-                      {event.title}
-                    </h3>
-
-                    <p className="text-[#4A453C]/55 text-sm sm:text-base leading-[1.7] lg:leading-[1.8] max-w-[600px] mt-5 sm:mt-6 line-clamp-2">
+                  {event.description && (
+                    <p className="text-[#4A453C]/55 text-sm sm:text-base leading-[1.8] mt-4 lg:mt-5 max-w-[580px]">
                       {event.description}
                     </p>
+                  )}
 
-                    {event.highlights && <EventChips highlights={event.highlights} />}
-                  </div>
+                  {event.highlights && event.highlights.length > 0 && (
+                    <motion.div
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true, margin: "-40px" }}
+                      variants={tagStagger}
+                      className="flex flex-wrap gap-2 lg:gap-2.5 mt-5 lg:mt-6"
+                    >
+                      {event.highlights.map((h) => (
+                        <motion.span
+                          key={h}
+                          variants={tagItem}
+                          className="inline-flex items-center px-3 py-1 rounded-full text-[0.5rem] sm:text-[0.55rem] font-medium bg-gold-400/8 text-gold-400/70 tracking-[0.08em] uppercase"
+                        >
+                          {h}
+                        </motion.span>
+                      ))}
+                    </motion.div>
+                  )}
                 </motion.div>
-              ))}
+              </div>
+
+              {i < events.length - 1 && (
+                <div className="lg:hidden mt-6 border-t border-gold-400/8" />
+              )}
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

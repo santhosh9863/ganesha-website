@@ -64,7 +64,7 @@ export default function HeroNavbar() {
 
           <button
             onClick={scrollToDonation}
-            className="group relative inline-flex items-center justify-center gap-3 h-12 px-7 w-full sm:w-auto sm:min-w-[200px] rounded-[18px] text-white text-sm sm:text-[15px] font-bold transition-all duration-300 active:scale-[0.97] shadow-[0_12px_30px_rgba(200,161,74,0.22)] hover:shadow-[0_20px_40px_rgba(200,161,74,0.30)] hover:-translate-y-0.5 overflow-hidden cursor-pointer whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2"
+            className="group relative inline-flex items-center justify-center h-12 px-7 lg:px-8 rounded-full text-white text-sm sm:text-[15px] font-bold transition-all duration-300 active:scale-[0.97] shadow-[0_12px_30px_rgba(200,161,74,0.22)] hover:shadow-[0_20px_40px_rgba(200,161,74,0.30)] hover:-translate-y-0.5 overflow-hidden cursor-pointer whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2 gap-3"
             style={{
               background:
                 "linear-gradient(135deg, #EFD48B 0%, #D8B75B 35%, #C89F45 65%, #B8852F 100%)",

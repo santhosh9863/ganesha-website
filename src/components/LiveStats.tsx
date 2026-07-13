@@ -26,8 +26,8 @@ export default function LiveStats() {
           </h2>
         </motion.div>
 
-        <div className="mt-10">
-          <div className="grid grid-cols-2 gap-6 md:max-w-3xl mx-auto">
+        <div className="mt-8">
+          <div className="grid grid-cols-2 gap-4 md:gap-6 lg:gap-8">
             {statCards.map((stat, i) => (
               <motion.div
                 key={stat.label}
@@ -39,23 +39,23 @@ export default function LiveStats() {
               >
                 <FlipCard
                   front={
-                    <div className="w-full h-full bg-gradient-to-b from-[#FCFBF8] to-white rounded-2xl border border-[rgba(200,161,74,0.18)] p-5 flex flex-col items-center justify-center text-center shadow-sm">
-                      <span className="text-2xl mb-3">{stat.icon}</span>
-                      <p className="font-display text-xl sm:text-2xl font-bold gold-text leading-none">
+                    <div className="w-full h-full bg-gradient-to-b from-[#FCFBF8] to-white rounded-xl border border-[rgba(200,161,74,0.18)] p-4 md:p-5 flex flex-col items-center justify-center text-center shadow-sm min-h-[100px] md:min-h-[130px]">
+                      <span className="text-lg md:text-xl mb-2">{stat.icon}</span>
+                      <p className="font-display text-base md:text-xl lg:text-2xl font-bold gold-text leading-none">
                         {stat.value}
                       </p>
-                      <p className="text-[#4A453C]/45 text-[0.8rem] mt-2">
+                      <p className="text-[#4A453C]/45 text-[0.7rem] md:text-[0.8rem] mt-1.5">
                         {stat.label}
                       </p>
                     </div>
                   }
                   back={
-                    <div className="w-full h-full bg-gradient-to-b from-white to-[#FCFBF8] rounded-2xl border border-[rgba(200,161,74,0.18)] p-5 flex flex-col items-center justify-center text-center shadow-lg">
-                      <span className="text-lg mb-2">{stat.icon}</span>
-                      <p className="font-display text-xs font-bold text-[#1A1A1A]">
+                    <div className="w-full h-full bg-gradient-to-b from-white to-[#FCFBF8] rounded-xl border border-[rgba(200,161,74,0.18)] p-4 md:p-5 flex flex-col items-center justify-center text-center shadow-lg min-h-[100px] md:min-h-[130px]">
+                      <span className="text-base md:text-lg mb-1.5">{stat.icon}</span>
+                      <p className="font-display text-[0.6rem] md:text-xs font-bold text-[#1A1A1A]">
                         {stat.backTitle}
                       </p>
-                      <p className="text-[#4A453C]/50 text-xs leading-relaxed mt-2 max-w-[90%]">
+                      <p className="text-[#4A453C]/50 text-[0.55rem] md:text-xs leading-relaxed mt-1.5 max-w-[90%]">
                         {stat.backDescription}
                       </p>
                     </div>

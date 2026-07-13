@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import LegacySection from "@/components/LegacySection";
-import FestivalHighlights from "@/components/FestivalHighlights";
+
 import Gallery from "@/components/Gallery";
 import VideoSection from "@/components/VideoSection";
 import EventsSchedule from "@/components/EventsSchedule";
@@ -25,7 +25,7 @@ export default function Home() {
       <LiveStats />
 
       {/* ── Countdown — premium editorial block ── */}
-      <section className="section-spacing relative overflow-hidden bg-gradient-to-b from-[#FFFFFF] via-[#FCFBF8] to-[#FFFFFF]">
+      <section className="section-spacing relative overflow-hidden bg-gradient-to-b from-[#FFFFFF] via-[#FCFBF8] to-[#FFFFFF] pb-8 md:pb-14">
         <div className="relative layout-container">
           <div className="max-w-[760px] mx-auto">
             <motion.div
@@ -38,11 +38,11 @@ export default function Home() {
               <span className="text-gold-400 text-xs tracking-[0.3em] uppercase font-medium">
                 Coming Soon
               </span>
-              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1A1A1A] mt-6 leading-[1.1]">
+              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1A1A1A] mt-8 leading-[1.1] max-w-[90%] sm:max-w-none mx-auto">
                 Celebrating{" "}
                 <span className="gold-text">Ganesh Chaturthi</span>
               </h2>
-              <p className="text-[#4A453C]/50 max-w-content leading-[1.8] text-base sm:text-lg mt-6 mb-10">
+              <p className="text-[#4A453C]/50 max-w-content leading-[1.8] text-base sm:text-lg mt-7 mb-12">
                 Join us for 5 days of devotion, culture, and community celebration
               </p>
             </motion.div>
@@ -53,7 +53,6 @@ export default function Home() {
       </section>
 
       <LegacySection />
-      <FestivalHighlights />
       <Gallery />
       <VideoSection />
       <EventsSchedule />
