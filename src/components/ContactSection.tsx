@@ -7,7 +7,6 @@ import { contactSchema, type ContactFormData } from "@/lib/schemas";
 import { siteConfig } from "@/data/content";
 import SocialIcon from "@/components/SocialIcon";
 import { FaInstagram, FaFacebookF, FaYoutube, FaXTwitter, FaWhatsapp } from "react-icons/fa6";
-import { Mail, Phone, MapPin } from "lucide-react";
 import PremiumDonateButton from "@/components/PremiumDonateButton";
 
 export default function ContactSection() {
@@ -89,28 +88,8 @@ export default function ContactSection() {
               className="flex flex-col gap-8"
             >
               <div className="card card-padding">
-                <h3 className="font-display text-lg font-bold text-[#1A1A1A] mb-5">Contact Information</h3>
-                <div className="space-y-5">
-                  {[
-                    { label: "Email", value: siteConfig.email, icon: Mail },
-                    { label: "Phone", value: siteConfig.phone, icon: Phone },
-                    { label: "Location", value: siteConfig.location, icon: MapPin },
-                  ].map((item) => (
-                    <div key={item.label} className="flex items-start gap-3">
-                      <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-gold-400/10 shrink-0 mt-0.5">
-                        <item.icon className="w-4 h-4 text-gold-400" />
-                      </div>
-                      <div className="min-w-0">
-                        <p className="text-gold-400/60 text-[0.6rem] uppercase tracking-wider font-medium">{item.label}</p>
-                        <p className="text-[#4A453C]/60 text-sm mt-0.5 break-words">{item.value}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="card card-padding">
-                <h3 className="font-display text-lg font-bold text-[#1A1A1A] mb-6">Follow Us</h3>
+                <h3 className="font-display text-lg font-bold text-[#1A1A1A] mb-4">Follow Us</h3>
+                <p className="text-[#4A453C]/50 text-sm leading-premium mb-6">Stay connected through our social media channels for the latest updates and event highlights.</p>
                 <div className="flex items-center justify-center gap-4 md:gap-5">
                   <SocialIcon href={siteConfig.social.instagram} icon={<FaInstagram size={22} />} label="Instagram" />
                   <SocialIcon href={siteConfig.social.facebook} icon={<FaFacebookF size={22} />} label="Facebook" />
@@ -119,7 +98,6 @@ export default function ContactSection() {
                   <SocialIcon href={siteConfig.social.whatsapp} icon={<FaWhatsapp size={22} />} label="WhatsApp" />
                 </div>
               </div>
-
               <div className="rounded-2xl bg-gradient-to-br from-gold-400/12 to-gold-400/5 border border-gold-400/25 card-padding shadow-lg shadow-gold-400/10">
                 <h3 className="font-display text-lg font-bold text-[#1A1A1A] mb-3">Support Our Mission</h3>
                 <p className="text-[#4A453C]/50 text-sm leading-premium mb-6">Your donations help us organize this grand celebration and serve the community.</p>
