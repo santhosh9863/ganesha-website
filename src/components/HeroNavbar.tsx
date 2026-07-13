@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { siteConfig } from "@/data/content";
@@ -14,6 +14,14 @@ export default function HeroNavbar() {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const scrollToDonation = useCallback(() => {
+    const el = document.getElementById("donation");
+    if (!el) return;
+    const offset = 90;
+    const top = el.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top, behavior: "smooth" });
   }, []);
 
   return (
@@ -36,7 +44,7 @@ export default function HeroNavbar() {
         <div className="h-full bg-gradient-to-r from-transparent via-gold-400/15 to-transparent" />
       </div>
 
-      <div className="mx-auto w-full max-w-[1280px] flex items-center h-[68px] lg:h-[72px] px-4 md:px-12">
+      <div className="mx-auto w-full max-w-[1280px] flex items-center justify-between h-[68px] lg:h-[72px] px-4 md:px-12">
           <Link href="/" className="flex items-center gap-3 lg:gap-4 group shrink-0">
             <div className="w-11 h-11 lg:w-12 lg:h-12 rounded-xl bg-gradient-to-br from-gold-400/25 to-gold-400/8 border border-gold-400/25 flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:border-gold-400/50 group-hover:shadow-lg group-hover:shadow-gold-400/15">
               <span className="text-gold-400 text-base lg:text-lg font-display font-bold">
@@ -52,6 +60,18 @@ export default function HeroNavbar() {
               </p>
             </div>
           </Link>
+
+          <button
+            onClick={scrollToDonation}
+            className="relative h-9 lg:h-10 px-5 lg:px-6 rounded-[14px] lg:rounded-[16px] text-[10px] lg:text-[11px] font-bold text-white transition-all duration-300 active:scale-[0.97] shadow-[0_8px_20px_rgba(200,161,74,0.2)] hover:shadow-[0_12px_28px_rgba(200,161,74,0.28)] hover:-translate-y-0.5 overflow-hidden cursor-pointer whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2"
+            style={{
+              background:
+                "linear-gradient(135deg, #EFD48B 0%, #D8B75B 35%, #C89F45 65%, #B8852F 100%)",
+            }}
+          >
+            <span className="absolute inset-0 bg-gradient-to-b from-white/[0.22] to-transparent top-0 h-[25%] pointer-events-none" />
+            <span className="relative z-10">Contribute</span>
+          </button>
         </div>
     </motion.header>
   );
