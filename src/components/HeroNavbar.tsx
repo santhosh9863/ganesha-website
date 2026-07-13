@@ -30,8 +30,8 @@ export default function HeroNavbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: easePremium }}
-      style={{ paddingTop: "env(safe-area-inset-top, 0px)", paddingRight: "env(safe-area-inset-right, 0px)" }}
-      className={`fixed top-3 lg:top-5 left-0 right-0 z-50 transition-all duration-500 ${
+      style={{ paddingRight: "env(safe-area-inset-right, 0px)" }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
           ? "bg-white/80 backdrop-blur-xl shadow-sm shadow-black/5"
           : "bg-transparent"
@@ -45,7 +45,7 @@ export default function HeroNavbar() {
         <div className="h-full bg-gradient-to-r from-transparent via-gold-400/15 to-transparent" />
       </div>
 
-      <div className="mx-auto w-full max-w-[1280px] flex items-center h-[68px] lg:h-[72px] px-4 md:px-12">
+      <div className="mx-auto w-full max-w-[1280px] flex items-center justify-between h-[68px] lg:h-[72px] px-6 lg:px-8">
           <Link href="/" className="flex items-center gap-3 lg:gap-4 group shrink-0">
             <div className="w-11 h-11 lg:w-12 lg:h-12 rounded-xl bg-gradient-to-br from-gold-400/25 to-gold-400/8 border border-gold-400/25 flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:border-gold-400/50 group-hover:shadow-lg group-hover:shadow-gold-400/15">
               <span className="text-gold-400 text-base lg:text-lg font-display font-bold">
@@ -64,7 +64,7 @@ export default function HeroNavbar() {
 
           <button
             onClick={scrollToDonation}
-            className="group relative inline-flex items-center justify-center h-12 px-7 lg:px-8 rounded-full text-white text-sm sm:text-[15px] font-bold transition-all duration-300 active:scale-[0.97] shadow-[0_12px_30px_rgba(200,161,74,0.22)] hover:shadow-[0_20px_40px_rgba(200,161,74,0.30)] hover:-translate-y-0.5 overflow-hidden cursor-pointer whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2 gap-3 ml-auto mr-4 lg:mr-0"
+            className="group relative inline-flex items-center justify-center h-12 px-7 lg:px-8 rounded-full text-white text-sm sm:text-[15px] font-bold transition-all duration-300 active:scale-[0.97] shadow-[0_12px_30px_rgba(200,161,74,0.22)] hover:shadow-[0_20px_40px_rgba(200,161,74,0.30)] hover:-translate-y-0.5 overflow-hidden cursor-pointer whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2 gap-3"
             style={{
               background:
                 "linear-gradient(135deg, #EFD48B 0%, #D8B75B 35%, #C89F45 65%, #B8852F 100%)",
