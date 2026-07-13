@@ -5,11 +5,11 @@ import { events } from "@/data/content";
 
 function EventChips({ highlights }: { highlights: string[] }) {
   return (
-    <div className="flex flex-nowrap items-center gap-1.5 overflow-x-auto scrollbar-none [-ms-overflow-style:none] [scrollbar-width:none]">
+    <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 mt-5 sm:mt-6">
       {highlights.map((h) => (
         <span
           key={h}
-          className="shrink-0 px-2 py-0.5 rounded-full text-[0.55rem] leading-none font-medium bg-gold-400/8 text-gold-400 whitespace-nowrap"
+          className="shrink-0 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full text-[0.6rem] sm:text-[0.65rem] font-medium bg-gold-400/8 text-gold-400 whitespace-nowrap leading-none"
         >
           {h}
         </span>
@@ -37,7 +37,7 @@ export default function EventsSchedule() {
 
         <div className="mt-12 lg:mt-14">
           <div className="mx-auto max-w-[900px]">
-            <div className="flex flex-col gap-5 sm:gap-6">
+            <div className="flex flex-col gap-7 sm:gap-8 lg:gap-9">
               {events.map((event, i) => (
                 <motion.div
                   key={event.day}
@@ -47,21 +47,23 @@ export default function EventsSchedule() {
                   transition={{ delay: i * 0.08, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                   className="w-full"
                 >
-                  <div className="card !rounded-2xl p-4 sm:p-5">
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="inline-flex items-center justify-center w-[24px] h-[24px] rounded-md bg-gold-400/10 text-gold-400 text-[0.6rem] font-semibold leading-none shrink-0">
+                  <div
+                    className="bg-white border border-[#ECE8DF] shadow-[0_2px_16px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.06)] hover:border-gold-400/25 transition-all duration-300 rounded-[28px] p-5 sm:p-7 lg:p-8 min-h-[180px] sm:min-h-[220px]"
+                  >
+                    <div className="flex items-center gap-3 mb-5">
+                      <span className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-gold-400/10 text-gold-400 text-[0.65rem] font-semibold leading-none shrink-0">
                         D{event.day}
                       </span>
-                      <span className="text-[0.6rem] sm:text-[0.65rem] font-medium text-[#4A453C]/40 leading-none">
+                      <span className="text-[0.65rem] sm:text-[0.7rem] font-medium text-[#4A453C]/40 leading-none">
                         {event.time}
                       </span>
                     </div>
 
-                    <h3 className="font-display text-base sm:text-xl lg:text-2xl font-bold text-[#1A1A1A] leading-[1.25] tracking-tight line-clamp-2 mb-2">
+                    <h3 className="font-display text-2xl sm:text-3xl lg:text-[32px] font-bold text-[#1A1A1A] leading-[1.15] lg:leading-[1.2] tracking-tight line-clamp-2">
                       {event.title}
                     </h3>
 
-                    <p className="text-[#4A453C]/55 text-xs sm:text-sm leading-[1.5] line-clamp-2 mb-3">
+                    <p className="text-[#4A453C]/55 text-sm sm:text-base leading-[1.7] lg:leading-[1.8] max-w-[600px] mt-5 sm:mt-6 line-clamp-2">
                       {event.description}
                     </p>
 
