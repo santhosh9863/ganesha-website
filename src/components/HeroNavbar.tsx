@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import { siteConfig } from "@/data/content";
 
 const easePremium: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -44,7 +45,7 @@ export default function HeroNavbar() {
         <div className="h-full bg-gradient-to-r from-transparent via-gold-400/15 to-transparent" />
       </div>
 
-      <div className="mx-auto w-full max-w-[1280px] flex items-center justify-between h-[68px] lg:h-[72px] px-4 md:px-12">
+      <div className="mx-auto w-full max-w-[1280px] flex items-center h-[68px] lg:h-[72px] px-4 md:px-12">
           <Link href="/" className="flex items-center gap-3 lg:gap-4 group shrink-0">
             <div className="w-11 h-11 lg:w-12 lg:h-12 rounded-xl bg-gradient-to-br from-gold-400/25 to-gold-400/8 border border-gold-400/25 flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:border-gold-400/50 group-hover:shadow-lg group-hover:shadow-gold-400/15">
               <span className="text-gold-400 text-base lg:text-lg font-display font-bold">
@@ -63,14 +64,16 @@ export default function HeroNavbar() {
 
           <button
             onClick={scrollToDonation}
-            className="relative h-9 lg:h-10 px-5 lg:px-6 rounded-[14px] lg:rounded-[16px] text-[10px] lg:text-[11px] font-bold text-white transition-all duration-300 active:scale-[0.97] shadow-[0_8px_20px_rgba(200,161,74,0.2)] hover:shadow-[0_12px_28px_rgba(200,161,74,0.28)] hover:-translate-y-0.5 overflow-hidden cursor-pointer whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2"
+            className="group relative inline-flex items-center justify-center h-12 px-7 lg:px-8 rounded-full text-white text-sm sm:text-[15px] font-bold transition-all duration-300 active:scale-[0.97] shadow-[0_12px_30px_rgba(200,161,74,0.22)] hover:shadow-[0_20px_40px_rgba(200,161,74,0.30)] hover:-translate-y-0.5 overflow-hidden cursor-pointer whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2 gap-3 ml-auto mr-4 lg:mr-0"
             style={{
               background:
                 "linear-gradient(135deg, #EFD48B 0%, #D8B75B 35%, #C89F45 65%, #B8852F 100%)",
             }}
           >
-            <span className="absolute inset-0 bg-gradient-to-b from-white/[0.22] to-transparent top-0 h-[25%] pointer-events-none" />
-            <span className="relative z-10">Contribute</span>
+            <span className="absolute inset-0 bg-gradient-to-b from-white/[0.28] to-transparent top-0 h-[20%] transition-opacity duration-300" />
+            <span className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <span className="relative z-10">Donate</span>
+            <ArrowRight className="relative z-10 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
           </button>
         </div>
     </motion.header>
