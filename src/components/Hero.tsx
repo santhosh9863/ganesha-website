@@ -149,7 +149,7 @@ export default function Hero() {
       {mounted && <Particles />}
 
       {/* ── Layer 6: Idol — Mobile (above text, full width, visual centerpiece) ── */}
-      <div className="relative z-10 lg:hidden h-[45vh] shrink-0">
+      <div className="relative z-10 lg:hidden h-[48vh] shrink-0">
         <Image
           src="/images/hero.png"
           alt=""
@@ -163,7 +163,7 @@ export default function Hero() {
 
       {/* ── Layer 7: Text content ── */}
       <div className="relative z-20 layout-container flex-1 flex flex-col lg:min-h-dvh">
-        <div className="flex flex-col justify-center flex-1 lg:w-[45%] py-8 lg:py-24 text-center lg:text-left">
+        <div className="flex flex-col justify-center flex-1 lg:w-[45%] py-12 lg:pt-36 lg:pb-28 text-center lg:text-left">
           {/* Eyebrow */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
@@ -179,7 +179,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.75, duration: 0.8, ease: easePremium }}
-            className="font-display text-[clamp(2.2rem,5.5vw,4rem)] font-extrabold leading-[0.95] tracking-tight text-[#1A1A1A] max-w-[90%] lg:max-w-none mx-auto lg:mx-0"
+            className="font-display text-[clamp(2.2rem,5.5vw,4rem)] font-extrabold leading-[1.12] lg:leading-[1.08] tracking-tight text-[#1A1A1A] max-w-[90%] lg:max-w-none mx-auto lg:mx-0"
           >
             14 Years of Devotion,<br />Culture & Unity
           </motion.h1>
