@@ -148,9 +148,22 @@ export default function Hero() {
 
       {mounted && <Particles />}
 
-      {/* ── Layer 6: Text content ── */}
+      {/* ── Layer 6: Idol — Mobile (above text, full width, visual centerpiece) ── */}
+      <div className="relative z-10 lg:hidden h-[45vh] shrink-0">
+        <Image
+          src="/images/hero.png"
+          alt=""
+          fill
+          className="object-contain object-bottom"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#FCF8F0] to-transparent pointer-events-none" />
+      </div>
+
+      {/* ── Layer 7: Text content ── */}
       <div className="relative z-20 layout-container flex-1 flex flex-col lg:min-h-dvh">
-        <div className="flex flex-col justify-center flex-1 lg:w-[45%] py-10 lg:py-24">
+        <div className="flex flex-col justify-center flex-1 lg:w-[45%] py-8 lg:py-24 text-center lg:text-left">
           {/* Eyebrow */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
@@ -166,7 +179,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.75, duration: 0.8, ease: easePremium }}
-            className="font-display text-[clamp(2.2rem,5.5vw,4rem)] font-extrabold leading-[0.95] tracking-tight text-[#1A1A1A] max-w-[90%] lg:max-w-none"
+            className="font-display text-[clamp(2.2rem,5.5vw,4rem)] font-extrabold leading-[0.95] tracking-tight text-[#1A1A1A] max-w-[90%] lg:max-w-none mx-auto lg:mx-0"
           >
             14 Years of Devotion,<br />Culture & Unity
           </motion.h1>
@@ -176,7 +189,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.95, duration: 0.6, ease: easePremium }}
-            className="text-[#666] leading-relaxed text-sm sm:text-base lg:text-lg max-w-[520px] mt-12"
+            className="text-[#666] leading-relaxed text-sm sm:text-base lg:text-lg max-w-[520px] mt-12 mx-auto lg:mx-0"
           >
             For fourteen years, our community has come together to celebrate faith, culture, service, and togetherness through the blessings of Lord Ganesha.
           </motion.p>
@@ -186,7 +199,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.15, duration: 0.6, ease: easePremium }}
-            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mt-16"
+            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mt-16 justify-center lg:justify-start"
           >
             <Link
               href="/about"
@@ -209,19 +222,6 @@ export default function Hero() {
             </Link>
           </motion.div>
         </div>
-      </div>
-
-      {/* ── Layer 7: Idol — Mobile (below text, full width) ── */}
-      <div className="relative z-10 lg:hidden h-[300px] sm:h-[380px] shrink-0">
-        <Image
-          src="/images/hero.png"
-          alt=""
-          fill
-          className="object-contain object-bottom"
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#FCF8F0] to-transparent pointer-events-none" />
       </div>
 
       {/* ── Scroll indicator ── */}
