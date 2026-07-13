@@ -79,9 +79,7 @@ export default function DonationSection() {
                   <button
                     key={amount.label}
                     onClick={() => setSelected(amount.label)}
-                    className={`relative flex flex-col items-center justify-center w-full rounded-3xl border cursor-pointer transition-all duration-300 focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2 ${
-                      amount.recommended ? "p-7" : "p-6"
-                    } ${
+                    className={`relative flex flex-col items-center justify-center w-full rounded-2xl border cursor-pointer transition-all duration-300 focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2 p-5 sm:p-6 ${
                       isSelected
                         ? "border-gold-400 bg-gold-400/[0.04] shadow-md"
                         : amount.recommended
@@ -90,20 +88,20 @@ export default function DonationSection() {
                     }`}
                   >
                     {amount.recommended && (
-                      <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 inline-flex items-center justify-center px-4 py-1 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 text-white text-[0.7rem] font-bold leading-none rounded-full border border-white/20 shadow-sm z-10 tracking-[0.02em]">
-                        Most Popular
+                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center justify-center px-5 py-1.5 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 text-white text-[0.65rem] font-bold leading-none rounded-full border border-white/30 shadow-[0_4px_16px_rgba(200,161,74,0.35)] z-10 tracking-[0.04em] whitespace-nowrap">
+                        ★ Most Popular ★
                       </span>
                     )}
 
                     <p className={`font-display font-bold text-[#1A1A1A] leading-none ${
-                      amount.recommended ? "text-4xl sm:text-5xl" : "text-3xl sm:text-4xl"
+                      amount.recommended ? "mt-2 text-3xl sm:text-4xl" : "mt-1 text-2xl sm:text-3xl"
                     }`}>
                       {amount.label}
                     </p>
-                    <p className="text-sm font-medium text-[#4A453C]/55 mt-3">
+                    <p className="text-sm font-medium text-[#4A453C]/55 mt-2.5">
                       {amount.desc}
                     </p>
-                    <p className="text-xs text-[#4A453C]/40 mt-3 leading-relaxed line-clamp-2 max-w-[85%]">
+                    <p className="text-xs text-[#4A453C]/40 mt-2.5 leading-relaxed line-clamp-2 max-w-[85%]">
                       {amount.shortDesc}
                     </p>
                   </button>
@@ -122,14 +120,14 @@ export default function DonationSection() {
           >
             <button
               onClick={() => setSelected("Custom")}
-              className={`relative w-full rounded-3xl p-6 border cursor-pointer transition-all duration-300 focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2 ${
+              className={`relative w-full rounded-2xl p-5 sm:p-6 border cursor-pointer transition-all duration-300 focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2 ${
                 selected === "Custom"
                   ? "border-gold-400 bg-gold-400/[0.03] shadow-md"
                   : "border-gold-400/8 bg-white shadow-sm hover:border-gold-400/20 hover:shadow-md"
               }`}
             >
-              <div className="flex flex-col items-center gap-2">
-                <p className="font-display text-lg sm:text-xl font-bold text-[#1A1A1A]">
+              <div className="flex flex-col items-center gap-1.5">
+                <p className="font-display text-base sm:text-xl font-bold text-[#1A1A1A]">
                   Custom Amount
                 </p>
                 <p className="text-xs text-[#4A453C]/40">Donate any amount you wish</p>
@@ -145,7 +143,7 @@ export default function DonationSection() {
             transition={{ delay: 0.4, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="stack-group text-center"
           >
-            <button className="group relative inline-flex items-center justify-center gap-3 h-12 px-9 bg-gradient-to-r from-gold-400 to-gold-500 hover:from-gold-500 hover:to-gold-400 text-white font-semibold rounded-[18px] transition-all duration-500 shadow-lg shadow-gold-400/20 hover:shadow-gold-400/40 hover:shadow-xl text-sm focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2">
+            <button className="group relative inline-flex items-center justify-center gap-3 h-12 w-[85%] sm:w-auto sm:px-9 bg-gradient-to-r from-gold-400 to-gold-500 hover:from-gold-500 hover:to-gold-400 text-white font-bold rounded-[18px] transition-all duration-500 shadow-lg shadow-gold-400/20 hover:shadow-gold-400/40 hover:shadow-xl text-sm focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2">
               Donate {selected === "Custom" ? "Now" : selected}
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </button>

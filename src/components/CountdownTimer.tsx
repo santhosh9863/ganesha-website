@@ -66,7 +66,7 @@ export default function CountdownTimer() {
         {items.map((item) => (
           <div
             key={item.label}
-            className="flex flex-col items-center justify-center p-5 sm:p-6 rounded-[24px] bg-white border border-gold-400/10 shadow-sm"
+            className="flex flex-col items-center justify-center p-4 sm:p-5 rounded-2xl bg-white border border-gold-400/10 shadow-sm"
           >
             <span className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-gold-400 tabular-nums leading-none tracking-tight">
               {String(item.value).padStart(2, "0")}

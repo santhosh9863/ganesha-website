@@ -83,7 +83,7 @@ export default function VolunteerRegistration() {
                 <label className="text-[#4A453C]/50 text-xs tracking-wide uppercase font-medium">About You</label>
                 <textarea {...register("message")} rows={3} placeholder="Tell us about yourself and why you'd like to volunteer" className="w-full px-5 py-4 bg-white border border-gold-400/15 rounded-xl text-[#1A1A1A] placeholder-[#4A453C]/30 focus:outline-none focus:border-gold-400 transition-all duration-300 text-sm resize-none" />
               </div>
-              <button type="submit" disabled={isSubmitting} className="w-full sm:w-auto px-10 py-4 bg-gold-400 hover:bg-gold-500 text-white font-semibold rounded-xl transition-all duration-500 shadow-lg shadow-gold-400/20 cursor-pointer disabled:opacity-50">
+              <button type="submit" disabled={isSubmitting} className="w-full sm:w-auto h-12 px-9 bg-gold-400 hover:bg-gold-500 text-white font-semibold rounded-[18px] transition-all duration-500 shadow-lg shadow-gold-400/20 cursor-pointer disabled:opacity-50 text-sm focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2">
                 {isSubmitting ? "Submitting..." : "Sign Up"}
               </button>
             </motion.form>

@@ -184,30 +184,36 @@ body {
 
 /* ─── Section vertical spacing (mobile-first) ──────────── */
 .section-spacing {
-  padding-block: 48px;
+  padding-block: 64px;
 }
 
 @media (min-width: 768px) {
   .section-spacing {
-    padding-block: 80px;
+    padding-block: 96px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .section-spacing {
+    padding-block: 104px;
   }
 }
 
 /* ─── Vertical rhythm (mobile-first) ───────────────────── */
-.stack-label-heading { margin-top: 12px; }
-.stack-heading-desc  { margin-top: 16px; }
-.stack-desc-cards    { margin-top: 24px; }
-.stack-cards-cta     { margin-top: 28px; }
-.stack-group         { margin-top: 28px; }
-.stack-hero-next     { margin-top: 48px; }
+.stack-label-heading { margin-top: 16px; }
+.stack-heading-desc  { margin-top: 20px; }
+.stack-desc-cards    { margin-top: 32px; }
+.stack-cards-cta     { margin-top: 36px; }
+.stack-group         { margin-top: 36px; }
+.stack-hero-next     { margin-top: 56px; }
 
 @media (min-width: 768px) {
-  .stack-label-heading { margin-top: 20px; }
-  .stack-heading-desc  { margin-top: 24px; }
-  .stack-desc-cards    { margin-top: 40px; }
-  .stack-cards-cta     { margin-top: 48px; }
-  .stack-group         { margin-top: 48px; }
-  .stack-hero-next     { margin-top: 96px; }
+  .stack-label-heading { margin-top: 24px; }
+  .stack-heading-desc  { margin-top: 32px; }
+  .stack-desc-cards    { margin-top: 48px; }
+  .stack-cards-cta     { margin-top: 56px; }
+  .stack-group         { margin-top: 56px; }
+  .stack-hero-next     { margin-top: 112px; }
 }
 
 /* ─── Cards & grids ─────────────────────────────────────── */

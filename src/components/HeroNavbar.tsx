@@ -54,38 +54,37 @@ export default function HeroNavbar() {
         <div className="h-full bg-gradient-to-r from-transparent via-gold-400/15 to-transparent" />
       </div>
 
-      <div className="mx-auto w-full max-w-[1280px] flex items-center justify-between h-[72px] lg:h-[90px] px-6 md:px-12">
+      <div className="mx-auto w-full max-w-[1280px] flex items-center h-[68px] lg:h-[72px] px-4 md:px-12">
           <Link href="/" className="flex items-center gap-3 lg:gap-4 group shrink-0">
-            <div className="w-10 h-10 lg:w-[50px] lg:h-[50px] rounded-xl bg-gradient-to-br from-gold-400/25 to-gold-400/8 border border-gold-400/25 flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:border-gold-400/50 group-hover:shadow-lg group-hover:shadow-gold-400/15">
-              <span className="text-gold-400 text-sm lg:text-[17px] font-display font-bold">
+            <div className="w-11 h-11 lg:w-12 lg:h-12 rounded-xl bg-gradient-to-br from-gold-400/25 to-gold-400/8 border border-gold-400/25 flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:border-gold-400/50 group-hover:shadow-lg group-hover:shadow-gold-400/15">
+              <span className="text-gold-400 text-base lg:text-lg font-display font-bold">
                 SG
               </span>
             </div>
             <div className="hidden sm:block">
-              <p className="text-sm lg:text-base font-display text-[#1A1A1A] font-semibold tracking-wide leading-tight">
+              <p className="text-xs lg:text-sm font-display text-[#1A1A1A] font-bold tracking-wide leading-tight">
                 {siteConfig.shortName}
               </p>
-              <p className="text-[9px] lg:text-[10px] text-gold-400/60 tracking-[0.25em] uppercase leading-tight mt-0.5 lg:mt-1">
+              <p className="text-[9px] lg:text-[10px] text-gold-400/80 tracking-[0.25em] uppercase leading-tight mt-0.5">
                 Since {siteConfig.foundedYear}
               </p>
             </div>
           </Link>
-
-          <button
-            onClick={scrollToDonation}
-            className={`relative group flex items-center gap-2.5 h-12 px-7 rounded-full 
-              bg-gradient-to-r from-gold-400 to-gold-500 text-white font-semibold text-sm lg:text-[15px] 
-              border border-white/20 shadow-lg shadow-gold-400/20 
-              transition-all duration-250 cursor-pointer shrink-0
-              hover:-translate-y-0.5 hover:brightness-110 hover:shadow-xl hover:shadow-gold-400/30
-              active:scale-[0.98]
-              ${pulse ? "animate-[pulse-glow_2s_ease-in-out]" : ""}
-            `}
-          >
-            <span>Contribute</span>
-            <ArrowRight className="w-4 h-4 transition-transform duration-250 group-hover:translate-x-0.5" />
-          </button>
         </div>
+
+        <button
+          onClick={scrollToDonation}
+          className={`group fixed top-4 right-4 lg:top-5 lg:right-5 z-[60] inline-flex items-center justify-center gap-3 h-12 px-7 rounded-[18px] text-white text-sm sm:text-[15px] font-bold transition-all duration-300 active:scale-[0.97] shadow-[0_12px_30px_rgba(200,161,74,0.22)] hover:shadow-[0_20px_40px_rgba(200,161,74,0.30)] hover:-translate-y-0.5 overflow-hidden cursor-pointer focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2 ${pulse ? "animate-[pulse-glow_2s_ease-in-out]" : ""}`}
+          style={{
+            background:
+              "linear-gradient(135deg, #EFD48B 0%, #D8B75B 35%, #C89F45 65%, #B8852F 100%)",
+          }}
+        >
+          <span className="absolute inset-0 bg-gradient-to-b from-white/[0.28] to-transparent top-0 h-[20%] transition-opacity duration-300" />
+          <span className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <span className="relative z-10 whitespace-nowrap shrink-0">Contribute</span>
+          <ArrowRight className="relative z-10 w-4 h-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
+        </button>
     </motion.header>
   );
 }

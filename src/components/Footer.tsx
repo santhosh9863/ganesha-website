@@ -11,12 +11,13 @@ export default function Footer() {
     <footer className="relative bg-[#1A1A1A] border-t border-white/[0.04] overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-t from-gold-400/8 to-transparent pointer-events-none" />
 
-      <div className="relative layout-container py-12 lg:py-24">
+      <div className="relative layout-container py-12 lg:py-24 pb-[max(36px,env(safe-area-inset-bottom))] lg:pb-[max(48px,env(safe-area-inset-bottom))]">
         <div className="card-grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            className="pt-1"
           >
             <div className="flex items-center gap-3 mb-4">
               <span className="text-3xl">🕉</span>

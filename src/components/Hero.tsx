@@ -93,13 +93,12 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative h-dvh max-h-dvh overflow-hidden bg-[#FCF8F0]">
+    <section className="relative min-h-dvh bg-[#FCF8F0] overflow-hidden flex flex-col lg:block">
       {/* ── Layer 1: Atmosphere & ambient glows ── */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-[-5%] left-1/2 -translate-x-1/2 w-[90vw] sm:w-[800px] h-[50vh] sm:h-[600px] bg-gold-400/8 rounded-full blur-[250px]" />
-        <div className="absolute top-[10%] right-[-10%] w-[50vw] sm:w-[400px] h-[40vh] sm:h-[400px] bg-gold-400/5 rounded-full blur-[180px]" />
-        <div className="absolute bottom-[10%] left-[8%] w-[350px] h-[350px] bg-gold-400/3 rounded-full blur-[200px]" />
-        <div className="absolute top-[35%] left-[15%] w-[200px] h-[200px] bg-amber-300/4 rounded-full blur-[120px]" />
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute top-[-5%] left-1/2 -translate-x-1/2 w-[90vw] lg:w-[800px] h-[50vh] lg:h-[600px] bg-gold-400/8 rounded-full blur-[250px]" />
+        <div className="absolute top-[15%] right-[-5%] w-[40vw] lg:w-[400px] h-[35vh] lg:h-[400px] bg-gold-400/5 rounded-full blur-[180px]" />
+        <div className="absolute bottom-[15%] left-[5%] w-[250px] h-[250px] bg-gold-400/3 rounded-full blur-[200px]" />
       </div>
 
       {/* ── Layer 2: Subtle paper texture ── */}
@@ -110,97 +109,66 @@ export default function Hero() {
         }}
       />
 
-      {/* ── Layer 3: Decorative mandala behind crown (desktop) ── */}
+      {/* ── Layer 3: Warm glow behind idol (desktop) ── */}
+      <div className="absolute z-[2] top-[5%] right-[5%] w-[45%] h-[70%] bg-amber-300/10 rounded-full blur-[200px] pointer-events-none hidden lg:block" />
+      <div className="absolute z-[2] top-[10%] right-[10%] w-[30%] h-[50%] bg-gold-400/12 rounded-full blur-[140px] pointer-events-none hidden lg:block" />
+      <div className="absolute z-[2] top-[15%] right-[18%] w-[15%] h-[25%] bg-yellow-200/15 rounded-full blur-[60px] pointer-events-none hidden lg:block" />
+
+      {/* ── Layer 4: Decorative mandala (desktop) ── */}
       <div className="absolute z-[2] top-[-2%] right-[5%] w-[50%] h-[100%] pointer-events-none overflow-hidden hidden lg:block">
         <div
-          className="absolute top-[5%] right-[10%] w-[360px] h-[360px] opacity-[0.05]"
+          className="absolute top-[5%] right-[10%] w-[360px] h-[360px] opacity-[0.04]"
           style={{
             background: `radial-gradient(circle at center, transparent 32%, #c8a14a 32.5%, transparent 33%, transparent 38%, #c8a14a 38.5%, transparent 39%, transparent 44%, #c8a14a 44.5%, transparent 45%, transparent 50%, #c8a14a 50.5%, transparent 51%)`,
             borderRadius: "50%",
           }}
         />
         <div
-          className="absolute top-[7%] right-[13%] w-[280px] h-[280px] opacity-[0.025]"
+          className="absolute top-[7%] right-[18%] w-[220px] h-[220px] opacity-[0.02]"
           style={{
             background: `conic-gradient(from 0deg, transparent, #c8a14a, transparent, #c8a14a, transparent, #c8a14a, transparent)`,
             borderRadius: "50%",
           }}
         />
-        <div
-          className="absolute top-[10%] right-[16%] w-[180px] h-[180px] opacity-[0.015]"
-          style={{
-            background: `repeating-linear-gradient(45deg, transparent, transparent 8px, #c8a14a 8px, #c8a14a 9px)`,
-            borderRadius: "50%",
-          }}
-        />
       </div>
 
-      {/* ── Layer 4: Warm focal glow behind crown (desktop) ── */}
-      <div className="absolute z-[3] top-[2%] right-[16%] w-[280px] h-[280px] bg-amber-300/10 rounded-full blur-[120px] pointer-events-none hidden lg:block" />
-      <div className="absolute z-[3] top-[5%] right-[19%] w-[160px] h-[160px] bg-gold-400/12 rounded-full blur-[70px] pointer-events-none hidden lg:block" />
-      <div className="absolute z-[3] top-[8%] right-[22%] w-[80px] h-[80px] bg-yellow-200/15 rounded-full blur-[40px] pointer-events-none hidden lg:block" />
-
-      {/* ── Layer 5: Artwork ──
-          Mobile: fills viewport, idol emerges from page.
-          Desktop: right 55%, full height, bottom-anchored. ── */}
-      <div className="absolute inset-0 z-10 lg:hidden">
-        <Image
-          src="/images/hero.png"
-          alt=""
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-x-0 top-0 h-[20%] bg-gradient-to-b from-[#FCF8F0] to-transparent pointer-events-none" />
+      {/* ── Layer 5: Idol — Desktop (right column, fully visible) ── */}
+      <div className="absolute right-0 top-[8%] bottom-0 w-[55%] z-10 hidden lg:block pointer-events-none">
+        <div className="relative w-full h-full">
+          <Image
+            src="/images/hero.png"
+            alt=""
+            fill
+            className="object-contain object-bottom"
+            priority
+            sizes="55vw"
+          />
+        </div>
       </div>
-      <div className="absolute right-0 bottom-0 w-[55%] h-full z-10 hidden lg:block">
-        <Image
-          src="/images/hero.png"
-          alt=""
-          fill
-          className="object-contain object-bottom"
-          priority
-          sizes="55vw"
-        />
-      </div>
-
-      {/* ── Layer 6: Gradient veils — blend artwork into page ── */}
-      <div className="absolute inset-x-0 bottom-0 h-[55%] z-20 pointer-events-none bg-gradient-to-t from-[#FCF8F0] via-[#FCF8F0]/70 to-transparent lg:hidden" />
-      <div className="absolute top-0 bottom-0 left-[42%] w-[13%] z-20 pointer-events-none bg-gradient-to-r from-[#FCF8F0] via-[#FCF8F0]/90 to-transparent hidden lg:block" />
 
       {mounted && <Particles />}
 
-      {/* ── Layer 7: Typography ──
-          Mobile: bottom-aligned, overlays artwork within gradient veil.
-          Desktop: left 45%, vertically centered. ── */}
-      <div className="absolute inset-x-0 bottom-0 z-30 lg:inset-auto lg:left-0 lg:top-0 lg:w-[45%] lg:h-full lg:flex lg:items-center">
-        <div className="absolute inset-0 bg-gradient-to-r from-[rgba(0,0,0,0.04)] to-transparent pointer-events-none lg:from-[rgba(0,0,0,0.03)]" />
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.8, ease: easePremium }}
-          className="relative px-6 lg:pl-20 lg:pr-12 pb-0 pt-6 lg:pt-0"
-        >
+      {/* ── Layer 6: Text content ── */}
+      <div className="relative z-20 layout-container flex-1 flex flex-col lg:min-h-dvh">
+        <div className="flex-1 flex flex-col justify-center lg:w-[45%] pt-[76px] lg:pt-32 pb-8 lg:pb-24">
           {/* Eyebrow */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.65, duration: 0.6, ease: easePremium }}
-            className="text-[11px] sm:text-[13px] tracking-[0.3em] uppercase text-gold-400/70 font-medium mb-4"
+            transition={{ delay: 0.6, duration: 0.6, ease: easePremium }}
+            className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-gold-400 font-semibold mb-5"
           >
-            Since {siteConfig.foundedYear} &bull; {siteConfig.shortName}
+            Since {siteConfig.foundedYear} &bull; {siteConfig.yearsOfLegacy} Years of Devotion
           </motion.div>
 
-          {/* Heading */}
+          {/* Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.75, duration: 0.8, ease: easePremium }}
-            className="font-display text-[clamp(2rem,5.5vw,3.5rem)] font-extrabold leading-[1.0] tracking-tight text-[#1A1A1A] max-w-[70%]"
+            className="font-display text-[clamp(2.2rem,5.5vw,4rem)] font-extrabold leading-[0.95] tracking-tight text-[#1A1A1A] max-w-[90%] lg:max-w-none"
           >
-            <span className="gold-text">14 Years</span>
-            <br />of Devotion,<br />Culture & Unity
+            14 Years of Devotion,<br />Culture & Unity
           </motion.h1>
 
           {/* Description */}
@@ -208,7 +176,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.95, duration: 0.6, ease: easePremium }}
-            className="text-[#6B7280] leading-[1.7] text-base sm:text-lg max-w-[520px] mt-6"
+            className="text-[#666] leading-relaxed text-sm sm:text-base lg:text-lg max-w-[520px] mt-7"
           >
             For fourteen years, our community has come together to celebrate faith, culture, service, and togetherness through the blessings of Lord Ganesha.
           </motion.p>
@@ -218,11 +186,11 @@ export default function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.15, duration: 0.6, ease: easePremium }}
-            className="flex flex-col sm:flex-row items-start gap-4 mt-9 mb-16"
+            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mt-10"
           >
             <Link
               href="/about"
-              className="group relative inline-flex items-center justify-center gap-4 h-12 px-7 min-w-[200px] w-fit rounded-[18px] text-white text-[15px] font-bold transition-all duration-300 active:scale-[0.97] shadow-[0_12px_30px_rgba(200,161,74,0.22)] hover:shadow-[0_20px_40px_rgba(200,161,74,0.30)] hover:-translate-y-0.5 overflow-hidden focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2"
+              className="group relative inline-flex items-center justify-center gap-3 h-12 px-7 w-full sm:w-auto sm:min-w-[200px] rounded-[18px] text-white text-sm sm:text-[15px] font-bold transition-all duration-300 active:scale-[0.97] shadow-[0_12px_30px_rgba(200,161,74,0.22)] hover:shadow-[0_20px_40px_rgba(200,161,74,0.30)] hover:-translate-y-0.5 overflow-hidden focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2"
               style={{
                 background:
                   "linear-gradient(135deg, #EFD48B 0%, #D8B75B 35%, #C89F45 65%, #B8852F 100%)",
@@ -235,12 +203,25 @@ export default function Hero() {
             </Link>
             <Link
               href="/gallery"
-              className="group relative inline-flex items-center justify-center gap-4 h-12 px-7 min-w-[200px] w-fit rounded-[18px] border-[1.5px] border-[#DCC58A] text-[#8E6E2C] text-[15px] font-medium bg-transparent transition-all duration-300 active:scale-[0.97] hover:bg-[rgba(200,161,74,0.08)] hover:border-[#C89F45] hover:-translate-y-0.5 overflow-hidden focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2"
+              className="group relative inline-flex items-center justify-center gap-3 h-12 px-7 w-full sm:w-auto sm:min-w-[200px] rounded-[18px] border-[1.5px] border-[#DCC58A] text-[#8E6E2C] text-sm sm:text-[15px] font-bold bg-transparent transition-all duration-300 active:scale-[0.97] hover:bg-[rgba(200,161,74,0.08)] hover:border-[#C89F45] hover:-translate-y-0.5 overflow-hidden focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2"
             >
               <span className="relative z-10">View Gallery</span>
             </Link>
           </motion.div>
-        </motion.div>
+        </div>
+      </div>
+
+      {/* ── Layer 7: Idol — Mobile (below text, full width) ── */}
+      <div className="relative z-10 lg:hidden h-[300px] sm:h-[380px] shrink-0 -mt-6">
+        <Image
+          src="/images/hero.png"
+          alt=""
+          fill
+          className="object-contain object-bottom"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#FCF8F0] to-transparent pointer-events-none" />
       </div>
 
       {/* ── Scroll indicator ── */}

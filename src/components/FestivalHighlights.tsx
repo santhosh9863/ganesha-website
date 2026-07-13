@@ -39,7 +39,7 @@ export default function FestivalHighlights() {
               >
                 <FlipCard
                   front={
-                    <div className="w-full h-full bg-gradient-to-b from-[#FCFBF8] to-white rounded-3xl border border-[rgba(200,161,74,0.18)] p-6 flex flex-col items-center justify-center text-center shadow-sm">
+                    <div className="w-full h-full bg-gradient-to-b from-[#FCFBF8] to-white rounded-2xl border border-[rgba(200,161,74,0.18)] p-6 flex flex-col items-center justify-center text-center shadow-sm">
                       <span className="text-3xl mb-4">{item.icon}</span>
                       <h3 className="font-display text-lg font-bold text-[#1A1A1A]">
                         {item.title}
@@ -48,7 +48,7 @@ export default function FestivalHighlights() {
                     </div>
                   }
                   back={
-                    <div className="w-full h-full bg-gradient-to-b from-white to-[#FCFBF8] rounded-3xl border border-[rgba(200,161,74,0.18)] p-6 flex flex-col items-center justify-center text-center shadow-lg">
+                    <div className="w-full h-full bg-gradient-to-b from-white to-[#FCFBF8] rounded-2xl border border-[rgba(200,161,74,0.18)] p-6 flex flex-col items-center justify-center text-center shadow-lg">
                       <span className="text-2xl mb-3">{item.icon}</span>
                       <h3 className="font-display text-base font-bold text-[#1A1A1A]">
                         {item.title}

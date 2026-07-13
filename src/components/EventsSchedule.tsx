@@ -4,12 +4,9 @@ import { motion } from "framer-motion";
 import { events } from "@/data/content";
 
 function EventChips({ highlights }: { highlights: string[] }) {
-  const visible = highlights.slice(0, 3);
-  const remaining = highlights.length - 3;
-
   return (
-    <div className="flex flex-nowrap items-center gap-1.5 overflow-hidden">
-      {visible.map((h) => (
+    <div className="flex flex-nowrap items-center gap-1.5 overflow-x-auto scrollbar-none [-ms-overflow-style:none] [scrollbar-width:none]">
+      {highlights.map((h) => (
         <span
           key={h}
           className="shrink-0 px-2 py-0.5 rounded-full text-[0.55rem] leading-none font-medium bg-gold-400/8 text-gold-400 whitespace-nowrap"
@@ -17,18 +14,13 @@ function EventChips({ highlights }: { highlights: string[] }) {
           {h}
         </span>
       ))}
-      {remaining > 0 && (
-        <span className="shrink-0 px-2 py-0.5 rounded-full text-[0.55rem] leading-none font-medium bg-gold-400/6 text-gold-400/60 whitespace-nowrap">
-          +{remaining}
-        </span>
-      )}
     </div>
   );
 }
 
 export default function EventsSchedule() {
   return (
-    <section className="py-20 lg:py-24 relative overflow-hidden">
+    <section className="section-spacing relative overflow-hidden">
       <div className="relative layout-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -55,22 +47,21 @@ export default function EventsSchedule() {
                   transition={{ delay: i * 0.08, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                   className="w-full"
                 >
-                  <div className="bg-white rounded-3xl border border-gold-400/[0.06] p-5 sm:p-6 shadow-[0_1px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_16px_rgba(0,0,0,0.04)] transition-shadow duration-300">
-                    <div className="flex items-center gap-1.5 mb-4">
-                      <span className="inline-flex items-center justify-center w-[26px] h-[26px] rounded-md bg-gold-400/10 text-gold-400 text-[0.65rem] font-semibold leading-none">
+                  <div className="card !rounded-2xl p-4 sm:p-5">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="inline-flex items-center justify-center w-[24px] h-[24px] rounded-md bg-gold-400/10 text-gold-400 text-[0.6rem] font-semibold leading-none shrink-0">
                         D{event.day}
                       </span>
-                      <span className="text-[#4A453C]/20 select-none" aria-hidden="true">•</span>
-                      <span className="text-[0.65rem] font-medium text-[#4A453C]/40">
+                      <span className="text-[0.6rem] sm:text-[0.65rem] font-medium text-[#4A453C]/40 leading-none">
                         {event.time}
                       </span>
                     </div>
 
-                    <h3 className="font-display text-xl sm:text-2xl font-bold text-[#1A1A1A] leading-[1.3] tracking-tight line-clamp-2 mb-3">
+                    <h3 className="font-display text-base sm:text-xl lg:text-2xl font-bold text-[#1A1A1A] leading-[1.25] tracking-tight line-clamp-2 mb-2">
                       {event.title}
                     </h3>
 
-                    <p className="text-[#4A453C]/55 text-sm leading-[1.6] line-clamp-2 mb-4">
+                    <p className="text-[#4A453C]/55 text-xs sm:text-sm leading-[1.5] line-clamp-2 mb-3">
                       {event.description}
                     </p>
 

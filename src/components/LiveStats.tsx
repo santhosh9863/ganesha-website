@@ -6,7 +6,7 @@ import { statCards } from "@/data/content";
 
 export default function LiveStats() {
   return (
-    <section className="py-16 lg:py-20 relative overflow-hidden">
+    <section className="section-spacing relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-[#F8F6F2] via-[#FFFFFF] to-[#F8F6F2]" />
 
       <div className="relative layout-container">
@@ -39,7 +39,7 @@ export default function LiveStats() {
               >
                 <FlipCard
                   front={
-                    <div className="w-full h-full bg-gradient-to-b from-[#FCFBF8] to-white rounded-3xl border border-[rgba(200,161,74,0.18)] p-5 flex flex-col items-center justify-center text-center shadow-sm">
+                    <div className="w-full h-full bg-gradient-to-b from-[#FCFBF8] to-white rounded-2xl border border-[rgba(200,161,74,0.18)] p-5 flex flex-col items-center justify-center text-center shadow-sm">
                       <span className="text-2xl mb-3">{stat.icon}</span>
                       <p className="font-display text-xl sm:text-2xl font-bold gold-text leading-none">
                         {stat.value}
@@ -50,7 +50,7 @@ export default function LiveStats() {
                     </div>
                   }
                   back={
-                    <div className="w-full h-full bg-gradient-to-b from-white to-[#FCFBF8] rounded-3xl border border-[rgba(200,161,74,0.18)] p-5 flex flex-col items-center justify-center text-center shadow-lg">
+                    <div className="w-full h-full bg-gradient-to-b from-white to-[#FCFBF8] rounded-2xl border border-[rgba(200,161,74,0.18)] p-5 flex flex-col items-center justify-center text-center shadow-lg">
                       <span className="text-lg mb-2">{stat.icon}</span>
                       <p className="font-display text-xs font-bold text-[#1A1A1A]">
                         {stat.backTitle}

@@ -38,11 +38,11 @@ export default function Home() {
               <span className="text-gold-400 text-xs tracking-[0.3em] uppercase font-medium">
                 Coming Soon
               </span>
-              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1A1A1A] mt-5 leading-[1.1]">
+              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1A1A1A] mt-6 leading-[1.1]">
                 Celebrating{" "}
                 <span className="gold-text">Ganesh Chaturthi</span>
               </h2>
-              <p className="text-[#4A453C]/50 max-w-content leading-[1.8] text-base sm:text-lg mt-5 mb-8">
+              <p className="text-[#4A453C]/50 max-w-content leading-[1.8] text-base sm:text-lg mt-6 mb-10">
                 Join us for 5 days of devotion, culture, and community celebration
               </p>
             </motion.div>
