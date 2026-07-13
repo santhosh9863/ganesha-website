@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { contactSchema, type ContactFormData } from "@/lib/schemas";
 import { siteConfig } from "@/data/content";
 import SocialIcon from "@/components/SocialIcon";
-import { FaInstagram, FaFacebookF, FaYoutube, FaXTwitter, FaWhatsapp } from "react-icons/fa6";
+import { FaInstagram, FaWhatsapp } from "react-icons/fa6";
 import PremiumDonateButton from "@/components/PremiumDonateButton";
 
 export default function ContactSection() {
@@ -90,12 +90,9 @@ export default function ContactSection() {
               <div className="card card-padding">
                 <h3 className="font-display text-lg font-bold text-[#1A1A1A] mb-4">Follow Us</h3>
                 <p className="text-[#4A453C]/50 text-sm leading-premium mb-6">Stay connected through our social media channels for the latest updates and event highlights.</p>
-                <div className="flex items-center justify-center gap-4 md:gap-5">
-                  <SocialIcon href={siteConfig.social.instagram} icon={<FaInstagram size={22} />} label="Instagram" />
-                  <SocialIcon href={siteConfig.social.facebook} icon={<FaFacebookF size={22} />} label="Facebook" />
-                  <SocialIcon href={siteConfig.social.youtube} icon={<FaYoutube size={22} />} label="YouTube" />
-                  <SocialIcon href={siteConfig.social.twitter} icon={<FaXTwitter size={22} />} label="X (Twitter)" />
-                  <SocialIcon href={siteConfig.social.whatsapp} icon={<FaWhatsapp size={22} />} label="WhatsApp" />
+                <div className="flex items-center justify-center gap-6 md:gap-8">
+                  <SocialIcon href={siteConfig.social.instagram} icon={<FaInstagram size={26} />} label="Instagram" />
+                  <SocialIcon href={siteConfig.social.whatsapp} icon={<FaWhatsapp size={26} />} label="WhatsApp" />
                 </div>
               </div>
               <div className="rounded-2xl bg-gradient-to-br from-gold-400/12 to-gold-400/5 border border-gold-400/25 card-padding shadow-lg shadow-gold-400/10">
