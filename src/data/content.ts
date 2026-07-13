@@ -45,11 +45,11 @@ export const statCards = [
   },
   {
     value: "5",
-    label: "days of celebration",
-    icon: "🤝",
-    backTitle: "5 days of devotion",
+    label: "Days of Celebration",
+    icon: "❤️",
+    backTitle: "5 Days of Devotion",
     backDescription:
-      "uniting thousands through faith,culture and tradition every year.",
+      "Uniting thousands through faith, culture and tradition every year.",
   },
   {
     value: "25K+",
@@ -61,11 +61,11 @@ export const statCards = [
   },
   {
     value: "100+",
-    label: "Community Events",
-    icon: "🎭",
-    backTitle: "100+ Community Events",
+    label: "Dedicated Volunteers",
+    icon: "🤝",
+    backTitle: "100+ Dedicated Volunteers",
     backDescription:
-      "From cultural performances to spiritual discourses, our events bring the community together.",
+      "More than 100 volunteers have selflessly contributed over the years to make every Ganeshotsava a grand success.",
   },
 ];
 

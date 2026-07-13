@@ -27,8 +27,8 @@ export default function LiveStats() {
         </motion.div>
 
         <div className="mt-10">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:max-w-3xl mx-auto">
-            {statCards.slice(0, 3).map((stat, i) => (
+          <div className="grid grid-cols-2 gap-6 md:max-w-3xl mx-auto">
+            {statCards.map((stat, i) => (
               <motion.div
                 key={stat.label}
                 initial={{ opacity: 0, y: 20 }}
