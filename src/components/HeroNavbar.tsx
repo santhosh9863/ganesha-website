@@ -22,7 +22,7 @@ export default function HeroNavbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: easePremium }}
       style={{ paddingTop: "env(safe-area-inset-top, 0px)", paddingRight: "env(safe-area-inset-right, 0px)" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-3 lg:top-5 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
           ? "bg-white/80 backdrop-blur-xl shadow-sm shadow-black/5"
           : "bg-transparent"

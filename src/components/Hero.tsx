@@ -93,7 +93,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-dvh bg-[#FCF8F0] overflow-hidden flex flex-col lg:block">
+    <section className="relative min-h-dvh bg-[#FCF8F0] overflow-hidden flex flex-col">
       {/* ── Layer 1: Atmosphere & ambient glows ── */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute top-[-5%] left-1/2 -translate-x-1/2 w-[90vw] lg:w-[800px] h-[50vh] lg:h-[600px] bg-gold-400/8 rounded-full blur-[250px]" />
@@ -133,7 +133,7 @@ export default function Hero() {
       </div>
 
       {/* ── Layer 5: Idol — Desktop (right column, fully visible) ── */}
-      <div className="absolute right-0 top-[8%] bottom-0 w-[55%] z-10 hidden lg:block pointer-events-none">
+      <div className="absolute right-0 top-[14%] bottom-0 w-[55%] z-10 hidden lg:block pointer-events-none">
         <div className="relative w-full h-full">
           <Image
             src="/images/hero.png"
@@ -150,13 +150,13 @@ export default function Hero() {
 
       {/* ── Layer 6: Text content ── */}
       <div className="relative z-20 layout-container flex-1 flex flex-col lg:min-h-dvh">
-        <div className="flex-1 flex flex-col justify-center lg:w-[45%] pt-24 lg:pt-44 pb-16 lg:pb-36">
+        <div className="flex flex-col justify-center flex-1 lg:w-[45%] py-10 lg:py-24">
           {/* Eyebrow */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6, ease: easePremium }}
-            className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-gold-400 font-semibold mb-9"
+            className="text-[10px] sm:text-xs tracking-[0.3em] uppercase text-gold-400 font-semibold mb-10"
           >
             Since {siteConfig.foundedYear} &bull; {siteConfig.yearsOfLegacy} Years of Devotion
           </motion.div>
@@ -176,7 +176,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.95, duration: 0.6, ease: easePremium }}
-            className="text-[#666] leading-relaxed text-sm sm:text-base lg:text-lg max-w-[520px] mt-10"
+            className="text-[#666] leading-relaxed text-sm sm:text-base lg:text-lg max-w-[520px] mt-12"
           >
             For fourteen years, our community has come together to celebrate faith, culture, service, and togetherness through the blessings of Lord Ganesha.
           </motion.p>
@@ -186,7 +186,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.15, duration: 0.6, ease: easePremium }}
-            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mt-14"
+            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mt-16"
           >
             <Link
               href="/about"
