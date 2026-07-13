@@ -110,9 +110,9 @@ export default function Hero() {
       />
 
       {/* ── Layer 3: Warm glow behind idol (desktop) ── */}
-      <div className="absolute z-[2] top-[5%] right-[5%] w-[45%] h-[70%] bg-amber-300/10 rounded-full blur-[200px] pointer-events-none hidden lg:block" />
-      <div className="absolute z-[2] top-[10%] right-[10%] w-[30%] h-[50%] bg-gold-400/12 rounded-full blur-[140px] pointer-events-none hidden lg:block" />
-      <div className="absolute z-[2] top-[15%] right-[18%] w-[15%] h-[25%] bg-yellow-200/15 rounded-full blur-[60px] pointer-events-none hidden lg:block" />
+      <div className="absolute z-[2] top-[5%] right-[5%] w-[45%] h-[70%] bg-amber-300/6 rounded-full blur-[200px] pointer-events-none hidden lg:block" />
+      <div className="absolute z-[2] top-[10%] right-[10%] w-[30%] h-[50%] bg-gold-400/8 rounded-full blur-[140px] pointer-events-none hidden lg:block" />
+      <div className="absolute z-[2] top-[15%] right-[18%] w-[15%] h-[25%] bg-yellow-200/10 rounded-full blur-[60px] pointer-events-none hidden lg:block" />
 
       {/* ── Layer 4: Decorative mandala (desktop) ── */}
       <div className="absolute z-[2] top-[-2%] right-[5%] w-[50%] h-[100%] pointer-events-none overflow-hidden hidden lg:block">
@@ -132,17 +132,25 @@ export default function Hero() {
         />
       </div>
 
-      {/* ── Layer 5: Idol — Desktop (right column, fully visible) ── */}
-      <div className="absolute right-0 top-[14%] bottom-0 w-[55%] z-10 hidden lg:block pointer-events-none">
+      {/* ── Layer 5: Idol — Desktop (composed right-column scene) ── */}
+      <div className="absolute right-[3%] top-[16%] bottom-0 w-[46%] z-10 hidden lg:block pointer-events-none">
         <div className="relative w-full h-full">
-          <Image
-            src="/images/hero.png"
-            alt=""
-            fill
-            className="object-contain object-bottom"
-            priority
-            sizes="55vw"
-          />
+          {/* Warm glow behind idol */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[85%] bg-amber-300/9 rounded-full blur-[180px]" />
+          <div className="absolute top-[55%] left-1/2 -translate-x-1/2 w-[100%] h-[55%] bg-gold-400/10 rounded-full blur-[130px]" />
+          {/* Soft shadow under idol */}
+          <div className="absolute bottom-[8%] left-[20%] right-[20%] h-8 bg-black/4 rounded-full blur-[28px]" />
+          {/* Image with breathing room */}
+          <div className="absolute left-[6%] right-[6%] top-[2%] bottom-[4%]">
+            <Image
+              src="/images/hero.png"
+              alt=""
+              fill
+              className="object-contain object-bottom"
+              priority
+              sizes="46vw"
+            />
+          </div>
         </div>
       </div>
 
@@ -158,12 +166,12 @@ export default function Hero() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#FCF8F0] to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-[#FCF8F0] to-transparent pointer-events-none" />
       </div>
 
       {/* ── Layer 7: Text content ── */}
       <div className="relative z-20 layout-container flex-1 flex flex-col lg:min-h-dvh">
-        <div className="flex flex-col justify-center flex-1 lg:w-[45%] py-12 lg:pt-36 lg:pb-28 text-center lg:text-left">
+        <div className="flex flex-col justify-center flex-1 lg:w-[48%] py-12 lg:pt-36 lg:pb-28 text-center lg:text-left">
           {/* Eyebrow */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
