@@ -3,7 +3,6 @@
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import { siteConfig } from "@/data/content";
 
 const easePremium: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -83,7 +82,6 @@ export default function HeroNavbar() {
           <span className="absolute inset-0 bg-gradient-to-b from-white/[0.28] to-transparent top-0 h-[20%] transition-opacity duration-300" />
           <span className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           <span className="relative z-10 whitespace-nowrap shrink-0 text-xs sm:text-sm">Contribute</span>
-          <ArrowRight className="relative z-10 w-4 h-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
         </button>
     </motion.header>
   );
