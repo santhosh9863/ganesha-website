@@ -119,8 +119,9 @@ export default function AboutPage() {
                 { title: "Build Community", desc: "Bring people together through events, feasts, and shared experiences of devotion.", icon: "🤝" },
                 { title: "Serve Selflessly", desc: "Organize donation drives, food festivals, and community service initiatives.", icon: "❤️" },
               ].map((item) => (
-                <div key={item.title} className="w-full">
+                <div key={item.title} className="w-full h-full">
                   <FlipCard
+                    className="h-full"
                     front={
                       <div className="w-full h-full bg-gradient-to-b from-[#FCFBF8] to-white rounded-3xl border border-[rgba(200,161,74,0.18)] p-5 flex flex-col items-center justify-center text-center shadow-sm">
                         <span className="text-3xl mb-3">{item.icon}</span>

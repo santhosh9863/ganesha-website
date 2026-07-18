@@ -35,9 +35,10 @@ export default function LiveStats() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
-                className="w-full"
+                className="w-full h-full"
               >
                 <FlipCard
+                  className="h-full"
                   front={
                     <div className="w-full h-full bg-gradient-to-b from-[#FCFBF8] to-white rounded-xl border border-[rgba(200,161,74,0.18)] p-4 md:p-5 flex flex-col items-center justify-center text-center shadow-sm min-h-[100px] md:min-h-[130px]">
                       <span className="text-lg md:text-xl mb-2">{stat.icon}</span>

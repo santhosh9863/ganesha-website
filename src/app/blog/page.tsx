@@ -34,9 +34,10 @@ export default function BlogPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
-                className="w-full"
+                className="w-full h-full"
               >
                 <FlipCard
+                  className="h-full"
                   front={
                     <div className="w-full h-full bg-gradient-to-b from-[#FCFBF8] to-white rounded-3xl border border-[rgba(200,161,74,0.18)] p-6 flex flex-col text-left shadow-sm">
                       <div className="flex items-center gap-2 mb-3">
