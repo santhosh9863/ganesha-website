@@ -147,14 +147,14 @@ export default function Hero() {
       {mounted && <Particles />}
 
       {/* ── Main content: flex column — title, image, text ── */}
-      <div className="relative z-20 layout-container flex flex-col flex-1 pt-[76px] lg:pt-[80px]">
+      <div className="relative z-20 layout-container flex flex-col flex-1 pt-4 lg:pt-8">
 
         {/* ── 1. Kannada Title ── */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.7, ease: easePremium }}
-          className="text-center shrink-0 mt-4 lg:mt-8 mb-8 lg:mb-12"
+          className="text-center shrink-0 mb-6 lg:mb-12"
         >
           <h1
             className="font-[family-name:var(--font-kannada)] text-gold-400 font-semibold select-none mx-auto"
