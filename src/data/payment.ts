@@ -1,6 +1,6 @@
 export const upiConfig = {
-  upiId: "sggb@upi",
-  payeeName: "Sri Gowri Ganesha Geleyara Balaga",
+  upiId: "9916304636-3@ybl",
+  payeeName: "Nithin R",
   defaultNote: "Donation to SGGB Festival",
   defaultCategory: "Donation",
 } as const;
