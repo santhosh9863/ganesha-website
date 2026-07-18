@@ -57,7 +57,7 @@ export default function Gallery() {
         >
           <Link
             href="/gallery"
-            className="inline-flex items-center justify-center h-12 px-7 border border-gold-400/25 hover:border-gold-400/40 text-[#4A453C]/70 hover:text-[#1A1A1A] font-medium rounded-[18px] transition-all duration-500 focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2"
+            className="inline-flex items-center justify-center h-12 px-7 text-[#4A453C]/70 hover:text-[#1A1A1A] font-medium rounded-[18px] transition-all duration-500 focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2"
           >
             View Full Gallery
           </Link>

@@ -36,26 +36,24 @@ export default function GalleryPage() {
             </p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="flex flex-wrap justify-center gap-2 mb-10 md:mb-12"
-          >
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-10 md:mb-12">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`h-10 px-5 rounded-[18px] text-sm font-medium transition-all duration-300 cursor-pointer focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2 ${
+                className={`relative py-1 text-sm font-medium transition-colors duration-250 cursor-pointer focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2 ${
                   activeCategory === cat
-                    ? "bg-gold-400 text-white shadow-[0_4px_20px_-4px_rgba(200,161,74,0.4)]"
-                    : "bg-white border border-gold-400/10 text-[#4A453C]/60 hover:text-[#1A1A1A]"
+                    ? "text-gold-400 font-semibold"
+                    : "text-[#4A453C]/50 hover:text-[#1A1A1A]"
                 }`}
               >
                 {cat}
+                {activeCategory === cat && (
+                  <span className="absolute left-0 -bottom-0.5 w-full h-[2px] bg-gold-400 rounded-full" />
+                )}
               </button>
             ))}
-          </motion.div>
+          </div>
 
           <motion.div layout className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             <AnimatePresence mode="popLayout">

@@ -64,14 +64,13 @@ export default function HeroNavbar() {
 
           <button
             onClick={scrollToDonation}
-            className="group relative inline-flex items-center justify-center h-12 px-6 lg:px-8 rounded-xl text-white text-[15px] font-bold transition-all duration-300 active:scale-[0.97] shadow-[0_12px_30px_rgba(200,161,74,0.22)] hover:shadow-[0_20px_40px_rgba(200,161,74,0.30)] overflow-hidden cursor-pointer whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2 gap-2.5"
+            className="group relative inline-flex items-center justify-center h-12 px-5 lg:px-6 text-white text-[15px] font-bold transition-shadow duration-300 cursor-pointer whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2 gap-2.5 shadow-[0_2px_8px_rgba(200,161,74,0.18)] hover:shadow-[0_4px_14px_rgba(200,161,74,0.28)]"
             style={{
+              borderRadius: "12px",
               background:
                 "linear-gradient(135deg, #EFD48B 0%, #D8B75B 35%, #C89F45 65%, #B8852F 100%)",
             }}
           >
-            <span className="absolute inset-0 bg-gradient-to-b from-white/[0.28] to-transparent top-0 h-[20%] transition-opacity duration-300" />
-            <span className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <span className="relative z-10">Donate</span>
             <ArrowRight className="relative z-10 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
           </button>
