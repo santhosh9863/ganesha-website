@@ -1,9 +1,8 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import { siteConfig } from "@/data/content";
 
 const easePremium: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -15,14 +14,6 @@ export default function HeroNavbar() {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const scrollToDonation = useCallback(() => {
-    const el = document.getElementById("donation");
-    if (!el) return;
-    const offset = 90;
-    const top = el.getBoundingClientRect().top + window.scrollY - offset;
-    window.scrollTo({ top, behavior: "smooth" });
   }, []);
 
   return (
@@ -61,19 +52,6 @@ export default function HeroNavbar() {
               </p>
             </div>
           </Link>
-
-          <button
-            onClick={scrollToDonation}
-            className="group relative inline-flex items-center justify-center h-12 px-5 lg:px-6 text-white text-[15px] font-bold transition-shadow duration-300 cursor-pointer whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2 gap-2.5 shadow-[0_2px_8px_rgba(200,161,74,0.18)] hover:shadow-[0_4px_14px_rgba(200,161,74,0.28)]"
-            style={{
-              borderRadius: "12px",
-              background:
-                "linear-gradient(135deg, #EFD48B 0%, #D8B75B 35%, #C89F45 65%, #B8852F 100%)",
-            }}
-          >
-            <span className="relative z-10">Donate</span>
-            <ArrowRight className="relative z-10 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </button>
         </div>
     </motion.header>
   );
