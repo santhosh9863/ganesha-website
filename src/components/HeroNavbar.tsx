@@ -34,12 +34,13 @@ export default function HeroNavbar() {
         <div className="h-full bg-gradient-to-r from-transparent via-gold-400/15 to-transparent" />
       </div>
 
-      <div className="mx-auto w-full max-w-[1280px] h-[64px] lg:h-[68px] flex items-center justify-center px-5 sm:px-8 lg:px-10">
+      <div className="mx-auto w-full max-w-[1280px] py-4 lg:py-[18px] flex items-center justify-center px-5 sm:px-8 lg:px-10">
         <h1
-          className="font-[family-name:var(--font-kannada)] font-extrabold select-none text-center leading-none shrink-0 gold-text-header"
+          className="font-[family-name:var(--font-kannada)] font-extrabold select-none text-center shrink-0 gold-text-header"
           style={{
             fontSize: "clamp(1.1rem, 4.3vw, 1.75rem)",
             letterSpacing: "0.04em",
+            lineHeight: 1.4,
           }}
         >
           ಶ್ರೀ ಗೌರಿ ಗಣೇಶ ಗೆಳೆಯರ ಬಳಗ
