@@ -1,5 +1,5 @@
 export const upiConfig = {
-  upiId: "9916304636-3@ybl",
+  upiId: "9916304636-2.wallet@phonepe",
   payeeName: "Nithin R",
   defaultNote: "Donation to SGGB Festival",
   defaultCategory: "Donation",
