@@ -36,15 +36,10 @@ export default function HeroNavbar() {
 
       <div className="mx-auto w-full max-w-[1280px] h-[64px] lg:h-[68px] flex items-center justify-center px-5 sm:px-8 lg:px-10">
         <h1
-          className="font-[family-name:var(--font-kannada)] font-extrabold select-none text-center leading-none shrink-0"
+          className="font-[family-name:var(--font-kannada)] font-extrabold select-none text-center leading-none shrink-0 gold-text-header"
           style={{
             fontSize: "clamp(1.1rem, 4.3vw, 1.75rem)",
             letterSpacing: "0.04em",
-            backgroundImage: "linear-gradient(150deg, #C89B3C 0%, #E8D48B 18%, #F7E7A1 35%, #D4AF37 50%, #C89B3C 68%, #E8D48B 85%, #D4AF37 100%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            backgroundClip: "text",
-            filter: "drop-shadow(0 1px 1px rgba(212, 175, 55, 0.12))",
           }}
         >
           ಶ್ರೀ ಗೌರಿ ಗಣೇಶ ಗೆಳೆಯರ ಬಳಗ
