@@ -98,11 +98,9 @@ export default function ContactSection() {
               <div className="rounded-2xl bg-gradient-to-br from-gold-400/12 to-gold-400/5 border border-gold-400/25 p-8 sm:p-10 lg:p-12 shadow-lg shadow-gold-400/10 text-center">
                 <h3 className="font-display text-lg font-bold text-[#1A1A1A] mb-3">Support Our Mission</h3>
                 <p className="text-[#4A453C]/50 text-sm leading-premium mb-6">Your donations help us organize this grand celebration and serve the community.</p>
-                <div className="flex justify-center">
-                  <PremiumDonateButton onClick={() => {}}>
-                    Donate Now
-                  </PremiumDonateButton>
-                </div>
+                <PremiumDonateButton onClick={() => {}}>
+                  Donate Now
+                </PremiumDonateButton>
               </div>
             </motion.div>
           </div>

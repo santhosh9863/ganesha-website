@@ -142,7 +142,7 @@ export default function DonationSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ delay: 0.4, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="stack-group text-center"
+            style={{ marginTop: "48px", marginBottom: "40px" }}
           >
             <PremiumDonateButton onClick={() => {}}>
               Donate {selected === "Custom" ? "Now" : selected}

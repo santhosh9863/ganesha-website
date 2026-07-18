@@ -270,6 +270,12 @@ body {
   line-height: 1.7;
 }
 
+/* ─── Donate Button ────────────────────────────────────── */
+.donate-button-wrapper {
+  display: block;
+  width: 100%;
+}
+
 @theme inline {
   --font-heading: var(--font-sans);
   --font-sans: var(--font-sans);
