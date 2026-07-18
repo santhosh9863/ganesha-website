@@ -146,29 +146,10 @@ export default function Hero() {
 
       {mounted && <Particles />}
 
-      {/* ── Main content: flex column — title, image, text ── */}
-      <div className="relative z-20 layout-container flex flex-col pt-6 lg:pt-8">
+      {/* ── Main content: flex column — image, text ── */}
+      <div className="relative z-20 layout-container flex flex-col pt-4 lg:pt-6">
 
-        {/* ── 1. Kannada Title ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.7, ease: easePremium }}
-          className="text-center shrink-0 mb-6 lg:mb-12"
-        >
-          <h1
-            className="font-[family-name:var(--font-kannada)] text-gold-400 font-semibold select-none mx-auto"
-            style={{
-              fontSize: "clamp(1.75rem, 4.5vw, 3.5rem)",
-              letterSpacing: "0.04em",
-              lineHeight: 1.2,
-            }}
-          >
-            ಶ್ರೀ ಗೌರಿ ಗಣೇಶ ಗೆಳೆಯರ ಬಳಗ
-          </h1>
-        </motion.div>
-
-        {/* ── 2. Hero Image — Mobile ── */}
+        {/* ── 1. Hero Image — Mobile ── */}
         <div className="relative shrink-0 h-[50vh] lg:hidden">
           <Image
             src="/images/hero.png"
