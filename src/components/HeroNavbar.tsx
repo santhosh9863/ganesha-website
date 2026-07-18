@@ -40,7 +40,7 @@ export default function HeroNavbar() {
           style={{
             fontSize: "clamp(1.1rem, 4.3vw, 1.75rem)",
             letterSpacing: "0.04em",
-            background: "linear-gradient(150deg, #C89B3C 0%, #E8D48B 18%, #F7E7A1 35%, #D4AF37 50%, #C89B3C 68%, #E8D48B 85%, #D4AF37 100%)",
+            backgroundImage: "linear-gradient(150deg, #C89B3C 0%, #E8D48B 18%, #F7E7A1 35%, #D4AF37 50%, #C89B3C 68%, #E8D48B 85%, #D4AF37 100%)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
