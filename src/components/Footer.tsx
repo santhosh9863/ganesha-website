@@ -1,12 +1,20 @@
 "use client";
 
 import Link from "next/link";
+import { useCallback } from "react";
 import { motion } from "framer-motion";
 import { siteConfig, navLinks } from "@/data/content";
 import SocialIcon from "@/components/SocialIcon";
 import { FaInstagram } from "react-icons/fa6";
 
 export default function Footer() {
+  const scrollToDonation = useCallback(() => {
+    const el = document.getElementById("donation");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, []);
+
   return (
     <footer className="relative bg-[#1A1A1A] border-t border-white/[0.04] overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-t from-gold-400/8 to-transparent pointer-events-none" />
@@ -46,6 +54,14 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <button
+                  onClick={scrollToDonation}
+                  className="text-gold-400/70 hover:text-gold-400 text-sm transition-colors duration-300 cursor-pointer"
+                >
+                  Donate Now
+                </button>
+              </li>
             </ul>
           </motion.div>
 

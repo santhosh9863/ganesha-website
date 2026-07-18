@@ -156,22 +156,43 @@ export default function Hero() {
 
       {mounted && <Particles />}
 
-      {/* ── Layer 6: Idol — Mobile (above text, full width, visual centerpiece) ── */}
-      <div className="relative z-10 lg:hidden h-[62vh] shrink-0">
-        <Image
-          src="/images/hero.png"
-          alt=""
-          fill
-          className="object-contain object-bottom"
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#FCF8F0] via-[#FCF8F0]/40 to-transparent pointer-events-none" />
-      </div>
+      {/* ── Main content: flex column — title, image, text ── */}
+      <div className="relative z-20 layout-container flex flex-col flex-1 pt-[76px] lg:pt-[80px]">
 
-      {/* ── Layer 7: Text content ── */}
-      <div className="relative z-20 layout-container flex-1 flex flex-col lg:min-h-dvh -mt-16 lg:mt-0">
-        <div className="flex flex-col justify-center flex-1 lg:w-1/2 py-8 lg:pt-32 lg:pb-24 text-center lg:text-left">
+        {/* ── 1. Kannada Title ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.7, ease: easePremium }}
+          className="text-center shrink-0 mt-4 lg:mt-8 mb-8 lg:mb-12"
+        >
+          <h1
+            className="font-[family-name:var(--font-kannada)] text-gold-400 font-semibold select-none mx-auto"
+            style={{
+              fontSize: "clamp(1.75rem, 4.5vw, 3.5rem)",
+              letterSpacing: "0.04em",
+              lineHeight: 1.2,
+            }}
+          >
+            ಶ್ರೀ ಗೌರಿ ಗಣೇಶ ಗೆಳೆಯರ ಬಳಗ
+          </h1>
+        </motion.div>
+
+        {/* ── 2. Hero Image — Mobile ── */}
+        <div className="relative shrink-0 h-[50vh] lg:hidden">
+          <Image
+            src="/images/hero.png"
+            alt=""
+            fill
+            className="object-contain object-bottom"
+            priority
+            sizes="100vw"
+          />
+          <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#FCF8F0] via-[#FCF8F0]/40 to-transparent pointer-events-none" />
+        </div>
+
+        {/* ── 3–6. Text content ── */}
+        <div className="flex flex-col justify-center flex-1 lg:w-1/2 py-6 lg:pt-16 lg:pb-24 text-center lg:text-left">
           {/* Eyebrow */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
@@ -183,14 +204,14 @@ export default function Hero() {
           </motion.div>
 
           {/* Headline */}
-          <motion.h1
+          <motion.h2
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.75, duration: 0.8, ease: easePremium }}
             className="font-display text-[clamp(2.2rem,5.5vw,4rem)] font-extrabold leading-[1.12] lg:leading-[1.08] tracking-tight text-[#1A1A1A] max-w-[90%] lg:max-w-none mx-auto lg:mx-0"
           >
             14 Years of Devotion,<br />Culture & Unity
-          </motion.h1>
+          </motion.h2>
 
           {/* Description */}
           <motion.p

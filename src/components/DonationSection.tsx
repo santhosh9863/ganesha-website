@@ -4,13 +4,9 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Heart, Shield, Check } from "lucide-react";
 import { siteConfig } from "@/data/content";
+import { donationAmounts } from "@/data/payment";
+import { initiatePayment } from "@/lib/payment";
 import PremiumDonateButton from "@/components/PremiumDonateButton";
-
-const amounts = [
-  { label: "₹101", desc: "Simple Offering", shortDesc: "Support the daily rituals and prayers throughout the festival", recommended: false },
-  { label: "₹501", desc: "Prasadam", shortDesc: "Bless a family with sacred prasadam on the day of the festival", recommended: true },
-  { label: "₹1,001", desc: "Flower Donation", shortDesc: "Help us decorate the temple with fresh flowers for the celebrations", recommended: false },
-];
 
 const impactMessages: Record<string, string> = {
   "₹101": "supports the daily rituals and prayers throughout the festival",
@@ -22,6 +18,38 @@ const impactMessages: Record<string, string> = {
 export default function DonationSection() {
   const [selected, setSelected] = useState("₹501");
   const [customAmount, setCustomAmount] = useState("");
+  const [error, setError] = useState<string | null>(null);
+
+  const getSelectedAmount = (): number | null => {
+    if (selected === "Custom") {
+      const parsed = parseInt(customAmount, 10);
+      return isNaN(parsed) ? null : parsed;
+    }
+    const match = donationAmounts.find((a) => a.label === selected);
+    return match?.value ?? null;
+  };
+
+  const handleDonate = async () => {
+    setError(null);
+    const amount = getSelectedAmount();
+
+    if (!amount || amount <= 0) {
+      setError("Please enter a valid amount.");
+      return;
+    }
+
+    if (amount > 100000) {
+      setError("Maximum donation amount is ₹1,00,000.");
+      return;
+    }
+
+    const result = await initiatePayment({ amount });
+    if (!result.success && result.error) {
+      setError(result.error);
+    }
+  };
+
+  const displayAmount = selected === "Custom" && customAmount ? `₹${customAmount}` : selected;
 
   return (
     <section id="donation" className="section-spacing relative overflow-hidden">
@@ -61,7 +89,7 @@ export default function DonationSection() {
             <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-3 rounded-full bg-gold-400/8 border border-gold-400/15">
               <Heart className="w-4 h-4 text-gold-400" />
               <span className="text-[#4A453C]/60 text-xs sm:text-sm">
-                Your <span className="font-semibold text-gold-400">{selected === "Custom" && customAmount ? `₹${customAmount}` : selected}</span> donation {impactMessages[selected]}
+                Your <span className="font-semibold text-gold-400">{displayAmount}</span> donation {impactMessages[selected]}
               </span>
             </div>
           </motion.div>
@@ -75,12 +103,12 @@ export default function DonationSection() {
             className="stack-desc-cards"
           >
             <div className="card-grid grid-cols-1 sm:grid-cols-3">
-              {amounts.map((amount) => {
+              {donationAmounts.map((amount) => {
                 const isSelected = selected === amount.label;
                 return (
                   <button
                     key={amount.label}
-                    onClick={() => setSelected(amount.label)}
+                    onClick={() => { setSelected(amount.label); setError(null); }}
                     className={`relative flex flex-col items-center justify-center w-full rounded-2xl border cursor-pointer transition-all duration-300 focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2 p-5 sm:p-6 ${
                       isSelected
                         ? "border-gold-400 bg-gold-400/[0.04] shadow-md"
@@ -121,7 +149,7 @@ export default function DonationSection() {
             className="stack-group"
           >
             <div
-              onClick={() => setSelected("Custom")}
+              onClick={() => { setSelected("Custom"); setError(null); }}
               className={`relative w-full rounded-2xl border cursor-pointer transition-all duration-300 ${
                 selected === "Custom"
                   ? "border-gold-400 bg-gold-400/[0.04] shadow-md p-6 sm:p-8"
@@ -150,10 +178,11 @@ export default function DonationSection() {
                       <input
                         type="number"
                         min="1"
+                        max="100000"
                         placeholder="Enter amount"
                         autoFocus
                         value={customAmount}
-                        onChange={(e) => setCustomAmount(e.target.value)}
+                        onChange={(e) => { setCustomAmount(e.target.value); setError(null); }}
                         onClick={(e) => e.stopPropagation()}
                         className="w-36 sm:w-44 bg-transparent text-3xl sm:text-4xl font-display font-bold text-[#1A1A1A] outline-none placeholder:text-base placeholder:font-medium placeholder:text-[#4A453C]/30 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                       />
@@ -164,6 +193,17 @@ export default function DonationSection() {
             </div>
           </motion.div>
 
+          {/* Error Message */}
+          {error && (
+            <motion.p
+              initial={{ opacity: 0, y: 4 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-red-500 text-sm text-center mt-4"
+            >
+              {error}
+            </motion.p>
+          )}
+
           {/* Donate CTA */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -172,7 +212,7 @@ export default function DonationSection() {
             transition={{ delay: 0.4, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="mt-12 mb-10"
           >
-            <PremiumDonateButton onClick={() => {}}>
+            <PremiumDonateButton onClick={handleDonate}>
               Donate {selected === "Custom" ? (customAmount ? `₹${customAmount}` : "Now") : selected}
             </PremiumDonateButton>
           </motion.div>
