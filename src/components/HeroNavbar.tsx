@@ -34,12 +34,12 @@ export default function HeroNavbar() {
         <div className="h-full bg-gradient-to-r from-transparent via-gold-400/15 to-transparent" />
       </div>
 
-      <div className="mx-auto w-full max-w-[1280px] h-[60px] lg:h-[64px] flex items-center justify-center px-4 lg:px-8">
+      <div className="mx-auto w-full max-w-[1280px] h-[64px] lg:h-[68px] flex items-center justify-center px-6 sm:px-8 lg:px-10">
         <h1
-          className="font-[family-name:var(--font-kannada)] font-bold select-none text-center leading-none whitespace-nowrap overflow-hidden text-ellipsis max-w-full"
+          className="font-[family-name:var(--font-kannada)] font-bold select-none text-center leading-none shrink-0"
           style={{
-            fontSize: "clamp(1.2rem, 4.2vw, 1.75rem)",
-            letterSpacing: "0.06em",
+            fontSize: "clamp(0.95rem, 4vw, 1.65rem)",
+            letterSpacing: "0.05em",
             background: "linear-gradient(145deg, #D4AF37 0%, #E8D48B 20%, #F7E7A1 40%, #D4AF37 55%, #C89B3C 75%, #D4AF37 100%)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
