@@ -6,11 +6,12 @@ export const siteConfig = {
   yearsOfLegacy: 14,
   foundedYear: 2012,
   location: "Bangalore, India",
+  locationUrl: "https://maps.app.goo.gl/PoBQ9Cox3QwsQjes8",
   email: "hello@sggb.in",
   phone: "+91 XXXXX XXXXX",
   festivalDate: "September 16, 2026",
   social: {
-    instagram: "#",
+    instagram: "https://www.instagram.com/srigowriganesha_2012?igsh=bW5zMDVwZzBjajgy",
     facebook: "#",
     youtube: "#",
     twitter: "#",

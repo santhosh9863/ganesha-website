@@ -77,10 +77,15 @@ export default function Footer() {
           >
             <h4 className="font-display text-white/70 font-medium mb-3 text-[11px] tracking-wider uppercase">Connect</h4>
             <div className="space-y-2">
-              <div className="flex items-center gap-2 text-white/30 text-xs">
+              <a
+                href={siteConfig.locationUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-white/30 text-xs hover:text-gold-400 transition-colors duration-300"
+              >
                 <MapPin className="w-3 h-3 text-gold-400/40 shrink-0" />
                 <span>{siteConfig.location}</span>
-              </div>
+              </a>
               {siteConfig.email && !siteConfig.email.startsWith("hello@") && (
                 <div className="flex items-center gap-2 text-white/30 text-xs">
                   <Mail className="w-3 h-3 text-gold-400/40 shrink-0" />
