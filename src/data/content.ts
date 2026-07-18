@@ -99,17 +99,24 @@ export const highlights = [
   { title: "Donation Drive", icon: "❤️", description: "Annual donation campaigns supporting community welfare and social causes." },
 ];
 
-export const galleryImages = Array.from({ length: 16 }, (_, i) => ({
-  id: i + 1,
-  src: `/images/gallery-${i + 1}.jpg`,
-  alt: [
-    "Ganesha Idol Decoration", "Evening Aarti Ceremony", "Grand Procession", "Community Feast",
-    "Cultural Dance Performance", "Temple Lighting", "Flower Decorations", "Devotees Gathering",
-    "Dhol Performance", "Visarjan Ceremony", "Volunteer Team", "Night Aarti",
-    "Rangoli Art", "Prasada Distribution", "Kids Competition", "Finale Celebration"
-  ][i],
-  category: ["Decoration", "Ceremony", "Procession", "Events", "Culture", "Decoration", "Decoration", "Devotees", "Culture", "Procession", "Team", "Ceremony", "Decoration", "Events", "Events", "Procession"][i],
-}));
+export const galleryImages = [
+  { id: 1,  src: "/images/decoration.jpg",   alt: "Ganesha Idol Decoration",  category: "Decoration" },
+  { id: 2,  src: "/images/ceremony.jpg",     alt: "Evening Aarti Ceremony",   category: "Ceremony" },
+  { id: 3,  src: "/images/procession.jpg",   alt: "Grand Procession",         category: "Procession" },
+  { id: 4,  src: "/images/events.jpg",       alt: "Community Feast",          category: "Events" },
+  { id: 5,  src: "/images/culture.jpg",      alt: "Cultural Dance Performance", category: "Culture" },
+  { id: 6,  src: "/images/decoration2.jpg",  alt: "Temple Lighting",          category: "Decoration" },
+  { id: 7,  src: "/images/decoration3.jpg",  alt: "Flower Decorations",       category: "Decoration" },
+  { id: 8,  src: "/images/devotees.jpg",     alt: "Devotees Gathering",       category: "Devotees" },
+  { id: 9,  src: "/images/culture2.jpg",     alt: "Dhol Performance",         category: "Culture" },
+  { id: 10, src: "/images/procession2.jpg",  alt: "Visarjan Ceremony",        category: "Procession" },
+  { id: 11, src: "/images/team.jpg",         alt: "Volunteer Team",           category: "Team" },
+  { id: 12, src: "/images/ceremony2.jpg",    alt: "Night Aarti",              category: "Ceremony" },
+  { id: 13, src: "/images/decoration4.jpg",  alt: "Rangoli Art",              category: "Decoration" },
+  { id: 14, src: "/images/events2.jpg",      alt: "Prasada Distribution",     category: "Events" },
+  { id: 15, src: "/images/events3.jpg",      alt: "Kids Competition",         category: "Events" },
+  { id: 16, src: "/images/procession3.jpg",  alt: "Finale Celebration",       category: "Procession" },
+];
 
 export const events = [
   { day: 1, title: "Grand Inauguration & Ganesha Idol Arrival", time: "6:00 AM", description: "The celebration begins with the ceremonial arrival of Lord Ganesha. Traditional chants, flower showers, and a vibrant procession mark the start.", highlights: ["Idol Arrival", "Vedic Chants", "Flower Shower", "Inauguration"] },
