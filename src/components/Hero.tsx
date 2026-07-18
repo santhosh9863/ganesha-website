@@ -109,9 +109,6 @@ export default function Hero() {
         }}
       />
 
-      {/* ── Layer 3: Warm radial glow centered behind idol ── */}
-      <div className="absolute z-[2] top-[10%] right-[5%] w-[45%] h-[75%] bg-amber-300/8 rounded-full blur-[250px] pointer-events-none hidden lg:block" />
-
       {/* ── Layer 4: Decorative mandala (desktop) ── */}
       <div className="absolute z-[2] top-[-2%] right-[5%] w-[50%] h-[100%] pointer-events-none overflow-hidden hidden lg:block">
         <div
@@ -133,13 +130,6 @@ export default function Hero() {
       {/* ── Layer 5: Idol — Desktop (composed right-column scene) ── */}
       <div className="absolute right-0 top-[6%] bottom-0 w-[50%] z-10 hidden lg:block pointer-events-none">
         <div className="relative w-full h-full">
-          {/* Blend gradient on left edge */}
-          <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#FCF8F0] to-transparent z-[11] pointer-events-none" />
-          {/* Warm glow behind idol */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[90%] bg-amber-300/10 rounded-full blur-[200px]" />
-          <div className="absolute top-[55%] left-1/2 -translate-x-1/2 w-[110%] h-[60%] bg-gold-400/12 rounded-full blur-[140px]" />
-          {/* Soft shadow under idol */}
-          <div className="absolute bottom-[6%] left-[15%] right-[15%] h-10 bg-black/4 rounded-full blur-[32px]" />
           {/* Image with breathing room */}
           <div className="absolute inset-x-[4%] inset-y-0">
             <Image
@@ -188,7 +178,6 @@ export default function Hero() {
             priority
             sizes="100vw"
           />
-          <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#FCF8F0] via-[#FCF8F0]/40 to-transparent pointer-events-none" />
         </div>
 
         {/* ── 3–6. Text content ── */}
