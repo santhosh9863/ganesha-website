@@ -8,6 +8,7 @@ import { siteConfig } from "@/data/content";
 import SocialIcon from "@/components/SocialIcon";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa6";
 import PremiumDonateButton from "@/components/PremiumDonateButton";
+import { Button } from "@/components/ui/Button";
 
 export default function ContactSection() {
   const {
@@ -75,9 +76,9 @@ export default function ContactSection() {
                 <textarea {...register("message")} rows={4} placeholder="Share your thoughts with us..." className="w-full px-4 py-3.5 bg-white border border-gold-400/15 rounded-xl text-[#1A1A1A] placeholder-[#4A453C]/30 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-300 text-sm resize-none" />
                 {errors.message && <p className="text-red-400/80 text-xs px-1">{errors.message.message}</p>}
               </div>
-              <button type="submit" disabled={isSubmitting} className="w-full sm:w-auto h-12 px-9 bg-gold-400 hover:bg-gold-500 text-white font-semibold rounded-[18px] transition-all duration-500 shadow-lg shadow-gold-400/20 cursor-pointer disabled:opacity-50 text-sm focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2">
+              <Button type="submit" disabled={isSubmitting} variant="primary" size="md" className="w-full sm:w-auto">
                 {isSubmitting ? "Sending..." : "Send Message"}
-              </button>
+              </Button>
             </motion.form>
 
             <motion.div

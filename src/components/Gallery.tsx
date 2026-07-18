@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import GalleryCard from "@/components/GalleryCard";
+import GalleryLightbox from "@/components/GalleryLightbox";
 import { galleryImages } from "@/data/content";
 
 export default function Gallery() {
@@ -64,54 +65,7 @@ export default function Gallery() {
         </motion.div>
       </div>
 
-      <AnimatePresence>
-        {selected && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelected(null)}
-            className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-xl flex items-center justify-center p-4 cursor-pointer"
-          >
-            <motion.div
-              initial={{ scale: 0.85, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.85, opacity: 0 }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              onClick={(e) => e.stopPropagation()}
-              className="relative max-w-4xl w-full aspect-video rounded-2xl overflow-hidden bg-black flex items-center justify-center"
-            >
-              {(() => {
-                const img = galleryImages.find((g) => g.id === selected);
-                return (
-                  <>
-                    <img
-                      src={img?.src ?? ""}
-                      alt={img?.alt ?? ""}
-                      className="w-full h-full object-contain"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
-                    <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
-                      <p className="text-white font-display text-xl font-semibold">
-                        {img?.alt}
-                      </p>
-                      <p className="text-gold-400/80 text-sm mt-1">
-                        {img?.category}
-                      </p>
-                    </div>
-                    <button
-                      onClick={() => setSelected(null)}
-                      className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/40 backdrop-blur-sm border border-white/10 text-white flex items-center justify-center hover:bg-black/60 transition-colors"
-                    >
-                      ✕
-                    </button>
-                  </>
-                );
-              })()}
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <GalleryLightbox selectedId={selected} onClose={() => setSelected(null)} />
     </section>
   );
 }

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import { motion } from "framer-motion";
 
 const easePremium: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -35,30 +34,7 @@ export default function HeroNavbar() {
         <div className="h-full bg-gradient-to-r from-transparent via-gold-400/15 to-transparent" />
       </div>
 
-      <div className="mx-auto w-full max-w-[1280px] flex items-center justify-between h-[68px] lg:h-[72px] px-6 lg:px-8">
-          <Link href="/" className="flex items-center gap-3 lg:gap-4 group shrink-0">
-            <div className="flex flex-col items-start leading-none select-none">
-              <span
-                className="font-[family-name:var(--font-kannada)] text-gold-400 font-semibold tracking-wide"
-                style={{
-                  fontSize: "clamp(0.85rem, 1.6vw, 1.15rem)",
-                  textShadow: "0 1px 6px rgba(200,161,74,0.25), 0 0 20px rgba(200,161,74,0.10)",
-                }}
-              >
-                ಶ್ರೀ ಗೌರಿ ಗಣೇಶ
-              </span>
-              <span
-                className="font-[family-name:var(--font-kannada)] text-gold-400 font-semibold tracking-wide"
-                style={{
-                  fontSize: "clamp(0.7rem, 1.3vw, 0.95rem)",
-                  textShadow: "0 1px 6px rgba(200,161,74,0.25), 0 0 20px rgba(200,161,74,0.10)",
-                }}
-              >
-                ಗೆಳೆಯರ ಬಳಗ
-              </span>
-            </div>
-          </Link>
-        </div>
+      <div className="mx-auto w-full max-w-[1280px] h-[68px] lg:h-[72px] px-6 lg:px-8" />
     </motion.header>
   );
 }
