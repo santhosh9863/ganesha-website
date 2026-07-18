@@ -93,7 +93,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-dvh bg-[#FCF8F0] overflow-hidden flex flex-col">
+    <section className="relative bg-[#FCF8F0] overflow-hidden flex flex-col">
       {/* ── Layer 1: Atmosphere & ambient glows ── */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute top-[-5%] left-1/2 -translate-x-1/2 w-[90vw] lg:w-[800px] h-[50vh] lg:h-[600px] bg-gold-400/8 rounded-full blur-[250px]" />
@@ -147,7 +147,7 @@ export default function Hero() {
       {mounted && <Particles />}
 
       {/* ── Main content: flex column — title, image, text ── */}
-      <div className="relative z-20 layout-container flex flex-col flex-1 pt-4 lg:pt-8">
+      <div className="relative z-20 layout-container flex flex-col pt-6 lg:pt-8">
 
         {/* ── 1. Kannada Title ── */}
         <motion.div
@@ -181,7 +181,7 @@ export default function Hero() {
         </div>
 
         {/* ── 3–6. Text content ── */}
-        <div className="flex flex-col justify-center flex-1 lg:w-1/2 py-6 lg:pt-16 lg:pb-24 text-center lg:text-left">
+        <div className="flex flex-col justify-center lg:w-1/2 py-6 lg:pt-12 lg:pb-20 text-center lg:text-left">
           {/* Eyebrow */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
