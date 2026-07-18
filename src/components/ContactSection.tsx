@@ -3,12 +3,20 @@
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { contactSchema, type ContactFormData } from "@/lib/schemas";
-import { siteConfig } from "@/data/content";
-import SocialIcon from "@/components/SocialIcon";
-import { FaInstagram, FaWhatsapp } from "react-icons/fa6";
-import PremiumDonateButton from "@/components/PremiumDonateButton";
+import { contributionSchema, type ContributionFormData } from "@/lib/schemas";
 import { Button } from "@/components/ui/Button";
+import { Heart, Users, Lightbulb, Palette } from "lucide-react";
+
+const contributionTypes = [
+  "Volunteering",
+  "Sponsorship",
+  "Cultural Programs",
+  "Decorations & Materials",
+  "Professional Services",
+  "Food & Refreshments",
+  "Ideas & Suggestions",
+  "Other",
+];
 
 export default function ContactSection() {
   const {
@@ -16,11 +24,11 @@ export default function ContactSection() {
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
-  } = useForm<ContactFormData>({
-    resolver: zodResolver(contactSchema),
+  } = useForm<ContributionFormData>({
+    resolver: zodResolver(contributionSchema),
   });
 
-  const onSubmit = async (data: ContactFormData) => {
+  const onSubmit = async (data: ContributionFormData) => {
     await new Promise((r) => setTimeout(r, 1000));
     reset();
   };
@@ -30,83 +38,125 @@ export default function ContactSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-[#FFFFFF] via-[#FCFBF8] to-[#FFFFFF]" />
 
       <div className="relative layout-container">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center"
-        >
-          <span className="text-gold-400 text-xs tracking-[0.3em] uppercase font-medium">Get In Touch</span>
-          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1A1A1A] mt-6 leading-tight">
-            Connect{" "}
-            <span className="gold-text">With Us</span>
-          </h2>
-        </motion.div>
+        <div className="max-w-[860px] mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="text-center"
+          >
+            <span className="text-gold-400 text-xs tracking-[0.3em] uppercase font-medium">
+              Contribute With Purpose
+            </span>
+            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1A1A1A] mt-6 leading-tight">
+              Every Contribution{" "}
+              <span className="gold-text">Has Value</span>
+            </h2>
+            <p className="text-[#4A453C]/50 max-w-[600px] mx-auto leading-relaxed text-sm sm:text-base mt-7">
+              Financial support is just one way to help. If you&apos;d like to contribute your time, skills, resources, cultural programs, sponsorship, decorations, volunteering, or ideas — we&apos;d be delighted to hear from you.
+            </p>
+          </motion.div>
 
-        <div className="stack-desc-cards">
-          <div className="card-grid grid-cols-1 lg:grid-cols-2">
-            <motion.form
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ delay: 0.15 }}
-              onSubmit={handleSubmit(onSubmit)}
-              className="flex flex-col gap-5"
-            >
-              <div className="card-grid grid-cols-1 sm:grid-cols-2">
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-[#4A453C]/50 text-xs tracking-wide uppercase font-medium">Your Name</label>
-                  <input {...register("name")} type="text" placeholder="Enter your name" className="w-full h-11 sm:h-12 px-4 bg-white border border-gold-400/15 rounded-xl text-[#1A1A1A] placeholder-[#4A453C]/30 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-300 text-sm" />
-                  {errors.name && <p className="text-red-400/80 text-xs px-1">{errors.name.message}</p>}
+          {/* Ways to contribute — icon strip */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ delay: 0.15, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="flex items-center justify-center gap-6 sm:gap-10 mt-10 mb-12"
+          >
+            {[
+              { icon: Users, label: "Volunteer" },
+              { icon: Heart, label: "Sponsor" },
+              { icon: Palette, label: "Perform" },
+              { icon: Lightbulb, label: "Ideas" },
+            ].map((item) => (
+              <div key={item.label} className="flex flex-col items-center gap-2">
+                <div className="w-10 h-10 rounded-full bg-gold-400/8 border border-gold-400/15 flex items-center justify-center">
+                  <item.icon className="w-4 h-4 text-gold-400/70" />
                 </div>
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-[#4A453C]/50 text-xs tracking-wide uppercase font-medium">Your Email</label>
-                  <input {...register("email")} type="email" placeholder="Enter your email" className="w-full h-11 sm:h-12 px-4 bg-white border border-gold-400/15 rounded-xl text-[#1A1A1A] placeholder-[#4A453C]/30 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-300 text-sm" />
-                  {errors.email && <p className="text-red-400/80 text-xs px-1">{errors.email.message}</p>}
-                </div>
+                <span className="text-[10px] text-[#4A453C]/40 font-medium tracking-wide">{item.label}</span>
+              </div>
+            ))}
+          </motion.div>
+
+          {/* Form */}
+          <motion.form
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ delay: 0.25, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            onSubmit={handleSubmit(onSubmit)}
+            className="bg-white rounded-2xl border border-gold-400/10 shadow-[0_2px_16px_rgba(0,0,0,0.03)] p-6 sm:p-8 lg:p-10"
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="flex flex-col gap-1.5">
+                <label className="text-[#4A453C]/50 text-xs tracking-wide uppercase font-medium">Full Name</label>
+                <input
+                  {...register("name")}
+                  type="text"
+                  placeholder="Your name"
+                  className="w-full h-11 px-4 bg-[#FCFBF8] border border-gold-400/12 rounded-xl text-[#1A1A1A] placeholder-[#4A453C]/25 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/15 transition-all duration-300 text-sm"
+                />
+                {errors.name && <p className="text-red-400/80 text-xs px-1">{errors.name.message}</p>}
               </div>
               <div className="flex flex-col gap-1.5">
-                <label className="text-[#4A453C]/50 text-xs tracking-wide uppercase font-medium">Subject</label>
-                <input {...register("subject")} type="text" placeholder="What is this about?" className="w-full h-11 sm:h-12 px-4 bg-white border border-gold-400/15 rounded-xl text-[#1A1A1A] placeholder-[#4A453C]/30 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-300 text-sm" />
-                {errors.subject && <p className="text-red-400/80 text-xs px-1">{errors.subject.message}</p>}
+                <label className="text-[#4A453C]/50 text-xs tracking-wide uppercase font-medium">Phone Number</label>
+                <input
+                  {...register("phone")}
+                  type="tel"
+                  placeholder="+91 XXXXX XXXXX"
+                  className="w-full h-11 px-4 bg-[#FCFBF8] border border-gold-400/12 rounded-xl text-[#1A1A1A] placeholder-[#4A453C]/25 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/15 transition-all duration-300 text-sm"
+                />
+                {errors.phone && <p className="text-red-400/80 text-xs px-1">{errors.phone.message}</p>}
               </div>
-              <div className="flex flex-col gap-1.5">
-                <label className="text-[#4A453C]/50 text-xs tracking-wide uppercase font-medium">Message</label>
-                <textarea {...register("message")} rows={4} placeholder="Share your thoughts with us..." className="w-full px-4 py-3.5 bg-white border border-gold-400/15 rounded-xl text-[#1A1A1A] placeholder-[#4A453C]/30 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-300 text-sm resize-none" />
-                {errors.message && <p className="text-red-400/80 text-xs px-1">{errors.message.message}</p>}
-              </div>
+            </div>
+
+            <div className="flex flex-col gap-1.5 mt-5">
+              <label className="text-[#4A453C]/50 text-xs tracking-wide uppercase font-medium">
+                How would you like to contribute?
+              </label>
+              <select
+                {...register("contributionType")}
+                className="w-full h-11 px-4 bg-[#FCFBF8] border border-gold-400/12 rounded-xl text-[#1A1A1A] focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/15 transition-all duration-300 text-sm appearance-none cursor-pointer"
+              >
+                <option value="">Select an option</option>
+                {contributionTypes.map((type) => (
+                  <option key={type} value={type}>{type}</option>
+                ))}
+              </select>
+              {errors.contributionType && <p className="text-red-400/80 text-xs px-1">{errors.contributionType.message}</p>}
+            </div>
+
+            <div className="flex flex-col gap-1.5 mt-5">
+              <label className="text-[#4A453C]/50 text-xs tracking-wide uppercase font-medium">Tell Us More</label>
+              <textarea
+                {...register("details")}
+                rows={4}
+                placeholder="Share how you'd like to contribute — your skills, availability, ideas, or anything else..."
+                className="w-full px-4 py-3.5 bg-[#FCFBF8] border border-gold-400/12 rounded-xl text-[#1A1A1A] placeholder-[#4A453C]/25 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/15 transition-all duration-300 text-sm resize-none"
+              />
+              {errors.details && <p className="text-red-400/80 text-xs px-1">{errors.details.message}</p>}
+            </div>
+
+            <div className="mt-6">
               <Button type="submit" disabled={isSubmitting} variant="primary" size="md" className="w-full sm:w-auto">
-                {isSubmitting ? "Sending..." : "Send Message"}
+                {isSubmitting ? "Sending..." : "Submit"}
               </Button>
-            </motion.form>
+            </div>
+          </motion.form>
 
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ delay: 0.25 }}
-              className="flex flex-col gap-8"
-            >
-              <div className="card p-8 sm:p-10 lg:p-12 text-center">
-                <h3 className="font-display text-lg font-bold text-[#1A1A1A] mb-4">Follow Us</h3>
-                <p className="text-[#4A453C]/50 text-sm leading-premium mb-6">Stay connected through our social media channels for the latest updates and event highlights.</p>
-                <div className="flex items-center justify-center gap-6 md:gap-8">
-                  <SocialIcon href={siteConfig.social.instagram} icon={<FaInstagram size={26} />} label="Instagram" />
-                  <SocialIcon href={siteConfig.social.whatsapp} icon={<FaWhatsapp size={26} />} label="WhatsApp" />
-                </div>
-              </div>
-              <div className="rounded-2xl bg-gradient-to-br from-gold-400/12 to-gold-400/5 border border-gold-400/25 p-8 sm:p-10 lg:p-12 shadow-lg shadow-gold-400/10 text-center">
-                <h3 className="font-display text-lg font-bold text-[#1A1A1A] mb-3">Support Our Mission</h3>
-                <p className="text-[#4A453C]/50 text-sm leading-premium mb-6">Your donations help us organize this grand celebration and serve the community.</p>
-                <PremiumDonateButton onClick={() => {
-                  document.getElementById("donation")?.scrollIntoView({ behavior: "smooth", block: "start" });
-                }}>
-                  Donate Now
-                </PremiumDonateButton>
-              </div>
-            </motion.div>
-          </div>
+          {/* Closing note */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ delay: 0.35, duration: 0.5 }}
+            className="text-[#4A453C]/35 text-xs text-center max-w-[480px] mx-auto leading-relaxed mt-8"
+          >
+            Whether it&apos;s an hour of your time, a cultural performance, a sponsorship, or simply a thoughtful idea — every gesture strengthens our celebration.
+          </motion.p>
         </div>
       </div>
     </section>
