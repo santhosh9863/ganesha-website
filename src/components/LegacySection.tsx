@@ -425,10 +425,10 @@ export default function LegacySection() {
               <div className="stack-cards-cta flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
                   href={closing.ctaHref}
-                  className="group w-full sm:w-auto inline-flex items-center justify-center h-12 sm:h-11 px-7 rounded-lg bg-gold-400/10 border border-gold-400/20 hover:bg-gold-400/20 hover:border-gold-400/40 text-gold-400 text-sm font-medium transition-all duration-500 active:scale-[0.97]"
+                  className="group inline-flex items-center text-gold-400/70 hover:text-gold-400 text-sm font-medium transition-colors duration-300"
                 >
                   {closing.cta}
-                  <span className="ml-2 inline-block transition-transform duration-300 group-hover:translate-x-1 active:translate-x-1">
+                  <span className="ml-1.5 inline-block transition-transform duration-300 group-hover:translate-x-1">
                     &rarr;
                   </span>
                 </Link>
