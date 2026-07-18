@@ -34,18 +34,17 @@ export default function HeroNavbar() {
         <div className="h-full bg-gradient-to-r from-transparent via-gold-400/15 to-transparent" />
       </div>
 
-      <div className="mx-auto w-full max-w-[1280px] h-[64px] lg:h-[68px] flex items-center justify-center px-6 sm:px-8 lg:px-10">
+      <div className="mx-auto w-full max-w-[1280px] h-[64px] lg:h-[68px] flex items-center justify-center px-5 sm:px-8 lg:px-10">
         <h1
-          className="font-[family-name:var(--font-kannada)] font-bold select-none text-center leading-none shrink-0"
+          className="font-[family-name:var(--font-kannada)] font-extrabold select-none text-center leading-none shrink-0"
           style={{
-            fontSize: "clamp(0.95rem, 4vw, 1.65rem)",
-            letterSpacing: "0.05em",
-            background: "linear-gradient(145deg, #D4AF37 0%, #E8D48B 20%, #F7E7A1 40%, #D4AF37 55%, #C89B3C 75%, #D4AF37 100%)",
+            fontSize: "clamp(1.1rem, 4.3vw, 1.75rem)",
+            letterSpacing: "0.04em",
+            background: "linear-gradient(150deg, #C89B3C 0%, #E8D48B 18%, #F7E7A1 35%, #D4AF37 50%, #C89B3C 68%, #E8D48B 85%, #D4AF37 100%)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
-            textShadow: "none",
-            filter: "drop-shadow(0 1px 2px rgba(212, 175, 55, 0.15))",
+            filter: "drop-shadow(0 1px 1px rgba(212, 175, 55, 0.12))",
           }}
         >
           ಶ್ರೀ ಗೌರಿ ಗಣೇಶ ಗೆಳೆಯರ ಬಳಗ
