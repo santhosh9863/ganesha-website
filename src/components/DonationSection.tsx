@@ -155,7 +155,7 @@ export default function DonationSection() {
                         value={customAmount}
                         onChange={(e) => setCustomAmount(e.target.value)}
                         onClick={(e) => e.stopPropagation()}
-                        className="w-36 sm:w-44 bg-transparent text-3xl sm:text-4xl font-display font-bold text-[#1A1A1A] outline-none placeholder:text-[#4A453C]/20 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                        className="w-36 sm:w-44 bg-transparent text-3xl sm:text-4xl font-display font-bold text-[#1A1A1A] outline-none placeholder:text-base placeholder:font-medium placeholder:text-[#4A453C]/30 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                       />
                     </div>
                   </motion.div>
