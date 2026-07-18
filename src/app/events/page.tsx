@@ -57,35 +57,30 @@ export default function EventsPage() {
           </motion.div>
 
           <div className="relative max-w-5xl mx-auto">
-            <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gold-400/15 -translate-x-px" />
-
-            <div className="space-y-5 lg:space-y-6">
+            <div className="space-y-0">
               {events.map((event, i) => (
-                <motion.div
-                  key={event.day}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08 }}
-                  className={`lg:flex items-center gap-6 ${i % 2 === 0 ? "" : "lg:flex-row-reverse"}`}
-                >
-                  <div className="flex-1">
-                    <div className="bg-white rounded-3xl border border-gold-400/[0.06] p-5 sm:p-6 shadow-[0_1px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_16px_rgba(0,0,0,0.04)] transition-shadow duration-300">
-                      <div className="flex items-center gap-1.5 mb-4">
-                        <span className="inline-flex items-center justify-center w-[26px] h-[26px] rounded-md bg-gold-400/10 text-gold-400 text-[0.65rem] font-semibold leading-none">D{event.day}</span>
+                <div key={event.day}>
+                  {i > 0 && (
+                    <div className="my-8 sm:my-10 mx-auto max-w-md h-px bg-gradient-to-r from-transparent via-[#1A1A1A]/15 to-transparent" />
+                  )}
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.08 }}
+                  >
+                    <div className="bg-white rounded-3xl border border-gold-400/[0.06] p-6 sm:p-8 shadow-[0_1px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_4px_16px_rgba(0,0,0,0.04)] transition-shadow duration-300">
+                      <div className="flex items-center gap-2 mb-5">
+                        <span className="inline-flex items-center justify-center w-7 h-7 rounded-md bg-gold-400/10 text-gold-400 text-[0.65rem] font-semibold leading-none">D{event.day}</span>
                         <span className="text-[#4A453C]/20 select-none" aria-hidden="true">•</span>
                         <span className="text-[0.65rem] font-medium text-[#4A453C]/40">{event.time}</span>
                       </div>
-                      <h3 className="font-display text-xl sm:text-2xl font-bold text-[#1A1A1A] leading-[1.3] tracking-tight line-clamp-2 mb-3">{event.title}</h3>
-                      <p className="text-[#4A453C]/55 text-sm leading-[1.6] line-clamp-2 mb-4">{event.description}</p>
+                      <h3 className="font-display text-xl sm:text-2xl font-bold text-[#1A1A1A] leading-[1.3] tracking-tight mb-4">{event.title}</h3>
+                      <p className="text-[#4A453C]/55 text-sm leading-[1.7] mb-5">{event.description}</p>
                       {event.highlights && <EventChips highlights={event.highlights} />}
                     </div>
-                  </div>
-                  <div className="hidden lg:flex items-center justify-center w-10 shrink-0">
-                    <div className="w-3 h-3 rounded-full bg-gold-400 border-2 border-white shadow-sm ring-1 ring-gold-400/20" />
-                  </div>
-                  <div className="flex-1 hidden lg:block" />
-                </motion.div>
+                  </motion.div>
+                </div>
               ))}
             </div>
           </div>
