@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter, Geist } from "next/font/google";
+import { Playfair_Display, Inter, Noto_Serif_Kannada } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import SmoothScroll from "@/components/SmoothScroll";
-
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -15,6 +13,12 @@ const playfair = Playfair_Display({
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-body",
+  display: "swap",
+});
+
+const notoSerifKannada = Noto_Serif_Kannada({
+  subsets: ["kannada"],
+  variable: "--font-kannada",
   display: "swap",
 });
 
@@ -46,7 +50,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn(playfair.variable, inter.variable, "font-sans", geist.variable)}>
+    <html lang="en" className={cn(playfair.variable, inter.variable, notoSerifKannada.variable, "font-sans")}>
       <body className="antialiased">
         <SmoothScroll>
           {children}

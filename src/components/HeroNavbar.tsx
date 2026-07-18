@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { siteConfig } from "@/data/content";
 
 const easePremium: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -38,18 +37,25 @@ export default function HeroNavbar() {
 
       <div className="mx-auto w-full max-w-[1280px] flex items-center justify-between h-[68px] lg:h-[72px] px-6 lg:px-8">
           <Link href="/" className="flex items-center gap-3 lg:gap-4 group shrink-0">
-            <div className="w-11 h-11 lg:w-12 lg:h-12 rounded-xl bg-gradient-to-br from-gold-400/25 to-gold-400/8 border border-gold-400/25 flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:border-gold-400/50 group-hover:shadow-lg group-hover:shadow-gold-400/15">
-              <span className="text-gold-400 text-base lg:text-lg font-display font-bold">
-                SG
+            <div className="flex flex-col items-start leading-none select-none">
+              <span
+                className="font-[family-name:var(--font-kannada)] text-gold-400 font-semibold tracking-wide"
+                style={{
+                  fontSize: "clamp(0.85rem, 1.6vw, 1.15rem)",
+                  textShadow: "0 1px 6px rgba(200,161,74,0.25), 0 0 20px rgba(200,161,74,0.10)",
+                }}
+              >
+                ಶ್ರೀ ಗೌರಿ ಗಣೇಶ
               </span>
-            </div>
-            <div className="hidden sm:block">
-              <p className="text-xs lg:text-sm font-display text-[#1A1A1A] font-bold tracking-wide leading-tight">
-                {siteConfig.shortName}
-              </p>
-              <p className="text-[9px] lg:text-[10px] text-gold-400/80 tracking-[0.25em] uppercase leading-tight mt-0.5">
-                Since {siteConfig.foundedYear}
-              </p>
+              <span
+                className="font-[family-name:var(--font-kannada)] text-gold-400 font-semibold tracking-wide"
+                style={{
+                  fontSize: "clamp(0.7rem, 1.3vw, 0.95rem)",
+                  textShadow: "0 1px 6px rgba(200,161,74,0.25), 0 0 20px rgba(200,161,74,0.10)",
+                }}
+              >
+                ಗೆಳೆಯರ ಬಳಗ
+              </span>
             </div>
           </Link>
         </div>
