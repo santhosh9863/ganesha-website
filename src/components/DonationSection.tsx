@@ -61,7 +61,7 @@ export default function DonationSection() {
             <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-3 rounded-full bg-gold-400/8 border border-gold-400/15">
               <Heart className="w-4 h-4 text-gold-400" />
               <span className="text-[#4A453C]/60 text-xs sm:text-sm">
-                Your <span className="font-semibold text-gold-400">{selected}</span> donation {impactMessages[selected]}
+                Your <span className="font-semibold text-gold-400">{selected === "Custom" && customAmount ? `₹${customAmount}` : selected}</span> donation {impactMessages[selected]}
               </span>
             </div>
           </motion.div>
@@ -120,35 +120,47 @@ export default function DonationSection() {
             transition={{ delay: 0.3, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="stack-group"
           >
-            <button
+            <div
               onClick={() => setSelected("Custom")}
-              className={`relative w-full rounded-2xl p-5 sm:p-6 border cursor-pointer transition-all duration-300 focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2 ${
+              className={`relative flex flex-col items-center justify-center w-full rounded-2xl p-5 sm:p-6 border cursor-pointer transition-all duration-300 ${
                 selected === "Custom"
-                  ? "border-gold-400 bg-gold-400/[0.03] shadow-md"
+                  ? "border-gold-400 bg-gold-400/[0.04] shadow-md"
                   : "border-gold-400/8 bg-white shadow-sm hover:border-gold-400/20 hover:shadow-md"
               }`}
             >
-              <div className="flex flex-col items-center gap-1.5">
-                <p className="font-display text-base sm:text-xl font-bold text-[#1A1A1A]">
-                  Custom Amount
-                </p>
-                <p className="text-xs text-[#4A453C]/40">Donate any amount you wish</p>
-              </div>
+              <p className="font-display text-base sm:text-xl font-bold text-[#1A1A1A]">
+                Custom Amount
+              </p>
+              <p className="text-xs text-[#4A453C]/40 mt-1">Donate any amount you wish</p>
+
               {selected === "Custom" && (
-                <div className="mt-4 flex items-center justify-center gap-3" onClick={(e) => e.stopPropagation()}>
-                  <span className="text-2xl sm:text-3xl font-display font-bold text-[#1A1A1A]">₹</span>
-                  <input
-                    type="number"
-                    min="1"
-                    placeholder="Enter amount"
-                    autoFocus
-                    value={customAmount}
-                    onChange={(e) => setCustomAmount(e.target.value)}
-                    className="w-40 sm:w-48 h-12 px-4 text-center text-xl sm:text-2xl font-display font-bold text-[#1A1A1A] bg-white border border-gold-400/20 rounded-xl focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-300 placeholder:text-[#4A453C]/25 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                  />
-                </div>
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                  className="w-full overflow-hidden"
+                >
+                  <div className="mt-5 relative mx-auto max-w-[280px]">
+                    <div className="flex items-center justify-center bg-white border border-gold-400/20 rounded-xl px-5 py-3.5 focus-within:border-gold-400 focus-within:shadow-[0_0_0_3px_rgba(200,161,74,0.1)] transition-all duration-300">
+                      <span className="text-2xl sm:text-3xl font-display font-bold text-gold-400/50 select-none mr-1">
+                        ₹
+                      </span>
+                      <input
+                        type="number"
+                        min="1"
+                        placeholder="0"
+                        autoFocus
+                        value={customAmount}
+                        onChange={(e) => setCustomAmount(e.target.value)}
+                        onClick={(e) => e.stopPropagation()}
+                        className="w-full bg-transparent text-2xl sm:text-3xl font-display font-bold text-[#1A1A1A] outline-none placeholder:text-[#4A453C]/20 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                      />
+                    </div>
+                    <div className="h-[2px] mx-auto mt-2 rounded-full bg-gradient-to-r from-transparent via-gold-400/30 to-transparent" />
+                  </div>
+                </motion.div>
               )}
-            </button>
+            </div>
           </motion.div>
 
           {/* Donate CTA */}
