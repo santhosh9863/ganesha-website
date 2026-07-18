@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useCallback } from "react";
 import { motion } from "framer-motion";
 import { siteConfig, navLinks } from "@/data/content";
-import SocialIcon from "@/components/SocialIcon";
+import { MapPin, Mail, Phone } from "lucide-react";
 import { FaInstagram } from "react-icons/fa6";
 
 export default function Footer() {
@@ -17,39 +17,42 @@ export default function Footer() {
 
   return (
     <footer className="relative bg-[#1A1A1A] border-t border-white/[0.04] overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-t from-gold-400/8 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-gold-400/6 to-transparent pointer-events-none" />
 
-      <div className="relative layout-container py-12 lg:py-24 pb-[max(36px,env(safe-area-inset-bottom))] lg:pb-[max(48px,env(safe-area-inset-bottom))]">
-        <div className="card-grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+      <div className="relative layout-container py-8 lg:py-14 pb-[max(20px,env(safe-area-inset-bottom))] lg:pb-[max(32px,env(safe-area-inset-bottom))]">
+        {/* Top: Brand + Links + Contact — 3-column on desktop */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 lg:gap-12">
+          {/* Brand */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="pt-1"
+            className="col-span-2 md:col-span-1"
           >
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-3xl">🕉</span>
+            <div className="flex items-center gap-2.5 mb-3">
+              <span className="text-2xl">🕉</span>
               <div>
-                <p className="font-display text-lg text-white font-semibold">{siteConfig.shortName}</p>
-                <p className="text-[10px] text-gold-400/70 tracking-[0.2em] uppercase">{siteConfig.badge}</p>
+                <p className="font-display text-base text-white font-semibold">{siteConfig.shortName}</p>
+                <p className="text-[9px] text-gold-400/60 tracking-[0.2em] uppercase">{siteConfig.badge}</p>
               </div>
             </div>
-            <p className="text-white/40 text-sm leading-premium max-w-xs">
+            <p className="text-white/30 text-xs leading-relaxed max-w-[220px]">
               {siteConfig.yearsOfLegacy} years of devotion, unity, and grand Ganesha festivities.
             </p>
           </motion.div>
 
+          {/* Quick Links */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.05 }}
+            transition={{ delay: 0.04 }}
           >
-            <h4 className="font-display text-white font-semibold mb-5 text-sm tracking-wide">Quick Links</h4>
-            <ul className="space-y-3">
+            <h4 className="font-display text-white/70 font-medium mb-3 text-[11px] tracking-wider uppercase">Links</h4>
+            <ul className="space-y-1.5">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-white/40 hover:text-gold-400 text-sm transition-colors duration-300">
+                  <Link href={link.href} className="text-white/35 hover:text-gold-400 text-xs transition-colors duration-300">
                     {link.label}
                   </Link>
                 </li>
@@ -57,47 +60,61 @@ export default function Footer() {
               <li>
                 <button
                   onClick={scrollToDonation}
-                  className="text-gold-400/70 hover:text-gold-400 text-sm transition-colors duration-300 cursor-pointer"
+                  className="text-gold-400/50 hover:text-gold-400 text-xs transition-colors duration-300 cursor-pointer"
                 >
-                  Donate Now
+                  Donate
                 </button>
               </li>
             </ul>
           </motion.div>
 
+          {/* Contact + Social */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            transition={{ delay: 0.08 }}
           >
-            <h4 className="font-display text-white font-semibold mb-5 text-sm tracking-wide">Connect</h4>
-            <div className="space-y-3 text-sm">
-              <p className="text-white/40">{siteConfig.email}</p>
-              <p className="text-white/40">{siteConfig.phone}</p>
-              <p className="text-white/40">{siteConfig.location}</p>
+            <h4 className="font-display text-white/70 font-medium mb-3 text-[11px] tracking-wider uppercase">Connect</h4>
+            <div className="space-y-2">
+              <div className="flex items-center gap-2 text-white/30 text-xs">
+                <MapPin className="w-3 h-3 text-gold-400/40 shrink-0" />
+                <span>{siteConfig.location}</span>
+              </div>
+              {siteConfig.email && !siteConfig.email.startsWith("hello@") && (
+                <div className="flex items-center gap-2 text-white/30 text-xs">
+                  <Mail className="w-3 h-3 text-gold-400/40 shrink-0" />
+                  <span>{siteConfig.email}</span>
+                </div>
+              )}
+              {siteConfig.phone && !siteConfig.phone.includes("XXXXX") && (
+                <div className="flex items-center gap-2 text-white/30 text-xs">
+                  <Phone className="w-3 h-3 text-gold-400/40 shrink-0" />
+                  <span>{siteConfig.phone}</span>
+                </div>
+              )}
             </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.15 }}
-          >
-            <h4 className="font-display text-white font-semibold mb-5 text-sm tracking-wide">Follow Us</h4>
-            <div className="flex items-center justify-center md:justify-start gap-3.5 md:gap-[18px]">
-              <SocialIcon href={siteConfig.social.instagram} icon={<FaInstagram size={20} />} label="Instagram" />
+            <div className="flex items-center gap-3 mt-4">
+              <a
+                href={siteConfig.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/25 hover:text-gold-400 transition-colors duration-300"
+                aria-label="Instagram"
+              >
+                <FaInstagram className="w-3.5 h-3.5" />
+              </a>
             </div>
           </motion.div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-white/[0.04] flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-white/30 text-xs">
-            &copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+        {/* Bottom bar */}
+        <div className="mt-8 pt-5 border-t border-white/[0.04] flex flex-col sm:flex-row items-center justify-between gap-2">
+          <p className="text-white/20 text-[10px]">
+            &copy; {new Date().getFullYear()} {siteConfig.name}
           </p>
-          <p className="text-gold-400/50 text-xs font-display tracking-wider whitespace-nowrap">
-            Built By - Santhosh Krishna.R
+          <p className="text-gold-400/35 text-[10px] font-display tracking-wider">
+            Built by Santhosh Krishna.R
           </p>
         </div>
       </div>
