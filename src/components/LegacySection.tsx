@@ -60,6 +60,7 @@ interface Chapter {
   stat?: Stat;
   milestones?: Milestone[];
   visualVariant: "light" | "dark" | "warm";
+  image?: string;
 }
 
 const chapters: Chapter[] = [
@@ -76,6 +77,7 @@ const chapters: Chapter[] = [
     emphasis: "Just a handful of families \u2014 united by devotion.",
     stat: { end: 14, suffix: "+", label: "Years of Unbroken Tradition" },
     visualVariant: "light",
+    image: "/images/chapter1.jpg",
   },
   {
     id: "growth",
@@ -97,6 +99,7 @@ const chapters: Chapter[] = [
     emphasis: "From one evening to five days of celebration.",
     stat: { end: 5000, suffix: "+", label: "Devotees Served Every Year" },
     visualVariant: "warm",
+    image: "/images/chapter2.jpg",
   },
   {
     id: "resilience",
@@ -110,6 +113,7 @@ const chapters: Chapter[] = [
     ],
     emphasis: "The celebration adapted. The spirit remained unbroken.",
     visualVariant: "dark",
+    image: "/images/chapter3.jpg",
   },
   {
     id: "tradition",
@@ -130,6 +134,7 @@ const chapters: Chapter[] = [
     emphasis: "A tradition that belongs to the entire community.",
     stat: { end: 1000, suffix: "+", label: "Dedicated Volunteers" },
     visualVariant: "warm",
+    image: "/images/chapter4.jpg",
   },
 ];
 
@@ -266,7 +271,17 @@ function ChapterScene({
       className="card-grid grid-cols-1 lg:grid-cols-2 items-center"
     >
       <div className={isEven ? "lg:order-1" : "lg:order-2"}>
-        <PhotoPlaceholder variant={chapter.visualVariant} year={chapter.yearLabel} />
+        {chapter.image ? (
+          <div className="relative aspect-[4/3] overflow-hidden rounded-sm bg-[#F0EBE4]">
+            <img
+              src={chapter.image}
+              alt={chapter.title}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        ) : (
+          <PhotoPlaceholder variant={chapter.visualVariant} year={chapter.yearLabel} />
+        )}
       </div>
 
       <div className={isEven ? "lg:order-2" : "lg:order-1"}>

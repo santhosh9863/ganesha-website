@@ -8,8 +8,15 @@ interface GalleryLightboxProps {
   onClose: () => void;
 }
 
+const aspectMap: Record<string, string> = {
+  "1:1": "aspect-square",
+  "4:3": "aspect-[4/3]",
+  "16:9": "aspect-video",
+};
+
 export default function GalleryLightbox({ selectedId, onClose }: GalleryLightboxProps) {
   const img = galleryImages.find((g) => g.id === selectedId);
+  const ratioClass = img ? (aspectMap[img.aspectRatio] ?? "aspect-square") : "aspect-square";
 
   return (
     <AnimatePresence>
@@ -27,12 +34,12 @@ export default function GalleryLightbox({ selectedId, onClose }: GalleryLightbox
             exit={{ scale: 0.85, opacity: 0 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             onClick={(e) => e.stopPropagation()}
-            className="relative max-w-4xl w-full aspect-video rounded-2xl overflow-hidden bg-black flex items-center justify-center"
+            className={`relative max-w-lg w-full ${ratioClass} rounded-2xl overflow-hidden bg-black flex items-center justify-center`}
           >
             <img
               src={img.src}
               alt={img.alt}
-              className="w-full h-full object-contain"
+              className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
             <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
