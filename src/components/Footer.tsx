@@ -99,15 +99,16 @@ export default function Footer() {
                 </div>
               )}
             </div>
-            <div className="flex items-center gap-3 mt-4">
+            <div className="flex items-center gap-2 mt-4">
               <a
                 href={siteConfig.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/25 hover:text-gold-400 transition-colors duration-300"
+                className="flex items-center gap-1.5 text-white/25 hover:text-gold-400 transition-colors duration-300"
                 aria-label="Instagram"
               >
                 <FaInstagram className="w-3.5 h-3.5" />
+                <span className="text-xs">Instagram</span>
               </a>
             </div>
           </motion.div>
