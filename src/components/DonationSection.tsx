@@ -21,6 +21,7 @@ const impactMessages: Record<string, string> = {
 
 export default function DonationSection() {
   const [selected, setSelected] = useState("₹501");
+  const [customAmount, setCustomAmount] = useState("");
 
   return (
     <section id="donation" className="section-spacing relative overflow-hidden">
@@ -133,6 +134,20 @@ export default function DonationSection() {
                 </p>
                 <p className="text-xs text-[#4A453C]/40">Donate any amount you wish</p>
               </div>
+              {selected === "Custom" && (
+                <div className="mt-4 flex items-center justify-center gap-3" onClick={(e) => e.stopPropagation()}>
+                  <span className="text-2xl sm:text-3xl font-display font-bold text-[#1A1A1A]">₹</span>
+                  <input
+                    type="number"
+                    min="1"
+                    placeholder="Enter amount"
+                    autoFocus
+                    value={customAmount}
+                    onChange={(e) => setCustomAmount(e.target.value)}
+                    className="w-40 sm:w-48 h-12 px-4 text-center text-xl sm:text-2xl font-display font-bold text-[#1A1A1A] bg-white border border-gold-400/20 rounded-xl focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all duration-300 placeholder:text-[#4A453C]/25 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                  />
+                </div>
+              )}
             </button>
           </motion.div>
 
@@ -145,7 +160,7 @@ export default function DonationSection() {
             style={{ marginTop: "48px", marginBottom: "40px" }}
           >
             <PremiumDonateButton onClick={() => {}}>
-              Donate {selected === "Custom" ? "Now" : selected}
+              Donate {selected === "Custom" ? (customAmount ? `₹${customAmount}` : "Now") : selected}
             </PremiumDonateButton>
           </motion.div>
 
