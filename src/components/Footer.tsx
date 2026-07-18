@@ -119,9 +119,14 @@ export default function Footer() {
           <p className="text-white/20 text-[10px]">
             &copy; {new Date().getFullYear()} {siteConfig.name}
           </p>
-          <p className="text-gold-400/35 text-[10px] font-display tracking-wider">
+          <a
+            href="https://portfolio-nine-ebon-19.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gold-400/35 hover:text-gold-400/60 text-[10px] font-display tracking-wider transition-colors duration-300"
+          >
             Built by Santhosh Krishna.R
-          </p>
+          </a>
         </div>
       </div>
     </footer>
