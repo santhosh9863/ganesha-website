@@ -8,13 +8,8 @@ import GalleryCard from "@/components/GalleryCard";
 import GalleryLightbox from "@/components/GalleryLightbox";
 import { galleryImages } from "@/data/content";
 
-const categories = ["All", ...Array.from(new Set(galleryImages.map((img) => img.category)))];
-
 export default function GalleryPage() {
-  const [activeCategory, setActiveCategory] = useState("All");
   const [selected, setSelected] = useState<number | null>(null);
-
-  const filtered = activeCategory === "All" ? galleryImages : galleryImages.filter((img) => img.category === activeCategory);
 
   return (
     <>
@@ -37,28 +32,9 @@ export default function GalleryPage() {
             </p>
           </motion.div>
 
-          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-10 md:mb-12">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`relative py-1 text-sm font-medium transition-colors duration-250 cursor-pointer focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2 ${
-                  activeCategory === cat
-                    ? "text-gold-400 font-semibold"
-                    : "text-[#4A453C]/50 hover:text-[#1A1A1A]"
-                }`}
-              >
-                {cat}
-                {activeCategory === cat && (
-                  <span className="absolute left-0 -bottom-0.5 w-full h-[2px] bg-gold-400 rounded-full" />
-                )}
-              </button>
-            ))}
-          </div>
-
           <motion.div layout className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             <AnimatePresence mode="popLayout">
-              {filtered.map((img, i) => (
+              {galleryImages.map((img, i) => (
                 <motion.div
                   key={img.id}
                   layout

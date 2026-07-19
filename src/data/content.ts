@@ -112,7 +112,10 @@ export const galleryImages = [
   { id: 11, src: "/images/team.jpg",         alt: "Volunteer Team",           category: "Team", aspectRatio: "4:3" },
   { id: 12, src: "/images/ceremony2.jpg",    alt: "Divine Presence",              category: "Ceremony", aspectRatio: "1:1" },
   { id: 13, src: "/images/decoration4.jpg",  alt: "Rangoli Art",              category: "Decoration", aspectRatio: "1:1" },
-  { id: 14, src: "/images/events2.jpg",      alt: "Prasada Distribution",     category: "Events", aspectRatio: "4:3" },];
+  { id: 14, src: "/images/events2.jpg",      alt: "Prasada Distribution",     category: "Events", aspectRatio: "4:3" },
+  { id: 15, src: "/images/event3.jpg",       alt: "Mahamangala Haarathi",     category: "Events", aspectRatio: "4:3" },
+  { id: 16, src: "/images/event4.jpg",       alt: "Annadhanam",               category: "Events", aspectRatio: "3:4" },
+  { id: 17, src: "/images/event5.jpg",       alt: "Annadhanam",               category: "Events", aspectRatio: "3:4" },];
 
 export const events = [
   { day: 1, title: "Grand Inauguration & Ganesha Idol Arrival", time: "6:00 AM", description: "The celebration begins with the ceremonial arrival of Lord Ganesha. Traditional chants, flower showers, and a vibrant procession mark the start.", highlights: ["Idol Arrival", "Vedic Chants", "Flower Shower", "Inauguration"] },

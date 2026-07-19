@@ -29,7 +29,8 @@ export default function ContactSection() {
   });
 
   const onSubmit = async (data: ContributionFormData) => {
-    await new Promise((r) => setTimeout(r, 1000));
+    const msg = `New Contribution Request\n\nName: ${data.name}\nPhone: ${data.phone}\nContribution Type: ${data.contributionType}\nDetails: ${data.details}`;
+    window.open(`https://wa.me/919916304636?text=${encodeURIComponent(msg)}`, "_blank");
     reset();
   };
 

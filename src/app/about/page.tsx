@@ -6,6 +6,7 @@ import FloatingBackButton from "@/components/FloatingBackButton";
 import LegacyTimeline from "@/components/LegacyTimeline";
 import LiveStats from "@/components/LiveStats";
 import FlipCard from "@/components/FlipCard";
+import Image from "next/image";
 import { siteConfig, statCards } from "@/data/content";
 
 export default function AboutPage() {
@@ -54,8 +55,14 @@ export default function AboutPage() {
               transition={{ delay: 0.3 }}
               className="relative"
             >
-                <div className="aspect-square rounded-2xl glass-gold flex items-center justify-center p-8">
-                  <span className="text-[10rem] sm:text-[14rem] opacity-15 select-none">🕉</span>
+                <div className="aspect-[3/4] rounded-2xl overflow-hidden">
+                  <Image
+                    src="/images/about-hero.jpg"
+                    alt="Sri Gowri Ganesha Geleyara Balaga"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
                 </div>
                 <div className="absolute -bottom-8 -right-8 w-48 h-48 bg-gold-400/10 rounded-full blur-[100px] pointer-events-none" />
                 <div className="absolute -top-8 -left-8 w-40 h-40 bg-gold-400/8 rounded-full blur-[80px] pointer-events-none" />

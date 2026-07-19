@@ -1,8 +1,24 @@
 "use client";
 
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 export default function VideoSection() {
+  const [playing, setPlaying] = useState(false);
+  const [error, setError] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const togglePlay = () => {
+    if (!videoRef.current) return;
+    if (videoRef.current.paused) {
+      videoRef.current.play();
+      setPlaying(true);
+    } else {
+      videoRef.current.pause();
+      setPlaying(false);
+    }
+  };
+
   return (
     <section className="section-spacing relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-[#F8F6F2] via-[#FFFFFF] to-[#F8F6F2]" />
@@ -32,17 +48,25 @@ export default function VideoSection() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="card-grid grid-cols-1 lg:grid-cols-2"
           >
-            <div className="aspect-video rounded-3xl glass-gold flex items-center justify-center group cursor-pointer hover:border-gold-400/30 transition-all duration-500">
-              <div className="text-center">
-                <span className="text-5xl mb-3 block opacity-40 group-hover:opacity-60 transition-opacity duration-500">▶</span>
-                <p className="text-[#4A453C]/40 text-sm">2025 Festival Highlights</p>
-              </div>
-            </div>
-            <div className="aspect-video rounded-3xl glass-gold flex items-center justify-center group cursor-pointer hover:border-gold-400/30 transition-all duration-500">
-              <div className="text-center">
-                <span className="text-5xl mb-3 block opacity-40 group-hover:opacity-60 transition-opacity duration-500">▶</span>
-                <p className="text-[#4A453C]/40 text-sm">14 Years Journey</p>
-              </div>
+            <div className="aspect-[9/16] rounded-3xl overflow-hidden relative group cursor-pointer bg-black" onClick={togglePlay}>
+              {!error && (
+                <video
+                  ref={videoRef}
+                  src="/videos/festival-highlights.mp4"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  playsInline
+                  loop
+                  onError={() => setError(true)}
+                />
+              )}
+              {(!playing || error) && (
+                <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-all duration-500">
+                  <div className="text-center">
+                    <span className="text-5xl mb-3 block text-white/80 group-hover:text-white transition-opacity duration-500">▶</span>
+                    <p className="text-white/60 text-sm">2024 Festival Highlights</p>
+                  </div>
+                </div>
+              )}
             </div>
           </motion.div>
         </div>
