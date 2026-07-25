@@ -99,16 +99,16 @@ export default function Footer() {
                 </div>
               )}
             </div>
-            <div className="flex items-center gap-2 mt-4">
+            <div className="flex flex-col items-center mt-4">
+              <span className="text-white/40 text-[10px] tracking-wider uppercase mb-1.5">Follow Us On</span>
               <a
                 href={siteConfig.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-white/25 hover:text-gold-400 transition-colors duration-300"
+                className="text-white/25 hover:text-gold-400 transition-colors duration-300"
                 aria-label="Instagram"
               >
-                <FaInstagram className="w-3.5 h-3.5" />
-                <span className="text-xs">Instagram</span>
+                <FaInstagram className="w-5 h-5" />
               </a>
             </div>
           </motion.div>
