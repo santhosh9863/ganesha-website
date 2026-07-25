@@ -3,9 +3,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Heart, Shield, Check } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { siteConfig } from "@/data/content";
 import { donationAmounts } from "@/data/payment";
-import { initiatePayment } from "@/lib/payment";
 import PremiumDonateButton from "@/components/PremiumDonateButton";
 
 const impactMessages: Record<string, string> = {
@@ -16,37 +16,12 @@ const impactMessages: Record<string, string> = {
 };
 
 export default function DonationSection() {
+  const router = useRouter();
   const [selected, setSelected] = useState("₹501");
   const [customAmount, setCustomAmount] = useState("");
-  const [error, setError] = useState<string | null>(null);
 
-  const getSelectedAmount = (): number | null => {
-    if (selected === "Custom") {
-      const parsed = parseInt(customAmount, 10);
-      return isNaN(parsed) ? null : parsed;
-    }
-    const match = donationAmounts.find((a) => a.label === selected);
-    return match?.value ?? null;
-  };
-
-  const handleDonate = async () => {
-    setError(null);
-    const amount = getSelectedAmount();
-
-    if (!amount || amount <= 0) {
-      setError("Please enter a valid amount.");
-      return;
-    }
-
-    if (amount > 100000) {
-      setError("Maximum donation amount is ₹1,00,000.");
-      return;
-    }
-
-    const result = await initiatePayment({ amount });
-    if (!result.success && result.error) {
-      setError(result.error);
-    }
+  const handleDonate = () => {
+    router.push("/donate");
   };
 
   const displayAmount = selected === "Custom" && customAmount ? `₹${customAmount}` : selected;
@@ -108,7 +83,7 @@ export default function DonationSection() {
                 return (
                   <button
                     key={amount.label}
-                    onClick={() => { setSelected(amount.label); setError(null); }}
+                    onClick={() => { setSelected(amount.label); }}
                     className={`relative flex flex-col items-center justify-center w-full rounded-xl border cursor-pointer transition-all duration-300 focus-visible:outline-2 focus-visible:outline-gold-400 focus-visible:outline-offset-2 py-4 px-2 ${
                       isSelected
                         ? "border-gold-400 bg-gold-400/[0.05] shadow-[0_0_0_1px_rgba(200,161,74,0.3),0_4px_12px_rgba(200,161,74,0.12)]"
@@ -146,7 +121,7 @@ export default function DonationSection() {
             className="mt-3"
           >
             <button
-              onClick={() => { setSelected("Custom"); setError(null); }}
+              onClick={() => { setSelected("Custom"); }}
               className={`w-full rounded-xl border cursor-pointer transition-all duration-300 ${
                 selected === "Custom"
                   ? "border-gold-400 bg-gold-400/[0.05] shadow-[0_0_0_1px_rgba(200,161,74,0.3)]"
@@ -168,7 +143,7 @@ export default function DonationSection() {
                     placeholder="Enter amount"
                     autoFocus
                     value={customAmount}
-                    onChange={(e) => { setCustomAmount(e.target.value); setError(null); }}
+                    onChange={(e) => { setCustomAmount(e.target.value); }}
                     onClick={(e) => e.stopPropagation()}
                     className="w-28 bg-transparent text-xl font-display font-bold text-[#1A1A1A] outline-none placeholder:text-sm placeholder:font-medium placeholder:text-[#4A453C]/30 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                   />
@@ -176,17 +151,6 @@ export default function DonationSection() {
               )}
             </button>
           </motion.div>
-
-          {/* Error Message */}
-          {error && (
-            <motion.p
-              initial={{ opacity: 0, y: 4 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-red-500 text-xs text-center mt-3"
-            >
-              {error}
-            </motion.p>
-          )}
 
           {/* Donate CTA */}
           <motion.div
